@@ -93,11 +93,15 @@ async function main() {
   console.log(`✅ checklist: ${checkCount}개 문서`);
 
   // 7. travelInfo (섹션별 1문서)
+  // ⚠️ Firestore 중첩 배열 불허 → [key,value] 배열을 {key, value} 객체로 변환
   for (const sec of data.info) {
     const slug = sec.title.replace(/[^\w가-힣]/g, '').substring(0, 20);
+    const itemsAsObjects = sec.items.map(item =>
+      Array.isArray(item) ? { key: item[0], value: item[1] } : item
+    );
     await db.collection('travelInfo').doc(slug).set({
       title: sec.title,
-      items: sec.items,
+      items: itemsAsObjects,
     });
   }
   console.log(`✅ travelInfo: ${data.info.length}개 섹션`);
