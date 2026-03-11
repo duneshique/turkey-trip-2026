@@ -136,6 +136,12 @@ a { color: var(--blue); text-decoration: none; }
 .cat-rent { border-left-color: #d35400; }
 .cat-lounge { border-left-color: #1abc9c; }
 
+/* --- 대안 옵션 --- */
+.alt-options { margin: -4px 0 12px; padding: 8px 8px 4px; border-left: 3px dashed var(--accent2); border-radius: 0 8px 8px 0; background: rgba(243,156,18,.05); }
+.alt-label { font-size: 12px; font-weight: 700; color: var(--accent2); margin-bottom: 6px; }
+.alt-card { opacity: 0.85; border-style: dashed; margin-bottom: 6px; }
+.bonus-badge { display: inline-block; font-size: 10px; background: rgba(243,156,18,.2); color: var(--accent2); padding: 2px 6px; border-radius: 4px; margin-right: 4px; }
+
 /* --- 식당 --- */
 .rest-card {
   background: var(--card); border-radius: 12px; padding: 12px;
@@ -311,9 +317,9 @@ const SCHEDULE = [
   {d:'2026-03-12',s:'09:35',e:'09:35',t:'✈️ ICN 출발 (OZ551)',cat:'flight',loc:'인천국제공항 T2',desc:'아시아나 직항 → 이스탄불. 예약번호: DP5W84. 약 12시간',cost:2000000},
   {d:'2026-03-12',s:'15:45',e:'15:45',t:'✈️ IST 도착 (OZ551)',cat:'flight',loc:'Istanbul Airport (IST)',desc:'도착 후: ①입국심사 ②수화물 ③Ziraat ATM(도착로비) ④이스탄불카드 구매(165TL). 시차 -6시간',tz:'IST',map:'Istanbul Airport IST'},
   {d:'2026-03-12',s:'16:00',e:'18:00',t:'IST공항→탁심광장',cat:'move',loc:'IST Airport B2 HAVAIST',desc:'HAVAIST HVL-16 버스. 275TL/인 (2인 550TL=18,700원). 배차: 16:50/17:25/18:00. 💳컨택리스OK',cost:18700,costTry:'550TL',map:'Istanbul Airport HAVAIST bus stop',route:{o:'Istanbul Airport IST',d:'Taksim Square Istanbul',m:'transit'}},
-  {d:'2026-03-12',s:'18:00',e:'18:15',t:'Nippon Hotel 체크인',cat:'hotel',loc:'Nippon Hotel, Taksim',desc:'탁심광장 도보 5분. 이스티클랄 거리 입구. 예약: 1697933648. 📍Ziraat ATM: İstiklal Cad. 입구',cost:90000,map:'Nippon Hotel Taksim Istanbul'},
+  {d:'2026-03-12',s:'18:00',e:'18:15',t:'Nippon Hotel 체크인',cat:'hotel',loc:'Nippon Hotel, Taksim',desc:'탁심광장 도보 5분. 이스티클랄 거리 입구. 예약: 1697933648. 📍Ziraat ATM: İstiklal Cad. 입구\n⚠️조식 불포함. 근처 추천: Sa Va Anatolian(도보5분, 서프메 카흐발트 700-800TL) 또는 Lades Menemen(도보3분, 멘멘 맛집)',cost:90000,map:'Nippon Hotel Taksim Istanbul'},
   {d:'2026-03-12',s:'18:30',e:'19:30',t:'🍽️ 저녁: Hacı Usta Kebap',cat:'food',loc:'Hacı Usta Kebap, Taksim',desc:'탁심 20년 현지 맛집. 양고기 시쉬케밥(Kuzu Şiş) 400TL, 닭시쉬(Tavuk Şiş) 320TL, 아다나케밥 380TL ⚠️매움주의. 차이 무료. 💳카드OK',cost:26000,costTry:'800TL',map:'Hacı Usta Kebap House Taksim'},
-  {d:'2026-03-12',s:'19:40',e:'20:20',t:'이스티클랄 거리 야경 산책',cat:'sight',loc:'İstiklal Caddesi, Beyoğlu',desc:'탁심광장→이스티클랄거리 하행. 공화국기념비, 빨간전차 포토존. T2 노스탤직 트램 이스탄불카드 35TL/인',map:'İstiklal Caddesi Istanbul'},
+  {d:'2026-03-12',s:'19:40',e:'20:20',t:'이스티클랄 거리 야경 산책',cat:'sight',loc:'İstiklal Caddesi, Beyoğlu',desc:'탁심광장→이스티클랄거리 하행. 공화국기념비, 빨간전차 포토존. T2 노스탤직 트램 이스탄불카드 35TL/인\n★치체크 파사즈(Çiçek Pasajı, 꽃의 거리) 잠시 들르기 — 19세기 아르누보 아케이드. 옆 발릭 파자르(생선시장)도 구경',map:'İstiklal Caddesi Istanbul'},
   {d:'2026-03-12',s:'20:20',e:'20:50',t:'🍰 Özsüt 1915 디저트',cat:'food',loc:'Hasan Fehmi Özsüt, Beyoğlu',desc:'1950년 창업 전통 디저트. 카잔디비(Kazandibi) 180TL, 수틀라치(Sütlaç) 150TL, 카이막(Kaymak) 120TL. 💳카드OK',cost:15000,costTry:'450TL',map:'Hasan Fehmi Özsüt Beyoğlu'},
   {d:'2026-03-12',s:'20:50',e:'21:20',t:'갈라타 타워 & 다리 야경',cat:'sight',loc:'Galata Tower, Istanbul',desc:'타워 외관 감상→갈라타 다리 하행. 푸니쿨라(F2) 이스탄불카드 35TL/인 (2인 70TL=2,400원). 보스포루스 야경',cost:2400,costTry:'70TL',map:'Galata Tower Istanbul'},
   {d:'2026-03-12',s:'21:20',e:'21:50',t:'🍽️ 고등어케밥 (선택)',cat:'food',loc:'Galata Bridge, Eminönü',desc:'Mehmet Usta 또는 Eyyup Usta. 갈라타다리 아래 50년 전통 balık ekmek. 80~100TL/개. 💵현금 권장. 배부르면 패스',cost:7000,costTry:'200TL',map:'Eminönü Balık Ekmek'},
@@ -370,13 +376,19 @@ const SCHEDULE = [
   {d:'2026-03-16',s:'11:30',e:'12:00',t:'두모 스위트→리조트',cat:'move',loc:'Dumo Suite → Concorde',desc:'택시 600TL (≈20,400원). 30분. 💳BiTaksi앱 결제',cost:20400,costTry:'600TL',route:{o:'Dumo Suite Hotel Antalya',d:'Concorde De Luxe Resort Lara Antalya',m:'driving'}},
   {d:'2026-03-16',s:'12:00',e:'12:30',t:'콩코드 드럭스 리조트 체크인',cat:'hotel',loc:'Concorde De Luxe Resort, Lara Beach',desc:'★울트라 올인클루시브★ 식사+주류+스파+액티비티 무제한. ⚠️CI 15:00이지만 12:00 도착 → 짐 맡기고 올인클 시설 먼저',cost:560755,map:'Concorde De Luxe Resort Lara Antalya'},
   {d:'2026-03-16',s:'14:00',e:'15:00',t:'🍽️ 리조트 점심 뷔페',cat:'food',loc:'Concorde De Luxe Resort',desc:'올인클루시브. 지중해 해산물코너+메제(Meze) 추천'},
-  {d:'2026-03-16',s:'15:00',e:'17:00',t:'리조트 시설 이용',cat:'exp',loc:'Concorde De Luxe Resort',desc:'실내수영장(3월 야외 ❌)+하맘(Hamam). 수영복 필수'},
+  {d:'2026-03-16',s:'15:00',e:'17:00',t:'리조트 시설 이용',cat:'exp',loc:'Concorde De Luxe Resort',desc:'실내수영장(3월 야외 ❌)+하맘(Hamam). 수영복 필수',alt:[
+    {t:'🏖️ Sandland 모래조각 박물관',cat:'sight',loc:'Lara Beach (리조트 도보 10분)',desc:'세계 최대 모래조각 전시. 이집트·그리스 테마. 70TL/인 (2인 140TL=4,800원)',cost:4800,costTry:'140TL',map:'Sandland Antalya'},
+    {t:'🛍️ Antalium Premium Mall',cat:'shop',loc:'Lara (리조트 도보 5분)',desc:'현지 쇼핑몰. 무료 입장. LC Waikiki, Koton 등 터키 브랜드. 카페+푸드코트',map:'Antalium Premium Mall Lara Antalya'},
+  ]},
   {d:'2026-03-16',s:'19:00',e:'20:30',t:'🍽️ 리조트 저녁 뷔페',cat:'food',loc:'Concorde De Luxe Resort',desc:'국제요리 뷔페. 라이브쿠킹(스테이크,파스타)+바클라바(Baklava), 퀴네페(Künefe)'},
   {d:'2026-03-16',s:'21:00',e:'22:00',t:'조기 취침',cat:'rest',loc:'Concorde De Luxe Resort',desc:'카파도키아 강행군 피로회복'},
 
   // 3/17 (화) 리조트 완전 휴식일
   {d:'2026-03-17',s:'09:00',e:'10:00',t:'🍽️ 리조트 아침 뷔페',cat:'food',loc:'Concorde De Luxe Resort',desc:'필수: 멘멘(Menemen), 시미트(Simit), 카이막+발(Kaymak+Bal), 페타+올리브, 차이(Çay)'},
-  {d:'2026-03-17',s:'10:00',e:'13:00',t:'★완전 휴식★',cat:'rest',loc:'Concorde De Luxe Resort',desc:'해변산책/실내수영장/스파/피트니스/낮잠. 이동 제로'},
+  {d:'2026-03-17',s:'10:00',e:'13:00',t:'★완전 휴식★',cat:'rest',loc:'Concorde De Luxe Resort',desc:'해변산책/실내수영장/스파/피트니스/낮잠. 이동 제로',alt:[
+    {t:'🌊 Lower Düden Waterfall',cat:'sight',loc:'Düden Şelalesi (택시 10분)',desc:'지중해 절벽에서 40m 폭포 낙하! 포토존. 택시 150-250TL. 무료 입장. 1시간이면 충분',map:'Lower Düden Waterfall Antalya'},
+    {t:'🏖️ Lara Beach + Sandland',cat:'sight',loc:'Lara Beach (리조트 도보)',desc:'해변 산책 + Sandland 모래조각 박물관 콤보. 도보 이동 가능. 반나절 코스',map:'Lara Beach Antalya'},
+  ]},
   {d:'2026-03-17',s:'13:00',e:'14:00',t:'🍽️ 리조트 점심 뷔페',cat:'food',loc:'Concorde De Luxe Resort',desc:'해산물 + 케밥(Kebap) 스테이션'},
   {d:'2026-03-17',s:'15:00',e:'16:30',t:'🛀 터키식 하맘 체험',cat:'exp',loc:'Concorde De Luxe Resort Spa',desc:'★터키 문화체험★ ①온열실 15분 ②대리석 눕기 ③때밀이(Kese) ④비누거품마사지(Köpük). 오일마사지 별도 €30',cost:50000},
   {d:'2026-03-17',s:'19:00',e:'20:30',t:'🍽️ 리조트 저녁 뷔페',cat:'food',loc:'Concorde De Luxe Resort',desc:'국제요리+퀴네페(Künefe/치즈디저트)+수틀라치(Sütlaç/쌀푸딩)'},
@@ -387,36 +399,62 @@ const SCHEDULE = [
   {d:'2026-03-18',s:'10:00',e:'10:15',t:'리조트 체크아웃',cat:'hotel',loc:'Concorde De Luxe Resort',desc:'짐 정리'},
   {d:'2026-03-18',s:'10:15',e:'11:00',t:'리조트→AYT 공항',cat:'move',loc:'Concorde → Antalya Airport',desc:'택시 600TL (≈20,400원). 💳BiTaksi앱 결제',cost:20400,costTry:'600TL',route:{o:'Concorde De Luxe Resort Lara Antalya',d:'Antalya Airport AYT',m:'driving'}},
   {d:'2026-03-18',s:'12:15',e:'13:50',t:'✈️ AYT→IST',cat:'flight',loc:'Antalya → Istanbul',desc:'터키항공 국내선 1시간35분'},
-  {d:'2026-03-18',s:'14:30',e:'16:30',t:'IST 공항→술탄아흐메트',cat:'move',loc:'IST → Sultanahmet',desc:'⚠️HVIST-11 운행중단! 대체: HVL-1 버스(IST→Aksaray) 275TL/인 + T1 트램(Aksaray→Sultanahmet) 35TL/인. 2인 총 620TL=21,100원. 소요 약 2시간',cost:21100,costTry:'620TL',route:{o:'Istanbul Airport IST',d:'Sultanahmet Istanbul',m:'transit'}},
+  {d:'2026-03-18',s:'14:30',e:'16:30',t:'IST 공항→술탄아흐메트',cat:'move',loc:'IST → Sultanahmet',desc:'⚠️HVIST-11 운행중단! 대체: HVL-1 버스(IST→Aksaray) 275TL/인 + T1 트램(Aksaray→Sultanahmet) 35TL/인. 2인 총 620TL=21,100원. 소요 약 2시간',cost:21100,costTry:'620TL',route:{o:'Istanbul Airport IST',d:'Sultanahmet Istanbul',m:'transit'},alt:[
+    {t:'🚇 M11 공항메트로 (최저가)',cat:'move',loc:'IST Airport → M11 → M2 → T1',desc:'M11(IST→Gayrettepe 30분)→M2환승(Vezneciler)→T1트램(Sultanahmet). 123TL/인 (2인 246TL=8,400원). 75-100분. ★가장 저렴★',cost:8400,costTry:'246TL',route:{o:'Istanbul Airport IST',d:'Sultanahmet Istanbul',m:'transit'}},
+    {t:'🚕 택시 (최편안)',cat:'move',loc:'IST Airport → Sultanahmet',desc:'45분. 1,500-2,000TL (2인 51,000-68,000원). 짐 있을 때 가장 편함. 💳BiTaksi앱',cost:68000,costTry:'2,000TL',route:{o:'Istanbul Airport IST',d:'Sultanahmet Istanbul',m:'driving'}},
+  ]},
   {d:'2026-03-18',s:'16:30',e:'17:00',t:'호텔 술타니아 체크인',cat:'hotel',loc:'Hotel Sultania, Sultanahmet',desc:'아야소피아 도보 3분. 올드시티 관광 최적 거점. 📍Ziraat ATM: Divanyolu Cad. (도보 5분)',cost:367058,map:'Hotel Sultania Sultanahmet Istanbul'},
-  {d:'2026-03-18',s:'17:00',e:'20:50',t:'🍽️ 미식 야경 투어',cat:'exp',loc:'Karaköy → Kadıköy',desc:'★하이라이트★ 현지인 가이드. ①고등어케밥(Balık Ekmek) ②바클라바(Baklava) ③보스포루스 수상버스(유럽↔아시아) ④베이란(Beyran) ⑤터키커피(Türk Kahvesi)+로쿰(Lokum). 88,000원/2인',cost:88000},
+  {d:'2026-03-18',s:'17:00',e:'20:50',t:'🍽️ 미식 야경 투어',cat:'exp',loc:'Karaköy → Kadıköy',desc:'★하이라이트★ 마이리얼트립 미식투어. 카드쿄이+보스포루스 페리+석양. ①고등어케밥 ②바클라바 ③수상버스(유럽↔아시아) ④베이란 ⑤터키커피+로쿰. 44,910원/인. ⭐4.9(907+리뷰)\n📱 myrealtrip.com/offers/3436042',cost:89820,alt:[
+    {t:'📱 마이리얼트립 워킹투어',cat:'exp',loc:'이스탄불 구시가지+신시가지',desc:'한국인 가이드. 7시간. 45,000원/인. ⭐4.9(1,070+리뷰). 9년연속 베스트셀러\n📱 myrealtrip.com/offers/55229',cost:90000},
+  ]},
   {d:'2026-03-18',s:'20:50',e:'21:30',t:'카라쿄이→호텔 복귀',cat:'move',loc:'Karaköy → Sultanahmet',desc:'T1 트램 이스탄불카드 35TL/인 (2인 70TL=2,400원). 또는 택시 400TL',cost:2400,costTry:'70TL',route:{o:'Karaköy Istanbul',d:'Sultanahmet Istanbul',m:'transit'}},
 
   // 3/19 (목) 이스탄불 올드시티
-  {d:'2026-03-19',s:'08:00',e:'09:00',t:'🍽️ 호텔 조식',cat:'food',loc:'Hotel Sultania',desc:'터키식 아침 포함'},
-  {d:'2026-03-19',s:'09:00',e:'11:00',t:'🕌 아야 소피아',cat:'sight',loc:'Hagia Sophia, Sultanahmet',desc:'★필수★ 1,500년 비잔틴 건축. 모자이크 필수. 오전 9시 개장직후. 25EUR/인 (2인 50EUR=86,000원). ⚠️여성 히잡 필수',cost:86000,costTry:'50EUR',map:'Hagia Sophia Istanbul'},
-  {d:'2026-03-19',s:'11:00',e:'13:00',t:'🏛️ 톱카프 궁전',cat:'sight',loc:'Topkapı Palace, Istanbul',desc:'오스만제국 술탄궁전. 하렘 별도. 보스포루스 전망 테라스. 86캐럿 다이아. 궁전+하렘 2,750TL/인 (2인 5,500TL=187,000원)',cost:187000,costTry:'5,500TL',map:'Topkapı Palace Istanbul'},
-  {d:'2026-03-19',s:'13:00',e:'14:30',t:'🍽️ 점심: Balıkçı Sabahattin',cat:'food',loc:'Sultanahmet',desc:'1927년 해산물맛집. 농어(Levrek) 그릴, 도미(Çipura), 메제 20종, 라크(Rakı). 💳카드OK. 예약 권장',cost:70000,costTry:'2,000TL',map:'Balıkçı Sabahattin Istanbul'},
+  {d:'2026-03-19',s:'08:00',e:'09:00',t:'🍽️ 호텔 조식',cat:'food',loc:'Hotel Sultania',desc:'터키식 아침 포함. ★Olive Restaurant 루프탑 조식 — 보스포루스+블루모스크 뷰'},
+  {d:'2026-03-19',s:'09:00',e:'10:00',t:'🕌 아야 소피아 (외관)',cat:'sight',loc:'Hagia Sophia, Sultanahmet',desc:'외관 감상 + 광장 사진. 현재 모스크로 운영중 → 무료 입장 가능하나 긴 줄. 사진 촬영 후 이동. ⚠️여성 히잡 필수(내부 입장 시)',map:'Hagia Sophia Istanbul',alt:[
+    {t:'🏛️ 톱카프 궁전 (유료 옵션)',cat:'sight',loc:'Topkapı Palace, Istanbul',desc:'오스만제국 술탄궁전. 하렘 별도. 보스포루스 전망 테라스. 86캐럿 다이아. 궁전+하렘 2,750TL/인 (2인 5,500TL=187,000원). 비 올 때 추천',cost:187000,costTry:'5,500TL',map:'Topkapı Palace Istanbul'},
+  ]},
+  {d:'2026-03-19',s:'10:00',e:'11:30',t:'🕌 슐레이만대제 모스크',cat:'sight',loc:'Süleymaniye Camii, Fatih',desc:'★미마르 시난 걸작★ 블루모스크보다 한적하고 웅장. 정원에서 골든혼 파노라마. 무료. 도보 15분. ⚠️여성 히잡 필수',map:'Süleymaniye Mosque Istanbul',alt:[
+    {t:'🏛️ 톱카프 궁전 (비 올 때)',cat:'sight',loc:'Topkapı Palace, Istanbul',desc:'실내 관광. 궁전+하렘 2,750TL/인 (2인 5,500TL=187,000원)',cost:187000,costTry:'5,500TL',map:'Topkapı Palace Istanbul'},
+  ]},
+  {d:'2026-03-19',s:'11:30',e:'13:00',t:'📚 사하플라르+그랜드 바자르',cat:'shop',loc:'Grand Bazaar & Sahaflar, Istanbul',desc:'★사하플라르 차르슈스(Sahaflar Çarşısı, 고서적시장) 반드시 들르기! 바자르 옆 도보 2분. 소설가 영감★\n그랜드 바자르 4,000개 상점. 💵현금 추천 (할인 더 큼)\n🛍️흥정팁: 부르는 값 50%에서 시작, 25-30% 할인 목표. 아침 방문이 유리\n★핵심매장: Arasta Bazaar(블루모스크 옆, 도자기), Tahtakale(스파이스바자르 뒤, 도매가)★',map:'Grand Bazaar Kapalıçarşı Istanbul'},
+  {d:'2026-03-19',s:'13:00',e:'14:30',t:'🍽️ 점심: Balıkçı Sabahattin',cat:'food',loc:'Sultanahmet',desc:'1927년 해산물맛집. 농어(Levrek) 그릴, 도미(Çipura), 메제 20종, 라크(Rakı). 💳카드OK. 예약 권장',cost:70000,costTry:'2,000TL',map:'Balıkçı Sabahattin Istanbul',alt:[
+    {t:'🍖 Develi Kebap (1912)',cat:'food',loc:'Samatya (술탄아흐메트 택시 15분)',desc:'1912년 창업. 피스타치오 케밥. 세계100대 레스토랑. 💳카드OK. 예약 필수',cost:51000,costTry:'1,500TL',map:'Develi Kebap Samatya Istanbul'},
+  ]},
   {d:'2026-03-19',s:'14:30',e:'15:00',t:'블루 모스크',cat:'sight',loc:'Blue Mosque, Sultanahmet',desc:'무료 30분. ⚠️어깨/무릎 가리기, 여성 히잡, 신발 벗기',map:'Blue Mosque Sultanahmet Istanbul'},
-  {d:'2026-03-19',s:'15:00',e:'16:30',t:'그랜드 바자르',cat:'shop',loc:'Grand Bazaar, Istanbul',desc:'4,000개 상점! ⚠️흥정: 제시가 30~50%에서 시작. 소매치기 주의. 💵현금 추천 (할인 더 큼)',map:'Grand Bazaar Kapalıçarşı Istanbul'},
+  {d:'2026-03-19',s:'15:00',e:'15:30',t:'🍦 카이막 간식',cat:'food',loc:'Sultanahmet area',desc:'근처 카이막+꿀 디저트. 생카이막(Kaymak)+꿀(Bal) 콤보 150-250TL',cost:8500,costTry:'250TL',alt:[
+    {t:"🍯 Boris'in Yeri (발라트)",cat:'food',loc:'Fatih (발라트 인근, T1→에미뇌뉘→T5→페네르)',desc:'★백종원 추천★ 자체 생산 생카이막. 카이막+꿀+멘멘+수줄. 500TL/17,000원',cost:17000,costTry:'500TL',map:"Boris'in Yeri Fatih Istanbul"},
+  ]},
   {d:'2026-03-19',s:'17:00',e:'19:00',t:'☕ 피에르 로티 카페',cat:'cafe',loc:'Pierre Loti Cafe, Eyüp',desc:'골든혼 전망. ★석양 18:30~19:00★ 터키커피(Türk Kahvesi) 또는 사흘레프(Sahlep). 에윕→케이블카+T1트램. 이스탄불카드 35TL/인×2회 (2인 140TL=4,800원)',cost:4800,costTry:'140TL',map:'Pierre Loti Cafe Istanbul'},
   {d:'2026-03-19',s:'19:30',e:'21:30',t:'🍽️ 저녁: Hamdi Restaurant',cat:'food',loc:'Hamdi Restaurant, Eminönü',desc:'★루프탑 야경 디너★ 퀴슐레메(Kuşleme) 850TL, 이스켄데르케밥(İskender) 650TL. 갈라타다리+모스크 야경. 💳카드OK. 루프탑 예약 필수',cost:55000,costTry:'1,500TL',map:'Hamdi Restaurant Eminönü Istanbul'},
   {d:'2026-03-19',s:'21:30',e:'22:00',t:'저녁→호텔 복귀',cat:'move',loc:'Eminönü → Sultanahmet',desc:'T1 트램 이스탄불카드 35TL/인 (2인 70TL=2,400원) 또는 택시 300TL',cost:2400,costTry:'70TL',route:{o:'Eminönü Istanbul',d:'Sultanahmet Istanbul',m:'transit'}},
+  // 3/19 보너스: 발라트 지구 (오전 또는 오후 여유 시)
+  {d:'2026-03-19',s:'15:30',e:'17:00',t:'🎨 보너스: 발라트 컬러풀 거리',cat:'sight',loc:'Balat, Fatih',desc:'★보너스 옵션★ 여유 있을 때 방문. 인스타 컬러풀 골목 + 카이막: Boris\'in Yeri(백종원 추천, Fatih). Naftalin K 카페. T1트램→에미뇌뉘→T5트램→페네르/제발리\n⚠️피에르로티와 시간 겹침 → 둘 중 선택',map:'Balat Istanbul',alt:[
+    {t:'🦪 Midyeci Ahmet (미디예돌마)',cat:'food',loc:'Beşiktaş',desc:'위생적 실내매장. 홍합밥(Midye Dolma)+코코레치. 줄 각오. 300TL/10,000원',cost:10000,costTry:'300TL',map:'Midyeci Ahmet Besiktas Istanbul'},
+  ]},
 
   // 3/20 (금) 이스탄불 신시가지
-  {d:'2026-03-20',s:'08:00',e:'09:00',t:'🍽️ 호텔 조식',cat:'food',loc:'Hotel Sultania',desc:'터키식 아침 포함'},
-  {d:'2026-03-20',s:'09:00',e:'12:00',t:'술탄아흐메트 추가 탐방',cat:'sight',loc:'Sultanahmet area',desc:'①바실리카 저수지(Yerebatan Sarnıcı) 1,950TL/인 (2인 3,900TL=133,000원) 메두사 기둥 ②히포드롬(무료)',cost:133000,costTry:'3,900TL',map:'Basilica Cistern Istanbul'},
-  {d:'2026-03-20',s:'12:00',e:'12:30',t:'술탄아흐메트→베이욜루',cat:'move',loc:'Sultanahmet → Beyoğlu',desc:'택시 400TL (≈13,600원). 짐2개. 💳BiTaksi앱 결제',cost:13600,costTry:'400TL',route:{o:'Sultanahmet Istanbul',d:'TomTom Suites Beyoğlu Istanbul',m:'driving'}},
-  {d:'2026-03-20',s:'12:30',e:'14:00',t:'톰톰 스위트 체크인',cat:'hotel',loc:'TomTom Suites, Beyoğlu',desc:'갈라타타워 도보 3분. ⚠️CI 15:00이지만 12:30 도착 → 짐 맡기고 점심 먼저. 📍Ziraat ATM: Galatasaray Meydanı (도보 8분)',cost:252986,map:'TomTom Suites Beyoğlu Istanbul'},
-  {d:'2026-03-20',s:'14:00',e:'16:00',t:'🍽️ 점심: Meze By Lemon Tree',cat:'food',loc:'Beyoğlu',desc:'현대식 터키퓨전. 메제(Meze) 테이스팅 12종, 오징어튀김(Kalamar), 라크(Rakı)칵테일. 💳카드OK',cost:50000,costTry:'1,500TL',map:'Meze By Lemon Tree Beyoğlu Istanbul'},
-  {d:'2026-03-20',s:'16:00',e:'19:00',t:'갈라타/카라쿄이 탐방',cat:'sight',loc:'Galata / Karaköy',desc:'①갈라타타워(30EUR/인, 2인 60EUR=103,000원, 360도) ②갈라타다리 ③카라쿄이 빈티지카페 ④Salt Galata',cost:103000,costTry:'60EUR',map:'Galata Tower Istanbul'},
-  {d:'2026-03-20',s:'19:00',e:'21:30',t:'🍽️ ★피날레 디너: Mikla',cat:'food',loc:'Mikla Restaurant, Beyoğlu',desc:'★미슐랭가이드★ 터키-스칸디나비안 퓨전. 시그니처 코스. 보스포루스 루프탑 야경. ⚠️최소 3일전 예약. 💳카드OK',cost:160000,costTry:'5,000TL',map:'Mikla Restaurant Istanbul'},
+  {d:'2026-03-20',s:'08:00',e:'09:00',t:'🍽️ 호텔 조식',cat:'food',loc:'Hotel Sultania',desc:'터키식 아침 포함. ★Olive Restaurant 루프탑 — 마지막 올드시티 뷰'},
+  {d:'2026-03-20',s:'09:00',e:'10:30',t:'바실리카 저수지',cat:'sight',loc:'Yerebatan Sarnıcı, Sultanahmet',desc:'★지하 궁전★ 336개 기둥. 메두사 머리 기둥 포토. 비 와도 OK(지하). 1,950TL/인 (2인 3,900TL=133,000원)',cost:133000,costTry:'3,900TL',map:'Basilica Cistern Istanbul'},
+  {d:'2026-03-20',s:'10:30',e:'11:00',t:'히포드롬 광장',cat:'sight',loc:'Sultanahmet Meydanı',desc:'오벨리스크, 뱀 기둥, 독일 분수. 무료. 도보 5분',map:'Hippodrome Istanbul'},
+  {d:'2026-03-20',s:'11:00',e:'11:30',t:'술탄아흐메트→베이욜루',cat:'move',loc:'Sultanahmet → Beyoğlu',desc:'택시 400TL (≈13,600원). 짐2개. 💳BiTaksi앱 결제',cost:13600,costTry:'400TL',route:{o:'Sultanahmet Istanbul',d:'TomTom Suites Beyoğlu Istanbul',m:'driving'}},
+  {d:'2026-03-20',s:'11:30',e:'12:30',t:'톰톰 스위트 체크인',cat:'hotel',loc:'TomTom Suites, Beyoğlu',desc:'갈라타타워 도보 3분. ⚠️CI 15:00이지만 11:30 도착 → 짐 맡기고 점심 먼저. 📍Ziraat ATM: Galatasaray Meydanı (도보 8분)\n★미슐랭 1스타 Nicole 레스토랑 (호텔 내). 테이스팅메뉴 8,100TL/인. 예약 필수. 보스포루스 파노라마★',cost:252986,map:'TomTom Suites Beyoğlu Istanbul'},
+  {d:'2026-03-20',s:'12:30',e:'14:00',t:'🍽️ 점심: Meze By Lemon Tree',cat:'food',loc:'Beyoğlu',desc:'현대식 터키퓨전. 메제(Meze) 테이스팅 12종, 오징어튀김(Kalamar), 라크(Rakı)칵테일. 💳카드OK',cost:50000,costTry:'1,500TL',map:'Meze By Lemon Tree Beyoğlu Istanbul'},
+  {d:'2026-03-20',s:'14:00',e:'17:00',t:'☕ 갈라타/카라쿄이 감성 카페 루트',cat:'cafe',loc:'Galata / Karaköy',desc:'갈라타타워 외관 감상(올라가지 않음) → 감성 카페 루트:\n①FiLBooks(포토북+카페, 카라쿄이) — 소설가 감성\n②Galata Konak Cafe(갈라타타워 360도 뷰 카페)\n③Çukurcuma 빈티지 카페 골목 — 앤틱 가구+아트\n★아내와 책 읽기/이야기 시간★',cost:10000,costTry:'300TL',map:'FiLBooks Karaköy Istanbul',alt:[
+    {t:'🚢 보스포루스 석양 크루즈',cat:'exp',loc:'Eminönü 선착장',desc:'Turyol 보스포루스 쇼트크루즈. 1.5시간. 250TL/인 (2인 500TL=17,000원). 17:00 출발 → 석양 18:30. 에미뇌뉘→T1트램',cost:17000,costTry:'500TL',map:'Turyol Eminönü Istanbul'},
+  ]},
+  {d:'2026-03-20',s:'17:30',e:'18:30',t:'🌀 세마 의식 (옵션)',cat:'exp',loc:'Hodjapasha Cultural Center, Sirkeci',desc:'★수피즘 선회무★ 15세기 오스만 목욕탕 복원 공간. 매일 19:00 공연. 45분. 1,000TL/인 (2인 2,000TL=68,000원). 사전 예약 필수\n⚠️갈라타 메블레비하네시 복원공사 중 → 이곳이 대안',cost:68000,costTry:'2,000TL',map:'Hodjapasha Culture Center Istanbul'},
+  {d:'2026-03-20',s:'19:00',e:'21:30',t:'🍽️ ★피날레 디너: Mikla',cat:'food',loc:'Mikla Restaurant, Beyoğlu',desc:'★미슐랭가이드★ 터키-스칸디나비안 퓨전. 시그니처 코스. 보스포루스 루프탑 야경. ⚠️최소 3일전 예약. 💳카드OK',cost:160000,costTry:'5,000TL',map:'Mikla Restaurant Istanbul',alt:[
+    {t:'🍽️ Nicole Restaurant@TomTom',cat:'food',loc:'TomTom Suites 호텔 내',desc:'★미슐랭 1스타★ 모던 아나톨리안. 테이스팅메뉴 8,100TL/인. 보스포루스 파노라마. 호텔 내 디너 옵션',cost:276000,costTry:'8,100TL',map:'Nicole Restaurant TomTom Istanbul'},
+  ]},
   {d:'2026-03-20',s:'21:30',e:'22:00',t:'호텔 복귀',cat:'move',loc:'Mikla → TomTom Suites',desc:'도보 10분'},
 
   // 3/21 (토) 이스탄불→서울
   {d:'2026-03-21',s:'09:00',e:'10:00',t:'🍽️ 호텔 조식',cat:'food',loc:'TomTom Suites',desc:'마지막 터키식 아침'},
   {d:'2026-03-21',s:'10:00',e:'11:00',t:'톰톰 스위트 체크아웃',cat:'hotel',loc:'TomTom Suites',desc:'짐 정리. 호텔에 짐 보관 요청 (무료)'},
-  {d:'2026-03-21',s:'11:00',e:'14:00',t:'마지막 쇼핑 & 브런치',cat:'shop',loc:'İstiklal Caddesi, Beyoğlu',desc:'①이스티클랄 쇼핑(Mavi, LC Waikiki) ②Van Kahvaltı Evi 브런치(50종 메제, 2인 800TL=27,200원) ③Kurukahveci 커피원두 기념품. 💳카드OK/💵일부현금',cost:60000,costTry:'1,800TL',map:'İstiklal Caddesi shopping Istanbul'},
+  {d:'2026-03-21',s:'11:00',e:'14:00',t:'마지막 쇼핑 & 브런치',cat:'shop',loc:'İstiklal Caddesi, Beyoğlu',desc:'⚠️Eid 연휴: 그랜드바자르/사하플라르 3/20-22 휴무! 이스티클랄 쇼핑은 OK\n①이스티클랄 쇼핑(Mavi, LC Waikiki) ②Van Kahvaltı Evi 브런치(50종 메제, 2인 800TL=27,200원) ③Kurukahveci 커피원두 기념품\n🛍️쇼핑리스트: Koska 로쿰(이스티클랄점, 200-450TL/kg), 올리브비누(15-30TL), 스파이스(20-40TL/100g), Kurukahveci Mehmet Efendi 커피(50-80TL)\n💳카드OK/💵일부현금',cost:60000,costTry:'1,800TL',map:'İstiklal Caddesi shopping Istanbul',alt:[
+    {t:'🛒 카드쿄이 시장 (아시아 사이드)',cat:'shop',loc:'Kadıköy (페리 20분)',desc:'현지 가격! 페리+쇼핑 2시간 코스. 관광객 바가지 없음. 향신료, 건과일, 터키과자. 페리 이스탄불카드 35TL/인',cost:5000,costTry:'140TL',map:'Kadıköy Market Istanbul'},
+  ]},
   {d:'2026-03-21',s:'14:00',e:'15:30',t:'베이욜루→IST 공항',cat:'move',loc:'Taksim → IST Airport',desc:'HAVAIST HVL-16 버스. 275TL/인 (2인 550TL=18,700원). 💳컨택리스OK',cost:18700,costTry:'550TL',route:{o:'Taksim Square Istanbul',d:'Istanbul Airport IST',m:'transit'}},
   {d:'2026-03-21',s:'15:30',e:'17:00',t:'☕ IGA 라운지',cat:'lounge',loc:'IST Airport Mezzanine Floor',desc:'Priority Pass. 24시간 운영. 마사지/샤워/음식/음료/면세점. 출국 전 여유롭게',map:'Istanbul Airport IGA Lounge'},
   {d:'2026-03-21',s:'17:20',e:'17:20',t:'✈️ IST 출발 (OZ552)',cat:'flight',loc:'Istanbul Airport',desc:'아시아나 직항 귀국편. 예약: DP5W84. 약 10시간'},
@@ -453,6 +491,21 @@ const RESTAURANTS = [
   {date:'3/20',meal:'★피날레★',rank:2,name:'Nicole Restaurant',rating:'4.6',genre:'미슐랭 터키',menu:'미슐랭 1스타. 모던 아나톨리안',price:'4000TL/130000원',vibe:'미슐랭 정통',anniv:true,loc:'톰톰 카퍼스 호텔',reserve:true,note:'미슐랭 별 보유',map:'Nicole Restaurant Istanbul'},
 
   {date:'3/21',meal:'브런치',rank:1,name:'Van Kahvaltı Evi',rating:'4.4',genre:'터키조식',menu:'반(Van) 스타일 아침상 50종 메제',price:'800TL/27000원',vibe:'풍성한 조식',anniv:false,loc:'베이욜루',reserve:true,note:'주말 웨이팅',map:'Van Kahvaltı Evi Beyoğlu Istanbul'},
+
+  // 미디예돌마
+  {date:'3/19',meal:'간식',rank:1,name:'Midyeci Ahmet',rating:'4.5',genre:'미디예돌마',menu:'홍합밥(Midye Dolma)+코코레치. 실내 좌석',price:'300TL/10000원',vibe:'현지 맛집',anniv:false,loc:'베식타쉬',reserve:false,note:'위생적 실내매장. 줄 각오',map:'Midyeci Ahmet Besiktas Istanbul'},
+  {date:'3/19',meal:'간식',rank:2,name:'Asmalı Pera Midye',rating:'4.3',genre:'미디예돌마',menu:'미디예돌마+코코레치. 이스티클랄 근처',price:'250TL/8500원',vibe:'로컬',anniv:false,loc:'베이욜루',reserve:false,map:'Asmali Pera Midye Kokorec Istanbul'},
+
+  // 카이막
+  {date:'3/19',meal:'카이막',rank:1,name:"Boris'in Yeri",rating:'4.6',genre:'카이막/조식',menu:'생카이막+꿀, 멘멘, 수줄. ★백종원 추천★',price:'500TL/17000원',vibe:'동네 전통',anniv:false,loc:'파티흐 (발라트 인근)',reserve:false,note:'백종원 추천! 자체 생산 카이막',map:"Boris'in Yeri Fatih Istanbul"},
+  {date:'3/20',meal:'카이막',rank:2,name:'Karaköy Özsüt',rating:'4.4',genre:'카이막/디저트',menu:'발 카이막(꿀+카이막), 4대째 자가 물소 농장',price:'300TL/10000원',vibe:'전통 카페',anniv:false,loc:'카라쿄이',reserve:false,map:'Karakoy Ozsut Istanbul'},
+
+  // 케밥 추가 옵션
+  {date:'3/19',meal:'점심',rank:2,name:'Develi Kebap',rating:'4.4',genre:'케밥',menu:'피스타치오 케밥, 1912년 창업. 세계100대 레스토랑',price:'1500TL/51000원',vibe:'전통 명가',anniv:true,loc:'사마트야 (술탄아흐메트 택시 15분)',reserve:true,note:'1912년 창업. 아내 케밥 취향에 딱',map:'Develi Kebap Samatya Istanbul'},
+
+  // 닛폰 호텔 근처 조식 (조식 불포함)
+  {date:'3/12',meal:'조식옵션',rank:1,name:'Sa Va Anatolian Breakfast',rating:'4.8',genre:'서프메 카흐발트',menu:'60종 유기농: 바즈라마, 멘멘, 카이막+꿀, 치즈 플레이트',price:'800TL/27000원',vibe:'풍성한 조식',anniv:false,loc:'지한기르 (니폰호텔 도보5분)',reserve:true,note:'2인 공유 가능. ⭐7,480+ 리뷰',map:'Sa Va Anatolian Breakfast House Cihangir Istanbul'},
+  {date:'3/12',meal:'조식옵션',rank:2,name:'Lades Menemen',rating:'4.5',genre:'멘멘 전문',menu:'1969년 창업. 이스탄불 최고 멘멘',price:'400TL/14000원',vibe:'가성비 로컬',anniv:false,loc:'탁심 도보3분',reserve:false,note:'줄 서지만 회전 빠름',map:'Lades Menemen Taksim Istanbul'},
 ];
 
 const TICKETS = [
@@ -579,6 +632,25 @@ function renderSchedule() {
       <div class="event-desc">${(ev.desc||'').replace(/\n/g,'<br>')}${costStr}${linksHtml}</div>
       <button class="expand-btn">▼ 상세보기</button>
     </div>`;
+
+    // 대안 옵션 렌더링
+    if (ev.alt && ev.alt.length) {
+      html += `<div class="alt-options"><div class="alt-label">💡 다른 옵션</div>`;
+      ev.alt.forEach(a => {
+        const aCls = CAT_CLASS[a.cat] || '';
+        const aCost = a.cost ? `<div class="event-cost">💰 ${a.cost.toLocaleString()}원${a.costTry?' ('+a.costTry+')':''}</div>` : '';
+        const aLinks = [];
+        if (a.map) aLinks.push(`<a href="${navUrl(a.map)}" target="_blank">📍 길찾기</a>`);
+        if (a.route) aLinks.push(`<a href="${routeUrl(a.route.o,a.route.d,a.route.m)}" target="_blank">🚗 경로</a>`);
+        html += `<div class="event-card alt-card ${aCls}">
+          <div class="event-title">${a.t}</div>
+          <div class="event-loc">📍 ${a.loc}</div>
+          <div style="font-size:12px;color:var(--text-dim)">${a.desc}${aCost}</div>
+          ${aLinks.length?'<div class="event-links">'+aLinks.join('')+'</div>':''}
+        </div>`;
+      });
+      html += `</div>`;
+    }
   });
 
   html += '</div>';
@@ -759,6 +831,7 @@ function renderInfo() {
       ['카드 사용처','트램, 버스, 메트로, 페리, 푸니쿨라 전부'],
       ['HAVAIST','IST↔시내. 275TL/인. 전용차로 정시. 💳컨택리스OK'],
       ['⚠️HVIST-11','운행중단! IST→술탄아흐메트: HVL-1(Aksaray)+T1트램 이용'],
+      ['M11 공항메트로','IST→Gayrettepe(30분)→M2 Vezneciler→T1트램. 123TL/인. ★가장 저렴★'],
       ['택시 앱','BiTaksi (한국 카카오택시). 💳앱 결제. 미터기 확인!'],
       ['미터기 안 켤 때','"Taksimetre lütfen" (탁시메트레 뤼트펜)'],
     ]},
@@ -801,6 +874,29 @@ function renderInfo() {
       ['규칙3','"생각해볼게요" → 돌아서면 할인'],
       ['규칙4','여러 가게 비교. 첫 가게 X'],
       ['규칙5','현금 결제 추가 할인'],
+    ]},
+    {title:'🛍️ 쇼핑 가이드 (바가지 방지)', items:[
+      ['터키커피 250g','Kurukahveci Mehmet Efendi (에미뇌뉘 본점) 50-80TL. 관광지 150TL'],
+      ['올리브비누 1개','현지가 15-30TL. 관광지 50-100TL. ★Tahtakale 지역 최저가★'],
+      ['로쿰 1kg','Hafız Mustafa/Koska 200-450TL. 관광지 800TL. ★Koska 이스티클랄점 추천★'],
+      ['차잔세트 6인','Tahtakale 150-300TL. 그랜드바자르 입구 300-600TL'],
+      ['스파이스 100g','스파이스바자르 밖 20-40TL. 안 50-100TL'],
+      ['Nazar 부적','어디서나 3-50TL. 바자르 밖이 저렴'],
+      ['핵심 매장','Arasta Bazaar(블루모스크 옆, 도자기), Tahtakale(스파이스바자르 뒤, 도매가)'],
+      ['⚠️Eid 휴무','3/20-22 그랜드바자르+사하플라르 휴무! 3/19까지 쇼핑 완료'],
+    ]},
+    {title:'📱 마이리얼트립 투어', items:[
+      ['미식투어','44,910원/인. 카드쿄이+페리+석양. 4시간. ⭐4.9(907+리뷰)'],
+      ['워킹투어','45,000원/인. 한국어가이드. 7시간. ⭐4.9(1,070+리뷰). 9년연속 베스트셀러'],
+      ['맞춤투어','60,000원/인. 8시간. 4인 이상'],
+      ['링크','myrealtrip.com → 이스탄불 검색'],
+    ]},
+    {title:'🌧️ 비 올 때 플랜 B', items:[
+      ['실내 관광','바실리카 저수지(지하), 톱카프 궁전, Istanbul Modern(갈라타포트)'],
+      ['커버드 마켓','그랜드바자르, 스파이스바자르, 아라스타바자르 (모두 실내)'],
+      ['하맘','Çemberlitaş Hamamı(500년, 그랜드바자르 근처, ~68EUR)'],
+      ['카페','Salt Galata(전시+카페), FiLBooks(포토북카페)'],
+      ['세마 의식','Hodjapasha(시르케지, 실내, 매일 19:00, ~1,000TL/인)'],
     ]},
   ];
 
