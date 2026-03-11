@@ -1346,7 +1346,7 @@ updateFirebaseSaveBtn();
 
 // Firebase 미설정 배너 표시 제어
 const fbBanner = document.getElementById('fb-setup-guide');
-if (fbBanner) fbBanner.style.display = FB_READY ? 'none' : 'block';
+if (fbBanner) fbBanner.style.display = 'none';
 
 // Firebase에서 최신 데이터 로드 (비동기, 완료 후 자동 반영)
 loadFromFirebase();
