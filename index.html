@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#e74c3c">
+<link rel="manifest" href="manifest.json">
 <title>🇹🇷 터키 여행 가이드 2026</title>
 <style>
 :root {
@@ -1367,6 +1369,11 @@ if (fbBanner) fbBanner.style.display = 'none';
 
 // Firebase에서 최신 데이터 로드 (비동기, 완료 후 자동 반영)
 loadFromFirebase();
+
+// 오프라인 캐시 (PWA)
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js');
+}
 </script>
 </body>
 </html>

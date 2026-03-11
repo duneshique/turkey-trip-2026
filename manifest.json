@@ -1,0 +1,9 @@
+{
+  "name": "터키 9주년 기념여행 2026",
+  "short_name": "터키여행",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0f0f0f",
+  "theme_color": "#e74c3c",
+  "icons": []
+}
