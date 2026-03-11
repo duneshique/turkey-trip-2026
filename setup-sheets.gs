@@ -72,12 +72,12 @@ function createScheduleSheet(ss) {
     ['2026-03-12', '15:45', '15:45', '✈️ IST 도착 (OZ551)', '✈️항공', 'Istanbul Airport (IST)', '아시아나 직항 도착. 시차 -6시간 (한국 21:45). 도착 로비 ATM에서 TRY 인출 가능 (Ziraat Bankası)', 'Europe/Istanbul', '', '', 'DP5W84', ''],
     ['2026-03-12', '16:00', '18:00', 'IST공항→탁심광장', '🚎이동', 'IST Airport B2 Platform 16', 'HVIST-16 버스. 275TL/인 (2인 550TL=18,700원). 배차: 16:50/17:25/18:00. 💳컨택리스 카드결제 OK. B2층 16번 플랫폼', 'Europe/Istanbul', '18700', 'https://maps.app.goo.gl/havist-ist', '', routeLink('Istanbul Airport IST', 'Taksim Square Istanbul', 'transit')],
     ['2026-03-12', '18:00', '18:15', 'Nippon Hotel 체크인', '🏨숙소', 'Nippon Hotel, Taksim, Istanbul', '탁심광장 도보 5분. 이스티클랄 거리 입구', 'Europe/Istanbul', '90000', 'https://maps.app.goo.gl/nippon-taksim', '1697933648', ''],
-    ['2026-03-12', '18:30', '19:30', '🍽️ 저녁: Hacı Usta Kebap House', '🍽️식사', 'Hacı Usta Kebap, Taksim, Istanbul', '탁심 20년 현지 맛집. 양시쉬케밥(Kuzu Şiş) 350TL, 닭시쉬(Tavuk Şiş) 280TL, 아다나케밥(Adana) 320TL. 차이(Çay) 무료. ⚠️아드나케밥 매움주의. 💳카드OK', 'Europe/Istanbul', '26000', '', '', ''],
+    ['2026-03-12', '18:30', '19:30', '🍽️ 저녁: Hacı Usta Kebap', '🍽️식사', 'Hacı Usta Kebap, Taksim, Istanbul', '탁심 20년 현지 맛집. 양시쉬케밥(Kuzu Şiş) 400TL, 닭시쉬(Tavuk Şiş) 320TL, 아다나케밥(Adana) 380TL. 차이(Çay) 무료. ⚠️아드나케밥 매움주의. 💳카드OK', 'Europe/Istanbul', '26000', '', '', ''],
     ['2026-03-12', '19:40', '20:20', '이스티클랄 거리 야경 산책', '🚶관광', 'İstiklal Caddesi, Beyoğlu, Istanbul', '탁심광장→이스티클랄거리 하행 (1.4km). 공화국기념비, 빨간전차 포토존. 피곤하면 T2 빨간전차(35TL/인, 이스탄불카드)', 'Europe/Istanbul', '0', '', '', ''],
-    ['2026-03-12', '20:20', '20:50', '🍰 HASAN FEHMİ ÖZSÜT 1915', '🍽️식사', 'Hasan Fehmi Özsüt, Beyoğlu, Istanbul', '1950년 창업 전통 디저트. 카잔디비(Kazandibi, 캬라멜우유푸딩) 120TL, 수틀라치(Sütlaç, 쌀푸딩) 100TL, 카이막(Kaymak) 150TL. 💳카드OK', 'Europe/Istanbul', '15000', '', '', ''],
+    ['2026-03-12', '20:20', '20:50', '🍰 Özsüt 1915 디저트', '🍽️식사', 'Hasan Fehmi Özsüt, Beyoğlu, Istanbul', '1950년 창업 전통 디저트. 카잔디비(Kazandibi, 캬라멜우유푸딩) 180TL, 수틀라치(Sütlaç, 쌀푸딩) 150TL, 카이막(Kaymak) 120TL. 💳카드OK', 'Europe/Istanbul', '15000', '', '', ''],
     ['2026-03-12', '20:50', '21:20', '갈라타 타워 & 다리 야경', '🌃관광', 'Galata Tower, Istanbul', '타워 외관 감상→갈라타 다리 하행. 푸니쿨라(F2) Beyoğlu→Karaköy 35TL/인 (이스탄불카드). 2인 70TL=2,400원. 보스포루스 야경', 'Europe/Istanbul', '2400', '', '', ''],
-    ['2026-03-12', '21:20', '21:50', '🍽️ 고등어케밥 (선택)', '🍽️식사', 'Galata Bridge, Eminönü, Istanbul', '에미뇌뉘 선착장 옆. Mehmet Usta 또는 Eyyup Usta. 고등어케밥(Balık Ekmek) 150TL/개. 50년 전통. 배부르면 패스. 💵현금 권장', 'Europe/Istanbul', '10000', '', '', ''],
-    ['2026-03-12', '21:50', '22:20', '카라쿄이→호텔 복귀', '🚎이동', 'Karaköy → Taksim', 'Tünel(F2) Karaköy→Beyoğlu 35TL/인 + İstiklal 도보 15분. 2인 70TL=2,400원. (또는 택시 300TL)', 'Europe/Istanbul', '2400', '', '', routeLink('Karaköy Istanbul', 'Taksim Square Istanbul', 'transit')],
+    ['2026-03-12', '21:20', '21:50', '🍽️ 고등어케밥 (선택)', '🍽️식사', 'Galata Bridge, Eminönü, Istanbul', '에미뇌뉘 선착장 옆. Mehmet Usta 또는 Eyyup Usta. 고등어케밥(Balık Ekmek) 80~100TL/개. 50년 전통. 배부르면 패스. 💵현금 권장', 'Europe/Istanbul', '7000', '', '', ''],
+    ['2026-03-12', '21:50', '22:20', '카라쿄이→호텔 복귀', '🚎이동', 'Karaköy → Taksim', 'T1 트램(Karaköy→Kabataş) + F1 푸니쿨라(Kabataş→Taksim). 이스탄불카드 35TL/인×2회 (2인 140TL=4,800원)', 'Europe/Istanbul', '4800', '', '', routeLink('Karaköy Istanbul', 'Taksim Square Istanbul', 'transit')],
 
     // ===================== 3/13 (금) 이스탄불→카파도키아 =====================
     ['2026-03-13', '05:00', '05:50', 'Nippon Hotel 체크아웃', '🏨숙소', 'Nippon Hotel, Taksim', '짐 정리. 전날 밤 미리 챙기기', 'Europe/Istanbul', '', '', '', ''],
@@ -88,18 +88,18 @@ function createScheduleSheet(ss) {
     ['2026-03-13', '10:35', '11:40', 'NAV 공항→괴레메', '🚎이동', 'Nevşehir Airport → Göreme', '공항셔틀 정시출발, 호텔 앞 하차 (2인 21,000원). 또는 돌무쉬 300TL/인 (대기 10~30분)', 'Europe/Istanbul', '21000', '', '1703640400', routeLink('Nevşehir Kapadokya Airport', 'Göreme Cappadocia', 'driving')],
     ['2026-03-13', '11:40', '12:00', 'Sarnich Cave Suites 체크인', '🏨숙소', 'Sarnich Cave Suites, Göreme', '동굴호텔 체험! 괴레메 중심부 도보 3분. ✅무료 전용주차장 있음. 조식 테라스에서 열기구 조망. ⚠️아고다 CI 14:00 → 11:40 도착이라 짐 맡기고 점심 먼저', 'Europe/Istanbul', '268000', '', '1697936130', ''],
     ['2026-03-13', '12:00', '13:00', '호텔 휴식 & 샤워', '🛌휴식', 'Sarnich Cave Suites', '새벽기상+이동 피로회복. 점심 전 1시간 휴식', 'Europe/Istanbul', '', '', '', ''],
-    ['2026-03-13', '13:00', '15:00', '🍽️ 점심: TUMA Restaurant', '🍽️식사', 'TUMA Restaurant, Göreme', '⭐4.9 항아리케밥(Testi Kebabı, 테스티케밥) 350TL 필수! 불쇼 퍼포먼스. 카트메르(Katmer, 피스타치오+카이막 디저트) 180TL, 돈두르마(Dondurma, 터키아이스크림) 80TL. 테라스 석양뷰. 💳카드OK', 'Europe/Istanbul', '50000', '', '', ''],
+    ['2026-03-13', '13:00', '15:00', '🍽️ 점심: TUMA Restaurant', '🍽️식사', 'TUMA Restaurant, Göreme', '⭐4.9 항아리케밥(Testi Kebabı, 테스티케밥) 450TL 필수! 불쇼 퍼포먼스. 카트메르(Katmer, 피스타치오+카이막 디저트) 180TL, 돈두르마(Dondurma, 터키아이스크림) 80TL. 테라스 석양뷰. 💳카드OK', 'Europe/Istanbul', '50000', '', '', ''],
     ['2026-03-13', '15:00', '16:30', '호텔 낮잠', '🛌휴식', 'Sarnich Cave Suites', '오후 3~4시 카파도키아 햇볕 강함. 실내 휴식 권장', 'Europe/Istanbul', '', '', '', ''],
     ['2026-03-13', '16:30', '18:00', '☕ 카페 투어', '☕카페', 'Göreme center', '옵션1) King\'s Coffee Shop ⭐4.9 - 후기 최고\n옵션2) Le Petite Pause - 어린왕자 감성\n옵션3) The Patio Cappadocia ⭐5.0 - 치즈케이크 맛집\n카이막(Kaymak) 120TL, 터키쉬티(Türk Çayı) 80TL. 💳카드OK', 'Europe/Istanbul', '8000', '', '', ''],
     ['2026-03-13', '18:00', '18:30', '석양 감상 (Lover\'s Hill)', '🌅관광', 'Aşıklar Tepesi (Lover\'s Hill), Göreme', '★9주년 추천★ 괴레메 도보 15분. 360도 파노라마. 와인 한 병 들고 가기. 일몰 18:30~19:00', 'Europe/Istanbul', '0', '', '', ''],
-    ['2026-03-13', '18:30', '20:00', '🍽️ 저녁: Oscar Steak House', '🍽️식사', 'Oscar Steak House, Göreme', '⭐4.9 괴레메 #1! ★기념일 디너★ 양갈비(Kuzu Pirzola) 990TL, 골드오토만스테이크 1890TL. 무료 차이+바클라바 서비스. 석양 테라스 예약 필수. 💳카드OK', 'Europe/Istanbul', '60000', '', '', ''],
+    ['2026-03-13', '18:30', '20:00', '🍽️ ★기념일 디너: Oscar Steak House', '🍽️식사', 'Oscar Steak House, Göreme', '⭐4.9 괴레메 #1! ★기념일 디너★ 양갈비(Kuzu Pirzola) 990TL, 골드오토만스테이크 1890TL. 무료 차이+바클라바 서비스. 석양 테라스 예약 필수. 💳카드OK', 'Europe/Istanbul', '60000', '', '', ''],
     ['2026-03-13', '20:00', '20:30', 'Bim 수퍼마켓', '🛍️쇼핑', 'Bim Market, Göreme', '생수, 간식 장보기. 💵현금/💳카드 모두 가능', 'Europe/Istanbul', '', '', '', ''],
     ['2026-03-13', '20:30', '21:00', '호텔 복귀 & 취침', '🛌휴식', 'Sarnich Cave Suites', '밤거리 산책 (동굴호텔 조명 전경). 내일 일정 확인', 'Europe/Istanbul', '', '', '', ''],
 
     // ===================== 3/14 (토) 카파도키아 - 오픈에어+소금호수 =====================
-    ['2026-03-14', '06:30', '08:00', '기상 & 도보 일출 감상', '🌅관광', 'Göreme Viewpoint', '호텔 테라스 → 뒷 언덕 전망대. 열기구 이륙 관람 (06:00~06:30)', 'Europe/Istanbul', '1200', '', '', ''],
+    ['2026-03-14', '06:30', '08:00', '기상 & 일출 감상', '🌅관광', 'Göreme Viewpoint', '호텔 테라스 → 뒷 언덕 전망대. 열기구 이륙 관람 (06:00~06:30)', 'Europe/Istanbul', '', '', '', ''],
     ['2026-03-14', '08:30', '09:30', '🍽️ 호텔 조식', '🍽️식사', 'Sarnich Cave Suites', '터키식 아침 (올리브Zeytin, 치즈Peynir, 시미트Simit, 멘멘Menemen). 조식 07:30~10:00', 'Europe/Istanbul', '0', '', '', ''],
-    ['2026-03-14', '09:30', '11:30', '괴레메 오픈에어 뮤지엄', '🕌관광', 'Göreme Open Air Museum', '★필수★ UNESCO 세계문화유산. 비잔틴 프레스코 벽화 동굴교회. 다크교회(Karanlık Kilise, +6EUR) 추천. 입장 20EUR/인 (2인 68,000원). 도보 15분', 'Europe/Istanbul', '90000', 'https://maps.app.goo.gl/goreme-museum', '', ''],
+    ['2026-03-14', '09:30', '11:30', '괴레메 오픈에어 뮤지엄', '🕌관광', 'Göreme Open Air Museum', '★필수★ UNESCO 세계문화유산. 비잔틴 프레스코 벽화 동굴교회. 다크교회(Karanlık Kilise, +6EUR) 추천. 입장 20EUR/인 (2인 40EUR=68,000원). 도보 15분', 'Europe/Istanbul', '68000', 'https://maps.app.goo.gl/goreme-museum', '', ''],
     ['2026-03-14', '11:30', '12:30', '괴레메 마을 산책', '🚶관광', 'Göreme town center', '기념품 가게, 터키램프 가게, 카펫 구경. 투어 준비물 구매 (선크림, 물)', 'Europe/Istanbul', '', '', '', ''],
     ['2026-03-14', '12:30', '13:30', '🍽️ 점심', '🍽️식사', 'Göreme', '옵션1) Cappadocian Cuisine - 오너 어머니 홈쿡, 가성비 600TL\n옵션2) Nostalji Restaurant ⭐4.5 - 루프탑, 항아리케밥 800TL\n옵션3) TUMA (어제 안 갔으면) 1200TL. 💳카드OK', 'Europe/Istanbul', '30000', '', '', ''],
     ['2026-03-14', '14:00', '14:30', '🚗 Sunset Rent a Car 픽업', '🚗렌트', 'Sunset Rent a Car, Göreme', '60 EUR (≈102,000원). WhatsApp 연락. 💳카드 결제 가능', 'Europe/Istanbul', '100000', '', '', ''],
@@ -111,12 +111,12 @@ function createScheduleSheet(ss) {
     // ===================== 3/15 (일) 카파도키아→안탈리아 =====================
     ['2026-03-15', '06:00', '06:30', '로즈밸리 이동', '🚗이동', 'Rose Valley Sunset Point', '호텔→로즈밸리 12분. ✅손전등 필수 ✅보온복 (새벽 2~5°C) ✅비포장 700m 서행', 'Europe/Istanbul', '', '', '', routeLink('Sarnich Cave Suites Göreme', 'Rose Valley Cappadocia', 'driving')],
     ['2026-03-15', '06:30', '07:30', '🎈 열기구 이륙 관람 + 일출', '🌅관광', 'Rose Valley, Cappadocia', '★로맨틱★ 전망대에서 열기구 이륙 관람 + 일출 06:42~06:48. 카메라 삼각대 세팅', 'Europe/Istanbul', '0', '', '', ''],
-    ['2026-03-15', '07:30', '08:00', '로즈밸리→호텔 귀환', '🚗이동', 'Rose Valley → Sarnich Cave Suites', '12분 운전. 연료 50TL=1,700원', 'Europe/Istanbul', '1700', '', '', routeLink('Rose Valley Cappadocia', 'Sarnich Cave Suites Göreme', 'driving')],
+    ['2026-03-15', '07:30', '08:00', '로즈밸리→호텔 귀환', '🚗이동', 'Rose Valley → Sarnich Cave Suites', '12분 운전', 'Europe/Istanbul', '1600', '', '', routeLink('Rose Valley Cappadocia', 'Sarnich Cave Suites Göreme', 'driving')],
     ['2026-03-15', '08:30', '09:30', '🍽️ 호텔 조식', '🍽️식사', 'Sarnich Cave Suites', '터키식 아침. 조식 07:30~10:00', 'Europe/Istanbul', '0', '', '', ''],
     ['2026-03-15', '09:30', '10:50', '휴식 & 체크아웃 준비', '🛌휴식', 'Sarnich Cave Suites', '샤워·짐 정리. 11:00 체크아웃', 'Europe/Istanbul', '', '', '', ''],
     ['2026-03-15', '10:50', '11:00', 'Sarnich Cave 체크아웃', '🏨숙소', 'Sarnich Cave Suites', '', 'Europe/Istanbul', '', '', '', ''],
     ['2026-03-15', '11:00', '11:10', '괴레메→우치히사르 이동', '🚗이동', 'Göreme → Uçhisar', '10분 운전', 'Europe/Istanbul', '', '', '', routeLink('Göreme Cappadocia', 'Uçhisar Castle Cappadocia', 'driving')],
-    ['2026-03-15', '11:10', '12:00', '우치히사르 성', '🕌관광', 'Uçhisar Castle, Cappadocia', '카파도키아 최고 높이 천연 성채. 꼭대기 파노라마뷰. 입장 250TL/인 (2인 500TL=17,000원)', 'Europe/Istanbul', '17000', '', '', ''],
+    ['2026-03-15', '11:00', '12:00', '우치히사르 성', '🕌관광', 'Uçhisar Castle, Cappadocia', '카파도키아 최고 높이 천연 성채. 꼭대기 파노라마뷰. 입장 250TL/인 (2인 500TL=17,000원)', 'Europe/Istanbul', '17000', '', '', ''],
     ['2026-03-15', '12:00', '12:50', '피죤밸리', '🕌관광', 'Pigeon Valley, Cappadocia', '우치히사르→피죤밸리 도보 하행. 전망대 사진. 무료', 'Europe/Istanbul', '0', '', '', ''],
     ['2026-03-15', '12:50', '13:10', '우치히사르→아바노스 이동', '🚗이동', 'Uçhisar → Avanos', '20분 운전', 'Europe/Istanbul', '', '', '', routeLink('Uçhisar Cappadocia', 'Avanos Cappadocia', 'driving')],
     ['2026-03-15', '13:10', '14:00', '🍽️ 점심: 아바노스', '🍽️식사', 'Avanos', '옵션1) Fatıma\'nın Sofrası ⭐4.7 만티(Mantı, 터키만두)·도마테스·파술예 500TL\n옵션2) Ciğercan ⭐5.0 간케밥(Ciğer Kebabı) 700TL\n옵션3) 현지 로칸타. 💳카드OK', 'Europe/Istanbul', '20000', '', '', ''],
@@ -150,7 +150,7 @@ function createScheduleSheet(ss) {
     ['2026-03-17', '21:00', '22:00', '🎭 리조트 나이트 쇼', '🎭체험', 'Concorde De Luxe Resort', '벨리댄스, 민속춤, 라이브 음악. 올인클루시브 포함', 'Europe/Istanbul', '0', '', '', ''],
 
     // ===================== 3/18 (수) 안탈리아→이스탄불 =====================
-    ['2026-03-18', '09:00', '10:00', '🍽️ 리조트 아침 뷔페', '🍽️식사', 'Concorde De Luxe Resort', '터키식 아침. 마지막 리조트 식사', 'Europe/Istanbul', '0', '', '', ''],
+    ['2026-03-18', '09:00', '10:00', '🍽️ 리조트 마지막 아침', '🍽️식사', 'Concorde De Luxe Resort', '터키식 아침. 마지막 리조트 식사', 'Europe/Istanbul', '0', '', '', ''],
     ['2026-03-18', '10:00', '10:15', '리조트 체크아웃', '🏨숙소', 'Concorde De Luxe Resort', '짐 정리. 레이트체크아웃 불가', 'Europe/Istanbul', '', '', '', ''],
     ['2026-03-18', '10:15', '11:00', '리조트→AYT 공항', '🚎이동', 'Concorde De Luxe → Antalya Airport', '택시 600TL (2인 20,400원). 리조트 외곽이라 택시만 가능', 'Europe/Istanbul', '20400', '', '', routeLink('Concorde De Luxe Resort Lara Antalya', 'Antalya Airport AYT', 'driving')],
     ['2026-03-18', '11:00', '12:15', 'AYT 공항 체크인', '✈️항공', 'Antalya Airport (AYT)', '수속 및 대기', 'Europe/Istanbul', '', '', '', ''],
@@ -158,7 +158,7 @@ function createScheduleSheet(ss) {
     ['2026-03-18', '14:30', '16:30', 'IST 공항→술탄아흐메트', '🚎이동', 'IST Airport → Sultanahmet', '⚠️HVIST-11 운행중단! 대체: HVL-1 버스(IST→Aksaray) 275TL/인 + T1 트램(Aksaray→Sultanahmet) 35TL/인. 2인 총 620TL=21,100원. 소요 약 2시간', 'Europe/Istanbul', '21100', '', '', routeLink('Istanbul Airport IST', 'Sultanahmet Istanbul', 'transit')],
     ['2026-03-18', '16:30', '17:00', '호텔 술타니아 체크인', '🏨숙소', 'Hotel Sultania, Sultanahmet, Istanbul', '아야소피아 도보 3분. 올드시티 관광 최적 거점. 💳ATM: Ziraat Bankası Divanyolu Cad. (도보 5분)', 'Europe/Istanbul', '367058', '', '1698115578', ''],
     ['2026-03-18', '17:00', '20:50', '🍽️ 미식 야경 투어', '🍽️체험', 'Karaköy → Kadıköy, Istanbul', '★하이라이트★ 마이리얼트립 미식투어. 카드쿄이+보스포루스 페리+석양. 44,910원/인. ⭐4.9(907+리뷰). [옵션] 워킹투어 45,000원/인, 7시간', 'Europe/Istanbul', '89820', '', '', ''],
-    ['2026-03-18', '21:30', '22:00', '카라쿄이→호텔 복귀', '🚎이동', 'Karaköy → Sultanahmet', 'T1 트램 35TL/인 (2인 70TL=2,400원) 또는 택시 400TL. 야간이라 택시 추천', 'Europe/Istanbul', '15000', '', '', routeLink('Karaköy Istanbul', 'Sultanahmet Istanbul', 'transit')],
+    ['2026-03-18', '20:50', '21:30', '카라쿄이→호텔 복귀', '🚎이동', 'Karaköy → Sultanahmet', 'T1 트램 이스탄불카드 35TL/인 (2인 70TL=2,400원). 또는 택시 400TL', 'Europe/Istanbul', '2400', '', '', routeLink('Karaköy Istanbul', 'Sultanahmet Istanbul', 'transit')],
 
     // ===================== 3/19 (목) 이스탄불 올드시티 =====================
     ['2026-03-19', '08:00', '09:00', '🍽️ 호텔 조식', '🍽️식사', 'Hotel Sultania', '터키식 아침. 숙박 포함. ★Olive Restaurant 루프탑 조식 — 보스포루스+블루모스크 뷰', 'Europe/Istanbul', '0', '', '', ''],
@@ -168,9 +168,10 @@ function createScheduleSheet(ss) {
     ['2026-03-19', '13:00', '14:30', '🍽️ 점심: Balıkçı Sabahattin', '🍽️식사', 'Balıkçı Sabahattin, Sultanahmet, Istanbul', '1927년 해산물맛집. 농어/도미 그릴, 메제 20종, 라크. 예약 권장. 💳카드OK. [옵션] Develi Kebap(1912, 사마트야)', 'Europe/Istanbul', '70000', '', '', ''],
     ['2026-03-19', '14:30', '15:00', '블루 모스크', '🕌관광', 'Blue Mosque (Sultanahmet Camii), Istanbul', '무료. 30분. ⚠️어깨/무릎 가리기, 여성 히잡, 신발 벗기', 'Europe/Istanbul', '0', '', '', ''],
     ['2026-03-19', '15:00', '15:30', '🍦 카이막 간식', '🍽️식사', 'Sultanahmet area, Istanbul', '생카이막+꿀 콤보 150-250TL. [옵션] Boris\'in Yeri(발라트, 백종원 추천)', 'Europe/Istanbul', '8500', '', '', ''],
-    ['2026-03-19', '17:00', '19:00', '☕ 피에르 로티 카페', '☕카페', 'Pierre Loti Cafe, Eyüp, Istanbul', '골든혼 전망 카페. ★석양 18:30~19:00★ 터키커피 또는 사흘레프. 💳카드OK. [옵션] 발라트 컬러풀 거리+Naftalin K', 'Europe/Istanbul', '5000', '', '', ''],
+    ['2026-03-19', '15:30', '17:00', '🎨 보너스: 발라트 컬러풀 거리', '🚶관광', 'Balat, Fatih, Istanbul', '★보너스 옵션★ 여유 있을 때 방문. 인스타 컬러풀 골목 + 카이막: Boris\'in Yeri(백종원 추천). Naftalin K 카페. T1트램→에미뇌뉘→T5트램→페네르/제발리. ⚠️피에르로티와 시간 겹침 → 둘 중 선택', 'Europe/Istanbul', '', '', '', ''],
+    ['2026-03-19', '17:00', '19:00', '☕ 피에르 로티 카페', '☕카페', 'Pierre Loti Cafe, Eyüp, Istanbul', '골든혼 전망. ★석양 18:30~19:00★ 터키커피(Türk Kahvesi) 또는 사흘레프(Sahlep). 에윕→케이블카+T1트램. 이스탄불카드 35TL/인×2회 (2인 140TL=4,800원). [옵션] 발라트 컬러풀 거리+Naftalin K', 'Europe/Istanbul', '4800', '', '', ''],
     ['2026-03-19', '19:30', '21:30', '🍽️ 저녁: Hamdi Restaurant', '🍽️식사', 'Hamdi Restaurant, Eminönü, Istanbul', '★루프탑 야경 디너★ 퀴슐레메(구운양갈비), 이스켄데르케밥. 갈라타다리+모스크 야경. 루프탑 좌석 예약 필수. 💳카드OK', 'Europe/Istanbul', '55000', '', '', ''],
-    ['2026-03-19', '21:30', '22:00', '저녁→호텔 복귀', '🚎이동', 'Eminönü → Sultanahmet', 'T1 트램 35TL/인 (2인 70TL=2,400원) 또는 택시 300TL', 'Europe/Istanbul', '10000', '', '', routeLink('Eminönü Istanbul', 'Sultanahmet Istanbul', 'transit')],
+    ['2026-03-19', '21:30', '22:00', '저녁→호텔 복귀', '🚎이동', 'Eminönü → Sultanahmet', 'T1 트램 이스탄불카드 35TL/인 (2인 70TL=2,400원) 또는 택시 300TL', 'Europe/Istanbul', '2400', '', '', routeLink('Eminönü Istanbul', 'Sultanahmet Istanbul', 'transit')],
 
     // ===================== 3/20 (금) 이스탄불 신시가지 =====================
     ['2026-03-20', '08:00', '09:00', '🍽️ 호텔 조식', '🍽️식사', 'Hotel Sultania', '터키식 아침. 숙박 포함. ★Olive Restaurant 루프탑 — 마지막 올드시티 뷰', 'Europe/Istanbul', '0', '', '', ''],
@@ -180,7 +181,7 @@ function createScheduleSheet(ss) {
     ['2026-03-20', '11:30', '12:30', '톰톰 스위트 체크인', '🏨숙소', 'TomTom Suites, Beyoğlu, Istanbul', '갈라타타워 도보 3분. ★미슐랭 1스타 Nicole 레스토랑(호텔 내). 테이스팅메뉴 8,100TL/인. 보스포루스 파노라마★', 'Europe/Istanbul', '252986', '', '1696582910', ''],
     ['2026-03-20', '12:30', '14:00', '🍽️ 점심: Meze By Lemon Tree', '🍽️식사', 'Meze By Lemon Tree, Beyoğlu, Istanbul', '현대식 터키퓨전. 메제 테이스팅 12종, 오징어튀김, 라크칵테일. 예약 권장. 💳카드OK', 'Europe/Istanbul', '50000', '', '', ''],
     ['2026-03-20', '14:00', '17:00', '☕ 갈라타/카라쿄이 감성 카페 루트', '☕카페', 'FiLBooks, Karaköy, Istanbul', '갈라타타워 외관 감상(올라가지 않음) → ①FiLBooks(포토북+카페) ②Galata Konak Cafe(360도 뷰) ③Çukurcuma 빈티지 골목. [옵션] 보스포루스 석양 크루즈(Turyol, 17:00, 250TL/인)', 'Europe/Istanbul', '10000', '', '', ''],
-    ['2026-03-20', '19:00', '21:30', '🍽️ 저녁: Mikla Restaurant', '🍽️식사', 'Mikla Restaurant, The Marmara Pera, Beyoğlu', '★피날레 디너★ 미슐랭가이드. 터키-스칸디나비안 퓨전. 시그니처 코스. 보스포루스 루프탑 야경. ⚠️최소 3일전 예약. [옵션] Nicole@TomTom 미슐랭1스타 8,100TL/인', 'Europe/Istanbul', '160000', '', '', ''],
+    ['2026-03-20', '19:00', '21:30', '🍽️ ★피날레 디너: Mikla Restaurant', '🍽️식사', 'Mikla Restaurant, The Marmara Pera, Beyoğlu', '★피날레 디너★ 미슐랭가이드. 터키-스칸디나비안 퓨전. 시그니처 코스. 보스포루스 루프탑 야경. ⚠️최소 3일전 예약. [옵션] Nicole@TomTom 미슐랭1스타 8,100TL/인', 'Europe/Istanbul', '160000', '', '', ''],
     ['2026-03-20', '21:30', '22:00', '호텔 복귀', '🚶이동', 'Mikla → TomTom Suites', '도보 10분', 'Europe/Istanbul', '', '', '', routeLink('Mikla Restaurant Istanbul', 'TomTom Suites Istanbul', 'walking')],
 
     // ===================== 3/21 (토) 이스탄불→서울 =====================
@@ -219,7 +220,7 @@ function createScheduleSheet(ss) {
     '🍦 카이막 간식': '💡 다른 옵션:\n• 🍯 Boris\'in Yeri (발라트, ★백종원 추천★, 자체생산 카이막)',
     '☕ 피에르 로티 카페': '💡 다른 옵션:\n• 🎨 발라트 컬러풀 거리 + Naftalin K 카페 (인스타 명소)',
     '☕ 갈라타/카라쿄이 감성 카페 루트': '💡 다른 옵션:\n• 🚢 보스포루스 석양 크루즈 (Turyol, 250TL/인, 1.5시간, 17:00)',
-    '🍽️ 저녁: Mikla Restaurant': '💡 다른 옵션:\n• 🍽️ Nicole@TomTom 미슐랭1스타 (8,100TL/인, 호텔 내)',
+    '🍽️ ★피날레 디너: Mikla Restaurant': '💡 다른 옵션:\n• 🍽️ Nicole@TomTom 미슐랭1스타 (8,100TL/인, 호텔 내)',
     '마지막 쇼핑 & 브런치': '💡 다른 옵션:\n• 🛒 카드쿄이 시장 (아시아사이드, 페리20분, 현지가격, 바가지 없음)',
   };
   for (let i = 1; i < data.length; i++) {
