@@ -242,6 +242,75 @@ a { color: var(--blue); text-decoration: none; }
 .dday .num { font-size: 32px; font-weight: 800; color: var(--accent); }
 .dday .label { font-size: 12px; color: var(--text-dim); }
 
+/* --- 이중 시계 (KST + TRT) --- */
+.dual-clock {
+  display: flex; align-items: center; justify-content: center;
+  gap: 14px; margin-top: 8px; font-size: 12px; color: rgba(255,255,255,.85);
+}
+.dual-clock .flag-time { display: flex; align-items: center; gap: 4px; }
+.dual-clock .clock-time {
+  font-weight: 700; font-size: 14px;
+  font-variant-numeric: tabular-nums; letter-spacing: .5px;
+}
+.dual-clock .sep { color: rgba(255,255,255,.3); }
+
+/* --- 미션 체크박스 --- */
+.event-card { position: relative; }
+.mission-check {
+  position: absolute; top: 10px; right: 10px;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--card-alt); border: 2px solid var(--border);
+  cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center;
+  transition: all .2s; z-index: 2; line-height: 1;
+}
+.event-card.mission-done { opacity: 0.5; }
+.event-card.mission-done .event-title { text-decoration: line-through; color: var(--text-dim); }
+.event-card.mission-done .mission-check { background: transparent; border-color: transparent; }
+
+/* --- 여행 N일차 + 진행도 --- */
+.day-num-badge {
+  font-size: 11px; font-weight: 600; background: rgba(243,156,18,.2);
+  color: var(--accent2); padding: 2px 8px; border-radius: 10px; margin-left: auto;
+}
+.day-progress {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 11px; color: var(--text-dim); margin-bottom: 10px;
+}
+.day-progress-bar {
+  flex: 1; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden;
+}
+.day-progress-fill {
+  height: 100%; background: var(--green); border-radius: 2px; transition: width .4s ease;
+}
+
+/* --- 메모 --- */
+.memo-btn {
+  display: inline-block; font-size: 11px; color: var(--text-dim);
+  background: none; border: none; cursor: pointer; padding: 4px 0; margin-top: 6px;
+}
+.memo-btn:hover { color: var(--accent2); }
+.memo-area {
+  display: none; margin-top: 8px; padding: 8px;
+  background: rgba(243,156,18,.07); border: 1px solid rgba(243,156,18,.25);
+  border-radius: 8px;
+}
+.memo-area.open { display: block; }
+.memo-area textarea {
+  width: 100%; background: transparent; border: none; color: var(--text);
+  font-size: 12px; line-height: 1.6; resize: none; min-height: 56px;
+  font-family: inherit; display: block;
+}
+.memo-area textarea:focus { outline: none; }
+.memo-save-btn {
+  font-size: 11px; background: var(--accent2); color: #fff; border: none;
+  padding: 3px 12px; border-radius: 6px; cursor: pointer; margin-top: 4px;
+}
+.memo-display {
+  font-size: 12px; color: var(--accent2); margin-top: 6px;
+  background: rgba(243,156,18,.08); border-left: 3px solid var(--accent2);
+  padding: 6px 8px; border-radius: 0 6px 6px 0; white-space: pre-wrap;
+}
+
 /* 스크롤 top */
 .scroll-top {
   position: fixed; bottom: 72px; right: 16px; z-index: 90;
@@ -259,9 +328,23 @@ a { color: var(--blue); text-decoration: none; }
 </head>
 <body>
 
-<div class="header">
+<div class="header" onclick="showDatePicker()">
   <h1>🇹🇷 터키 9주년 기념여행</h1>
   <div class="sub">2026.03.12(목) ~ 03.21(토) · 10일</div>
+  <div class="dual-clock">
+    <div class="flag-time">🇰🇷 <span class="clock-time" id="kst-time">--:--</span></div>
+    <span class="sep">|</span>
+    <div class="flag-time">🇹🇷 <span class="clock-time" id="trt-time">--:--</span></div>
+  </div>
+</div>
+
+<!-- 날짜 퀵점프 오버레이 -->
+<div id="date-picker-overlay" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:200;background:rgba(0,0,0,.7)" onclick="hideDatePicker()">
+  <div style="background:#1a1a1a;border-radius:0 0 16px 16px;padding:16px;border-bottom:2px solid var(--accent)" onclick="event.stopPropagation()">
+    <div style="font-size:13px;font-weight:700;color:var(--accent2);margin-bottom:10px;text-align:center">📅 날짜 바로가기</div>
+    <div id="date-picker-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px"></div>
+    <div style="text-align:center;margin-top:10px;font-size:11px;color:var(--text-dim)">영역 밖 터치하면 닫힘</div>
+  </div>
 </div>
 
 <!-- ========== 탭 컨텐츠 ========== -->
@@ -604,16 +687,46 @@ function renderSchedule() {
   let html = '';
   let currentDate = '';
 
+  // 날짜별 이벤트 수 사전 계산
+  const dayCounts = {};
+  SCHEDULE.forEach((ev, i) => { dayCounts[ev.d] = (dayCounts[ev.d] || 0) + 1; });
+
+  // localStorage 로드
+  const missions = JSON.parse(localStorage.getItem('turkey-missions') || '{}');
+  const memos   = JSON.parse(localStorage.getItem('turkey-memos')    || '{}');
+
+  const TRIP_START_MS = new Date('2026-03-12T00:00:00+09:00').getTime();
+
   SCHEDULE.forEach((ev, idx) => {
+    const key = 'ev_' + ev.d + '_' + idx;
+    const isMission = missions[key] === true;
+    const memoText  = memos[key] || '';
+
     if (ev.d !== currentDate) {
       if (currentDate) html += '</div>';
       currentDate = ev.d;
-      const dt = new Date(ev.d + 'T00:00:00');
-      const m = dt.getMonth() + 1;
-      const dd = dt.getDate();
+      const dt  = new Date(ev.d + 'T00:00:00');
+      const m   = dt.getMonth() + 1;
+      const dd  = dt.getDate();
       const day = DAY_NAMES[dt.getDay()];
       const city = CITY_MAP[ev.d] || '';
-      html += `<div class="day-section fade-in" id="day-${ev.d}"><div class="day-header">${m}/${dd} (${day}) <span class="city">${city}</span></div>`;
+
+      // 여행 N일차
+      const dayNum = Math.floor((new Date(ev.d + 'T12:00:00+09:00').getTime() - TRIP_START_MS) / 86400000) + 1;
+
+      // 이 날 완료 수
+      const dayKeys = [];
+      SCHEDULE.forEach((e, i) => { if (e.d === ev.d) dayKeys.push('ev_' + e.d + '_' + i); });
+      const doneCount = dayKeys.filter(k => missions[k]).length;
+      const totalCount = dayCounts[ev.d];
+      const pct = totalCount > 0 ? Math.round(doneCount / totalCount * 100) : 0;
+
+      html += `<div class="day-section fade-in" id="day-${ev.d}">
+        <div class="day-header">${m}/${dd} (${day}) <span class="city">${city}</span><span class="day-num-badge">여행 ${dayNum}일차</span></div>
+        <div class="day-progress">
+          <div class="day-progress-bar"><div class="day-progress-fill" id="prog-${ev.d}" style="width:${pct}%"></div></div>
+          <span id="prog-text-${ev.d}" style="min-width:36px;text-align:right">${doneCount}/${totalCount} ✓</span>
+        </div>`;
     }
 
     const cls = CAT_CLASS[ev.cat] || '';
@@ -623,12 +736,22 @@ function renderSchedule() {
     if (ev.map) links.push(`<a href="${navUrl(ev.map)}" target="_blank">📍 길찾기</a>`);
     if (ev.route) links.push(`<a href="${routeUrl(ev.route.o,ev.route.d,ev.route.m)}" target="_blank">🚗 경로</a>`);
     const linksHtml = links.length ? `<div class="event-links">${links.join('')}</div>` : '';
+    const memoDisplayHtml = memoText ? `<div class="memo-display">✏️ ${memoText.replace(/\n/g,'<br>').replace(/</g,'&lt;')}</div>` : '';
 
-    html += `<div class="event-card ${cls}" onclick="toggleDesc(this)">
+    html += `<div class="event-card ${cls}${isMission?' mission-done':''}" data-key="${key}" onclick="toggleDesc(this)">
+      <button class="mission-check" onclick="toggleMission('${key}','${ev.d}',event)" title="${isMission?'완료취소':'미션 완료!'}">${isMission?'✅':''}</button>
       <div class="event-time">${timeStr}${ev.tz ? ' <span style="color:var(--blue);font-size:11px">['+ev.tz+']</span>' : ''}</div>
       <div class="event-title">${ev.t}</div>
       <div class="event-loc">📍 ${ev.loc}</div>
-      <div class="event-desc">${(ev.desc||'').replace(/\n/g,'<br>')}${costStr}${linksHtml}</div>
+      <div class="event-desc">
+        ${(ev.desc||'').replace(/\n/g,'<br>')}${costStr}${linksHtml}
+        <button class="memo-btn" onclick="toggleMemo('${key}',event)">✏️ 메모${memoText?' (있음)':' 추가'}</button>
+        <div class="memo-area" id="memo-area-${key}">
+          <textarea placeholder="여행 중 느낀 점, 팁, 가격 등 자유롭게..." id="memo-text-${key}" oninput="autoResize(this)">${memoText}</textarea>
+          <button class="memo-save-btn" onclick="saveMemo('${key}',event)">💾 저장</button>
+        </div>
+        ${memoDisplayHtml}
+      </div>
       <button class="expand-btn">▼ 상세보기</button>
     </div>`;
 
@@ -665,6 +788,135 @@ function toggleDesc(card) {
   } else {
     desc.classList.add('open');
     btn.textContent = '▲ 접기';
+  }
+}
+
+// ===== 이중 시계 (KST + TRT) =====
+function updateClock() {
+  const now = new Date();
+  const fmt = tz => new Date(now.toLocaleString('en-US', {timeZone: tz}))
+    .toLocaleTimeString('ko-KR', {hour:'2-digit', minute:'2-digit', hour12:false});
+  const kEl = document.getElementById('kst-time');
+  const tEl = document.getElementById('trt-time');
+  if (kEl) kEl.textContent = fmt('Asia/Seoul');
+  if (tEl) tEl.textContent = fmt('Europe/Istanbul');
+}
+
+// ===== 미션 체크박스 =====
+function toggleMission(key, date, e) {
+  e.stopPropagation();
+  const missions = JSON.parse(localStorage.getItem('turkey-missions') || '{}');
+  missions[key] = !missions[key];
+  localStorage.setItem('turkey-missions', JSON.stringify(missions));
+  const card = document.querySelector(`[data-key="${key}"]`);
+  if (!card) return;
+  const done = missions[key];
+  card.classList.toggle('mission-done', done);
+  const btn = card.querySelector('.mission-check');
+  if (btn) { btn.textContent = done ? '✅' : ''; btn.title = done ? '완료취소' : '미션 완료!'; }
+  updateDayProgress(date);
+}
+
+function updateDayProgress(date) {
+  const missions = JSON.parse(localStorage.getItem('turkey-missions') || '{}');
+  const dayKeys = [];
+  SCHEDULE.forEach((ev, i) => { if (ev.d === date) dayKeys.push('ev_' + ev.d + '_' + i); });
+  const done = dayKeys.filter(k => missions[k]).length;
+  const total = dayKeys.length;
+  const pct = total > 0 ? Math.round(done / total * 100) : 0;
+  const fillEl = document.getElementById('prog-' + date);
+  const textEl = document.getElementById('prog-text-' + date);
+  if (fillEl) fillEl.style.width = pct + '%';
+  if (textEl) textEl.textContent = done + '/' + total + ' ✓';
+}
+
+// ===== 메모 =====
+function toggleMemo(key, e) {
+  e.stopPropagation();
+  const area = document.getElementById('memo-area-' + key);
+  if (!area) return;
+  area.classList.toggle('open');
+  if (area.classList.contains('open')) {
+    const ta = document.getElementById('memo-text-' + key);
+    if (ta) { ta.focus(); autoResize(ta); }
+  }
+}
+
+function saveMemo(key, e) {
+  e.stopPropagation();
+  const ta = document.getElementById('memo-text-' + key);
+  if (!ta) return;
+  const memos = JSON.parse(localStorage.getItem('turkey-memos') || '{}');
+  const val = ta.value.trim();
+  if (val) memos[key] = val; else delete memos[key];
+  localStorage.setItem('turkey-memos', JSON.stringify(memos));
+
+  const card = document.querySelector(`[data-key="${key}"]`);
+  if (!card) return;
+  const area = document.getElementById('memo-area-' + key);
+  const memoBtn = card.querySelector('.memo-btn');
+  let display = card.querySelector('.memo-display');
+
+  if (val) {
+    if (!display) {
+      display = document.createElement('div');
+      display.className = 'memo-display';
+      area.after(display);
+    }
+    display.innerHTML = '✏️ ' + val.replace(/</g,'&lt;').replace(/\n/g,'<br>');
+    if (memoBtn) memoBtn.textContent = '✏️ 메모 (있음)';
+  } else {
+    if (display) display.remove();
+    if (memoBtn) memoBtn.textContent = '✏️ 메모 추가';
+  }
+  if (area) area.classList.remove('open');
+}
+
+function autoResize(ta) {
+  ta.style.height = 'auto';
+  ta.style.height = ta.scrollHeight + 'px';
+}
+
+// ===== 날짜 퀵점프 오버레이 (헤더 탭 시) =====
+function showDatePicker() {
+  const overlay = document.getElementById('date-picker-overlay');
+  const grid = document.getElementById('date-picker-grid');
+  if (!overlay || !grid) return;
+
+  // 일정 탭일 때만 활성화
+  const scheduleTab = document.getElementById('tab-schedule');
+  if (!scheduleTab || !scheduleTab.classList.contains('active')) return;
+
+  grid.innerHTML = DATES.map(d => {
+    const dt = new Date(d + 'T00:00:00');
+    const m  = dt.getMonth() + 1;
+    const dd = dt.getDate();
+    const day = DAY_NAMES[dt.getDay()];
+    return `<button onclick="jumpToDate('${d}')" style="
+      background:var(--card);border:1px solid var(--border);border-radius:10px;
+      padding:8px 4px;color:var(--text);cursor:pointer;font-size:12px;line-height:1.4">
+      <div style="font-weight:700;color:var(--accent2)">${m}/${dd}</div>
+      <div style="font-size:10px;color:var(--text-dim)">${day}</div>
+    </button>`;
+  }).join('');
+
+  overlay.style.display = 'block';
+}
+
+function hideDatePicker() {
+  const overlay = document.getElementById('date-picker-overlay');
+  if (overlay) overlay.style.display = 'none';
+}
+
+function jumpToDate(d) {
+  hideDatePicker();
+  const el = document.getElementById('day-' + d);
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // 날짜 네비 버튼도 활성화
+    document.querySelectorAll('.date-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.date === d);
+    });
   }
 }
 
@@ -933,6 +1185,10 @@ renderFood();
 renderTickets();
 renderPack();
 renderInfo();
+
+// 이중 시계 시작
+updateClock();
+setInterval(updateClock, 1000);
 </script>
 </body>
 </html>
