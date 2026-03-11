@@ -321,27 +321,36 @@ a { color: var(--blue); text-decoration: none; }
 }
 .scroll-top.show { display: flex; align-items: center; justify-content: center; }
 
-/* GitHub 저장 버튼 */
-.github-save {
+/* Firebase 저장 버튼 */
+.firebase-save {
   position: fixed; bottom: 120px; right: 16px; z-index: 90;
   width: 44px; height: 44px; border-radius: 50%;
-  background: #238636; color: #fff; border: none;
+  background: #f57c00; color: #fff; border: none;
   font-size: 20px; cursor: pointer;
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 2px 10px rgba(0,0,0,.5);
   transition: transform .15s, opacity .2s;
 }
-.github-save:active { transform: scale(.9); }
-.github-save.hidden { opacity: 0; pointer-events: none; }
+.firebase-save:active { transform: scale(.9); }
+.firebase-save.hidden { opacity: 0; pointer-events: none; }
+.firebase-save.syncing { animation: spin .8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
 /* 저장 토스트 */
 .save-toast {
-  position: fixed; bottom: 170px; right: 16px; z-index: 200;
-  background: #238636; color: #fff;
+  position: fixed; bottom: 174px; right: 16px; z-index: 200;
+  background: #f57c00; color: #fff;
   font-size: 12px; padding: 8px 14px; border-radius: 20px;
   box-shadow: 0 2px 10px rgba(0,0,0,.4);
   display: none; white-space: nowrap;
 }
 .save-toast.show { display: block; animation: fadeIn .25s ease; }
+.save-toast.error { background: var(--accent); }
+/* Firebase 설정 배너 */
+.fb-setup-banner {
+  margin: 10px 16px; padding: 10px 14px;
+  background: rgba(245,124,0,.12); border: 1px dashed #f57c00;
+  border-radius: 10px; font-size: 12px; color: #f57c00; line-height: 1.8;
+}
 
 /* 애니메이션 */
 @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
@@ -375,6 +384,12 @@ a { color: var(--blue); text-decoration: none; }
 <div id="tab-schedule" class="tab-content active">
   <div class="dday" id="dday-box"></div>
   <div class="date-nav" id="date-nav"></div>
+  <!-- Firebase 미설정 안내 (설정 완료 시 JS로 숨김) -->
+  <div class="fb-setup-banner" id="fb-setup-guide" style="display:none">
+    🔥 <b>Firebase 미연결</b> — 메모가 이 기기에만 저장됩니다.<br>
+    클라우드 백업을 원하면 스크립트 상단 <code>FB.url</code> / <code>FB.secret</code> 을 채워주세요.<br>
+    <small>설정 완료 시 이 배너는 사라집니다.</small>
+  </div>
   <div id="schedule-content"></div>
 </div>
 
@@ -409,10 +424,19 @@ a { color: var(--blue); text-decoration: none; }
 </div>
 
 <button class="scroll-top" id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<button class="github-save hidden" id="github-save-btn" onclick="exportMemosToShortcut()" title="메모 저장 → 단축어">📤</button>
-<div class="save-toast" id="save-toast">클립보드 복사 완료! 단축어 실행중...</div>
+<button class="firebase-save hidden" id="firebase-save-btn" onclick="saveToFirebase()" title="☁️ Firebase에 메모 저장">☁️</button>
+<div class="save-toast" id="save-toast"></div>
 
 <script>
+// ============================================================
+// 🔥 Firebase 설정 (본인 프로젝트 값으로 교체하세요)
+// ============================================================
+const FB = {
+  url:    'YOUR_PROJECT_URL',   // 예: https://turkey-trip-abc12-default-rtdb.firebaseio.com
+  secret: 'YOUR_DATABASE_SECRET'  // Firebase 콘솔 → 프로젝트 설정 → 서비스 계정 → 데이터베이스 비밀번호
+};
+const FB_READY = FB.url !== 'YOUR_PROJECT_URL';
+
 // ============================================================
 // 데이터
 // ============================================================
@@ -894,7 +918,7 @@ function saveMemo(key, e) {
     if (memoBtn) memoBtn.textContent = '✏️ 메모 추가';
   }
   if (area) area.classList.remove('open');
-  updateGithubSaveBtn(); // 메모 추가/삭제 시 GitHub 저장 버튼 표시 업데이트
+  updateFirebaseSaveBtn(); // 메모 추가/삭제 시 Firebase 저장 버튼 표시 업데이트
 }
 
 function autoResize(ta) {
@@ -1203,74 +1227,105 @@ window.addEventListener('scroll', () => {
 });
 
 // ============================================================
-// 📤 GitHub 저장 (메모 → 클립보드 → 단축어)
+// 🔥 Firebase Realtime Database 동기화
 // ============================================================
-function updateGithubSaveBtn() {
+
+// 저장 버튼 표시 여부 (메모 있을 때만)
+function updateFirebaseSaveBtn() {
   const memos = JSON.parse(localStorage.getItem('turkey-memos') || '{}');
   const hasMemo = Object.keys(memos).some(k => memos[k] && memos[k].trim());
-  const btn = document.getElementById('github-save-btn');
+  const btn = document.getElementById('firebase-save-btn');
   if (btn) btn.classList.toggle('hidden', !hasMemo);
 }
 
-function exportMemosToShortcut() {
+// 토스트 메시지
+function showToast(msg, isError) {
+  const t = document.getElementById('save-toast');
+  if (!t) return;
+  t.textContent = msg;
+  t.className = 'save-toast show' + (isError ? ' error' : '');
+  setTimeout(() => { t.classList.remove('show'); }, 3000);
+}
+
+// ☁️ Firebase에 저장
+async function saveToFirebase() {
+  if (!FB_READY) {
+    showToast('⚠️ Firebase 미설정 — 아래 가이드 참고', true);
+    document.getElementById('fb-setup-guide') &&
+      document.getElementById('fb-setup-guide').scrollIntoView({ behavior: 'smooth' });
+    return;
+  }
+  const btn = document.getElementById('firebase-save-btn');
+  if (btn) btn.classList.add('syncing');
+
   const memos    = JSON.parse(localStorage.getItem('turkey-memos')    || '{}');
   const missions = JSON.parse(localStorage.getItem('turkey-missions') || '{}');
 
-  // 메모를 이벤트 제목 + 날짜 포함 형태로 정리
+  // 메모에 이벤트 제목+날짜 덧붙임
   const enriched = {};
   Object.keys(memos).forEach(key => {
     if (!memos[key] || !memos[key].trim()) return;
-    // key 형식: ev_2026-03-12_3
     const parts = key.split('_');
     const dateStr = parts.slice(1, parts.length - 1).join('-');
     const idx = parseInt(parts[parts.length - 1], 10);
     const ev = SCHEDULE.find((e, i) => e.d === dateStr && i === idx);
-    const title = ev ? `[${dateStr}] ${ev.t}` : key;
-    enriched[title] = memos[key].trim();
+    enriched[key] = { title: ev ? `[${dateStr}] ${ev.t}` : key, text: memos[key].trim() };
   });
 
   const payload = {
-    exportedAt: new Date().toISOString(),
-    memo_count: Object.keys(enriched).length,
-    memos: enriched,
+    savedAt:      new Date().toISOString(),
+    memo_count:   Object.keys(enriched).length,
+    memos:        enriched,
+    missions:     missions,
     missions_done: Object.values(missions).filter(Boolean).length
   };
-  const jsonStr = JSON.stringify(payload, null, 2);
 
-  // 클립보드 복사 후 단축어 실행
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(jsonStr)
-      .then(() => { showSaveToast(); openShortcut(); })
-      .catch(() => { fallbackCopy(jsonStr); });
-  } else {
-    fallbackCopy(jsonStr);
+  try {
+    const res = await fetch(`${FB.url}/turkey.json?auth=${FB.secret}`, {
+      method:  'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify(payload)
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    showToast(`☁️ 저장 완료! 메모 ${payload.memo_count}개`, false);
+  } catch (err) {
+    showToast('❌ 저장 실패: ' + err.message, true);
+    console.error('Firebase save error:', err);
+  } finally {
+    if (btn) btn.classList.remove('syncing');
   }
 }
 
-function fallbackCopy(text) {
-  const ta = document.createElement('textarea');
-  ta.value = text;
-  ta.style.cssText = 'position:fixed;top:-9999px;left:-9999px';
-  document.body.appendChild(ta);
-  ta.select(); ta.setSelectionRange(0, 99999);
-  document.execCommand('copy');
-  document.body.removeChild(ta);
-  showSaveToast();
-  openShortcut();
-}
+// 📥 Firebase에서 불러오기 (앱 시작 시)
+async function loadFromFirebase() {
+  if (!FB_READY) return;
+  try {
+    const res = await fetch(`${FB.url}/turkey.json?auth=${FB.secret}`);
+    if (!res.ok) return;
+    const data = await res.json();
+    if (!data) return;
 
-function showSaveToast() {
-  const t = document.getElementById('save-toast');
-  if (!t) return;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 3000);
-}
+    // Firebase 데이터가 더 최신이면 덮어씌우기
+    const localSaved  = localStorage.getItem('turkey-fb-saved-at') || '';
+    const remoteSaved = data.savedAt || '';
 
-function openShortcut() {
-  // iOS 단축어 앱 실행 (앱 이름 = "터키여행메모")
-  setTimeout(() => {
-    window.location.href = 'shortcuts://run-shortcut?name=%ED%84%B0%ED%82%A4%EC%97%AC%ED%96%89%EB%A9%94%EB%AA%A8';
-  }, 400);
+    if (remoteSaved > localSaved) {
+      // 원본 memos (enriched 형식 → raw key:text 복원)
+      const rawMemos = {};
+      if (data.memos) {
+        Object.keys(data.memos).forEach(k => {
+          rawMemos[k] = data.memos[k].text || data.memos[k];
+        });
+      }
+      localStorage.setItem('turkey-memos',    JSON.stringify(rawMemos));
+      localStorage.setItem('turkey-missions', JSON.stringify(data.missions || {}));
+      localStorage.setItem('turkey-fb-saved-at', remoteSaved);
+      console.log('🔥 Firebase에서 최신 데이터 복원:', remoteSaved);
+      renderSchedule(); // 메모/미션 다시 그리기
+    }
+  } catch (err) {
+    console.warn('Firebase load error (네트워크 확인):', err);
+  }
 }
 
 // 초기 렌더링
@@ -1286,8 +1341,15 @@ renderInfo();
 updateClock();
 setInterval(updateClock, 1000);
 
-// GitHub 저장 버튼 초기 상태 (기존 메모 있으면 표시)
-updateGithubSaveBtn();
+// Firebase 저장 버튼 초기 상태
+updateFirebaseSaveBtn();
+
+// Firebase 미설정 배너 표시 제어
+const fbBanner = document.getElementById('fb-setup-guide');
+if (fbBanner) fbBanner.style.display = FB_READY ? 'none' : 'block';
+
+// Firebase에서 최신 데이터 로드 (비동기, 완료 후 자동 반영)
+loadFromFirebase();
 </script>
 </body>
 </html>
