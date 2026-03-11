@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>🇹🇷 터키 여행 가이드 2026</title>
+<style>
+:root {
+  --bg: #0f0f0f;
+  --card: #1a1a1a;
+  --card-alt: #222;
+  --text: #e8e8e8;
+  --text-dim: #999;
+  --accent: #e74c3c;
+  --accent2: #f39c12;
+  --blue: #3498db;
+  --green: #2ecc71;
+  --purple: #9b59b6;
+  --teal: #1abc9c;
+  --pink: #e91e8e;
+  --border: #333;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  padding-top: var(--safe-top);
+  padding-bottom: calc(60px + var(--safe-bottom));
+  overflow-x: hidden;
+}
+a { color: var(--blue); text-decoration: none; }
+
+/* --- 헤더 --- */
+.header {
+  position: sticky; top: 0; z-index: 100;
+  background: linear-gradient(135deg, #c0392b, #e74c3c);
+  padding: 14px 16px;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,.4);
+}
+.header h1 { font-size: 18px; font-weight: 700; color: #fff; }
+.header .sub { font-size: 12px; color: rgba(255,255,255,.8); margin-top: 2px; }
+
+/* --- 탭바 --- */
+.tab-bar {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
+  display: flex;
+  background: #111;
+  border-top: 1px solid var(--border);
+  padding-bottom: var(--safe-bottom);
+}
+.tab-bar button {
+  flex: 1;
+  background: none; border: none; color: var(--text-dim);
+  font-size: 10px; padding: 8px 0; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  transition: color .2s;
+}
+.tab-bar button.active { color: var(--accent); }
+.tab-bar button .ico { font-size: 20px; }
+
+/* --- 탭 컨텐츠 --- */
+.tab-content { display: none; padding: 12px; }
+.tab-content.active { display: block; }
+
+/* --- 날짜 네비 --- */
+.date-nav {
+  display: flex; gap: 6px; overflow-x: auto; padding: 8px 0 12px;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none;
+}
+.date-nav::-webkit-scrollbar { display: none; }
+.date-btn {
+  flex-shrink: 0; background: var(--card); border: 1px solid var(--border);
+  color: var(--text-dim); border-radius: 20px; padding: 6px 14px;
+  font-size: 12px; cursor: pointer; white-space: nowrap; transition: all .2s;
+}
+.date-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.date-btn .day { font-weight: 700; }
+
+/* --- 일정 카드 --- */
+.day-section { margin-bottom: 16px; }
+.day-header {
+  font-size: 16px; font-weight: 700; padding: 8px 0 4px;
+  border-bottom: 2px solid var(--accent); margin-bottom: 10px;
+  display: flex; align-items: center; gap: 8px;
+}
+.day-header .city { font-size: 12px; color: var(--accent2); font-weight: 400; }
+
+.event-card {
+  background: var(--card); border-radius: 12px; padding: 12px;
+  margin-bottom: 8px; border-left: 4px solid var(--border);
+  transition: transform .15s;
+}
+.event-card:active { transform: scale(.98); }
+.event-time {
+  font-size: 12px; color: var(--accent2); font-weight: 600;
+  display: flex; align-items: center; gap: 6px;
+}
+.event-title { font-size: 15px; font-weight: 600; margin: 4px 0; }
+.event-loc { font-size: 12px; color: var(--text-dim); margin-bottom: 4px; }
+.event-desc {
+  font-size: 12px; color: var(--text-dim); line-height: 1.6;
+  display: none; margin-top: 8px; padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+.event-desc.open { display: block; }
+.event-cost { font-size: 11px; color: var(--green); margin-top: 4px; }
+.event-links { display: flex; gap: 8px; margin-top: 6px; flex-wrap: wrap; }
+.event-links a {
+  font-size: 11px; background: rgba(52,152,219,.15); color: var(--blue);
+  padding: 3px 8px; border-radius: 6px;
+}
+.expand-btn {
+  background: none; border: none; color: var(--text-dim);
+  font-size: 11px; cursor: pointer; padding: 4px 0;
+}
+
+/* 카테고리 색상 */
+.cat-flight { border-left-color: #2980b9; }
+.cat-move { border-left-color: #7f8c8d; }
+.cat-hotel { border-left-color: #27ae60; }
+.cat-food { border-left-color: #e67e22; }
+.cat-sight { border-left-color: #8e44ad; }
+.cat-rest { border-left-color: #95a5a6; }
+.cat-shop { border-left-color: #e74c3c; }
+.cat-cafe { border-left-color: #f1c40f; }
+.cat-exp { border-left-color: #1abc9c; }
+.cat-rent { border-left-color: #d35400; }
+
+/* --- 식당 --- */
+.rest-card {
+  background: var(--card); border-radius: 12px; padding: 12px;
+  margin-bottom: 8px;
+}
+.rest-card.highlight { border: 1px solid var(--accent2); }
+.rest-meal { font-size: 11px; color: var(--accent2); font-weight: 600; text-transform: uppercase; }
+.rest-name { font-size: 15px; font-weight: 700; margin: 3px 0; }
+.rest-rating { color: #f1c40f; font-size: 12px; }
+.rest-menu { font-size: 12px; color: var(--text-dim); margin: 4px 0; }
+.rest-meta { font-size: 11px; color: var(--text-dim); display: flex; gap: 12px; flex-wrap: wrap; }
+.rest-tag {
+  display: inline-block; font-size: 10px; padding: 2px 6px;
+  border-radius: 4px; margin-right: 4px;
+}
+.tag-best { background: rgba(231,76,60,.2); color: var(--accent); }
+.tag-anniv { background: rgba(243,156,18,.2); color: var(--accent2); }
+.tag-reserve { background: rgba(52,152,219,.2); color: var(--blue); }
+
+/* --- 티켓 --- */
+.ticket-card {
+  background: var(--card); border-radius: 12px; padding: 12px;
+  margin-bottom: 8px;
+}
+.ticket-name { font-size: 14px; font-weight: 600; }
+.ticket-price { font-size: 13px; color: var(--green); margin: 4px 0; }
+.ticket-note { font-size: 12px; color: var(--text-dim); }
+.ticket-strategy {
+  background: linear-gradient(135deg, rgba(39,174,96,.1), rgba(52,152,219,.1));
+  border: 1px solid rgba(39,174,96,.3);
+  border-radius: 12px; padding: 14px; margin: 12px 0;
+}
+.ticket-strategy h3 { color: var(--green); font-size: 14px; margin-bottom: 8px; }
+
+/* --- 실용정보 --- */
+.info-section { margin-bottom: 16px; }
+.info-section h3 {
+  font-size: 15px; font-weight: 700; padding: 8px 0;
+  border-bottom: 1px solid var(--border); margin-bottom: 8px;
+}
+.info-item {
+  display: flex; gap: 8px; padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,.05);
+  font-size: 13px;
+}
+.info-label { color: var(--accent2); font-weight: 600; min-width: 100px; flex-shrink: 0; }
+.info-value { color: var(--text-dim); flex: 1; }
+
+/* --- 체크리스트 --- */
+.check-item {
+  display: flex; align-items: center; gap: 8px; padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,.05);
+  font-size: 13px;
+}
+.check-item input[type="checkbox"] {
+  width: 20px; height: 20px; accent-color: var(--green);
+  flex-shrink: 0;
+}
+.check-item.checked label { color: var(--text-dim); text-decoration: line-through; }
+.check-cat { font-size: 13px; font-weight: 700; color: var(--accent2); margin: 12px 0 4px; }
+
+/* --- 호텔 CI/CO --- */
+.hotel-card {
+  background: var(--card); border-radius: 12px; padding: 12px;
+  margin-bottom: 8px; border-left: 4px solid var(--green);
+}
+.hotel-name { font-size: 14px; font-weight: 700; }
+.hotel-dates { font-size: 12px; color: var(--text-dim); margin: 4px 0; }
+.hotel-warn { font-size: 12px; color: var(--accent); }
+
+/* --- 검색 --- */
+.search-box {
+  position: sticky; top: 50px; z-index: 50;
+  padding: 8px 0; background: var(--bg);
+}
+.search-box input {
+  width: 100%; padding: 10px 14px; border-radius: 10px;
+  border: 1px solid var(--border); background: var(--card);
+  color: var(--text); font-size: 14px; outline: none;
+}
+.search-box input:focus { border-color: var(--accent); }
+
+/* --- 비용 서머리 --- */
+.cost-summary {
+  background: linear-gradient(135deg, var(--card), var(--card-alt));
+  border-radius: 12px; padding: 14px; margin: 12px 0;
+  border: 1px solid var(--border);
+}
+.cost-row { display: flex; justify-content: space-between; padding: 4px 0; font-size: 13px; }
+.cost-total { font-weight: 700; font-size: 15px; border-top: 1px solid var(--border); padding-top: 8px; margin-top: 4px; }
+
+/* --- D-day --- */
+.dday {
+  text-align: center; padding: 16px;
+  background: linear-gradient(135deg, rgba(231,76,60,.15), rgba(243,156,18,.15));
+  border-radius: 12px; margin: 8px 0 16px;
+}
+.dday .num { font-size: 32px; font-weight: 800; color: var(--accent); }
+.dday .label { font-size: 12px; color: var(--text-dim); }
+
+/* 스크롤 top */
+.scroll-top {
+  position: fixed; bottom: 72px; right: 16px; z-index: 90;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--accent); color: #fff; border: none;
+  font-size: 18px; cursor: pointer; display: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,.4);
+}
+.scroll-top.show { display: flex; align-items: center; justify-content: center; }
+
+/* 애니메이션 */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.fade-in { animation: fadeIn .3s ease; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🇹🇷 터키 9주년 기념여행</h1>
+  <div class="sub">2026.03.12(목) ~ 03.21(토) · 10일</div>
+</div>
+
+<!-- ========== 탭 컨텐츠 ========== -->
+
+<!-- 탭1: 일정표 -->
+<div id="tab-schedule" class="tab-content active">
+  <div class="dday" id="dday-box"></div>
+  <div class="date-nav" id="date-nav"></div>
+  <div id="schedule-content"></div>
+</div>
+
+<!-- 탭2: 맛집 -->
+<div id="tab-food" class="tab-content">
+  <div class="search-box"><input type="text" id="food-search" placeholder="식당/메뉴 검색..."></div>
+  <div id="food-content"></div>
+</div>
+
+<!-- 탭3: 티켓 -->
+<div id="tab-ticket" class="tab-content">
+  <div id="ticket-content"></div>
+</div>
+
+<!-- 탭4: 준비물 -->
+<div id="tab-pack" class="tab-content">
+  <div id="pack-content"></div>
+</div>
+
+<!-- 탭5: 실용정보 -->
+<div id="tab-info" class="tab-content">
+  <div id="info-content"></div>
+</div>
+
+<!-- 탭바 -->
+<div class="tab-bar">
+  <button class="active" onclick="switchTab('schedule')"><span class="ico">📅</span>일정</button>
+  <button onclick="switchTab('food')"><span class="ico">🍽️</span>맛집</button>
+  <button onclick="switchTab('ticket')"><span class="ico">🎫</span>티켓</button>
+  <button onclick="switchTab('pack')"><span class="ico">🧳</span>준비물</button>
+  <button onclick="switchTab('info')"><span class="ico">ℹ️</span>정보</button>
+</div>
+
+<button class="scroll-top" id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// ============================================================
+// 데이터
+// ============================================================
+const SCHEDULE = [
+  // 3/12 (목) 서울→이스탄불
+  {d:'2026-03-12',s:'06:00',e:'07:00',t:'집→인천공항',cat:'move',loc:'백석 공항버스 정류장',desc:'3300번 공항버스. 인당 8,500원',cost:17000,map:'백석역 공항버스 정류장'},
+  {d:'2026-03-12',s:'07:00',e:'09:00',t:'인천공항 T2 체크인',cat:'flight',loc:'인천국제공항 제2터미널',desc:'체크인 수속 + 면세점',map:'인천국제공항 제2터미널'},
+  {d:'2026-03-12',s:'09:35',e:'09:35',t:'✈️ ICN 출발 (OZ551)',cat:'flight',loc:'인천국제공항 T2',desc:'아시아나 직항 → 이스탄불. 예약번호: DP5W84',cost:2000000},
+  {d:'2026-03-12',s:'15:45',e:'15:45',t:'✈️ IST 도착 (OZ551)',cat:'flight',loc:'Istanbul Airport (IST)',desc:'아시아나 직항 도착. 시차 -6시간 (터키 시간)',tz:'IST'},
+  {d:'2026-03-12',s:'16:00',e:'18:00',t:'IST공항→탁심광장',cat:'move',loc:'IST Airport B2 Platform 16',desc:'HVIST-16 버스. 배차: 16:50/17:25/18:00/18:35. 카드결제 OK',cost:28000,map:'Istanbul Airport HVIST bus stop'},
+  {d:'2026-03-12',s:'18:00',e:'18:15',t:'Nippon Hotel 체크인',cat:'hotel',loc:'Nippon Hotel, Taksim',desc:'탁심광장 도보 5분. 이스티클랄 거리 입구. 예약: 1697933648',cost:90000,map:'Nippon Hotel Taksim Istanbul'},
+  {d:'2026-03-12',s:'18:30',e:'19:30',t:'🍽️ 저녁: Hacı Usta Kebap',cat:'food',loc:'Hacı Usta Kebap, Taksim',desc:'탁심 20년 현지 맛집. 양고기 시쉬케밥(Kuzu Şiş), 닭시쉬(Tavuk Şiş). 아드나케밥 매움주의. 차이 무료',cost:26000,map:'Hacı Usta Kebap House Taksim'},
+  {d:'2026-03-12',s:'19:40',e:'20:20',t:'이스티클랄 거리 야경 산책',cat:'sight',loc:'İstiklal Caddesi, Beyoğlu',desc:'탁심광장→이스티클랄거리 하행. 공화국기념비, 빨간전차 포토존. 피곤하면 T2트램(50TL)',cost:1500,map:'İstiklal Caddesi Istanbul'},
+  {d:'2026-03-12',s:'20:20',e:'20:50',t:'🍰 Özsüt 1915 디저트',cat:'food',loc:'Hasan Fehmi Özsüt, Beyoğlu',desc:'1950년 창업. 카잔디비(캬라멜 우유푸딩), 수틀라치(쌀푸딩) 추천',cost:15000,map:'Hasan Fehmi Özsüt Beyoğlu'},
+  {d:'2026-03-12',s:'20:50',e:'21:20',t:'갈라타 타워 & 다리 야경',cat:'sight',loc:'Galata Tower, Istanbul',desc:'타워 외관 감상→갈라타 다리 하행. 푸니쿨라(F2) 무료. 보스포루스 야경',map:'Galata Tower Istanbul'},
+  {d:'2026-03-12',s:'21:20',e:'21:50',t:'🍽️ 고등어케밥 (선택)',cat:'food',loc:'Galata Bridge, Eminönü',desc:'Mehmet Usta 또는 Eyyup Usta. 갈라타다리 아래 50년 전통. 배부르면 패스',cost:10000,map:'Eminönü Balık Ekmek'},
+  {d:'2026-03-12',s:'21:50',e:'22:20',t:'카라쿄이→호텔 복귀',cat:'move',loc:'Karaköy → Taksim',desc:'푸니쿨라+T2트램. 50TL',cost:1500},
+
+  // 3/13 (금) 이스탄불→카파도키아
+  {d:'2026-03-13',s:'05:00',e:'05:50',t:'Nippon Hotel 체크아웃',cat:'hotel',loc:'Nippon Hotel, Taksim',desc:'짐 정리. 전날 밤 미리 챙기기'},
+  {d:'2026-03-13',s:'06:00',e:'07:20',t:'호텔→IST 공항',cat:'move',loc:'Taksim Bus Stop',desc:'HVIST-9 버스 06:15 탑승. 05:45까지 도착 필수',cost:28000},
+  {d:'2026-03-13',s:'07:20',e:'09:10',t:'IST 국내선 체크인',cat:'flight',loc:'Istanbul Airport Domestic',desc:'국내선 수속 (15kg 위탁). 조식: Simit Sarayı (시미트+차이 150TL)',cost:5000},
+  {d:'2026-03-13',s:'09:10',e:'10:35',t:'✈️ IST→NAV (TK2004)',cat:'flight',loc:'Istanbul → Nevşehir',desc:'터키항공 국내선. 창가좌석 추천 (카파도키아 공중조망). 예약: SMLKWV',cost:185000},
+  {d:'2026-03-13',s:'10:35',e:'11:40',t:'NAV 공항→괴레메',cat:'move',loc:'Nevşehir Airport → Göreme',desc:'공항셔틀 정시출발, 호텔 앞 하차',cost:21000,map:'Nevşehir Kapadokya Airport'},
+  {d:'2026-03-13',s:'11:40',e:'12:00',t:'Sarnich Cave 체크인',cat:'hotel',loc:'Sarnich Cave Suites, Göreme',desc:'동굴호텔! 괴레메 중심 도보 3분. ⚠️CI 14:00이지만 11:40 도착 → 짐 맡기고 점심 먼저',cost:268000,map:'Sarnich Cave Suites Göreme'},
+  {d:'2026-03-13',s:'12:00',e:'13:00',t:'호텔 휴식 & 샤워',cat:'rest',loc:'Sarnich Cave Suites',desc:'새벽기상+이동 피로회복'},
+  {d:'2026-03-13',s:'13:00',e:'15:00',t:'🍽️ 점심: TUMA Restaurant',cat:'food',loc:'TUMA Restaurant, Göreme',desc:'⭐4.9 항아리케밥(테스티케밥) 필수! 불쇼 퍼포먼스. 카트메르+돈두르마. 테라스 석양뷰',cost:50000,map:'TUMA Restaurant Göreme'},
+  {d:'2026-03-13',s:'15:00',e:'16:30',t:'호텔 낮잠',cat:'rest',loc:'Sarnich Cave Suites',desc:'오후 3~4시 햇볕 강함. 실내 휴식'},
+  {d:'2026-03-13',s:'16:30',e:'18:00',t:'☕ 카페 투어',cat:'cafe',loc:'Göreme center',desc:"King's Coffee Shop ⭐4.9 / The Patio ⭐5.0 / Le Petite Pause. 카이막 120TL, 터키쉬티 80TL",cost:8000,map:'Göreme center cafes'},
+  {d:'2026-03-13',s:'18:00',e:'18:30',t:"석양 감상 (Lover's Hill)",cat:'sight',loc:'Aşıklar Tepesi, Göreme',desc:'★9주년 추천★ 도보 15분. 360도 파노라마. 와인 한 병 들고 가기. 일몰 18:30~19:00',map:'Aşıklar Tepesi Göreme'},
+  {d:'2026-03-13',s:'18:30',e:'20:00',t:'🍽️ ★기념일 디너: Oscar Steak House',cat:'food',loc:'Oscar Steak House, Göreme',desc:'⭐4.9 괴레메 #1! 양갈비 990TL, 무료 차이+바클라바. ★석양 테라스 예약 필수★',cost:60000,map:'Oscar Steak House Göreme'},
+  {d:'2026-03-13',s:'20:00',e:'20:30',t:'Bim 수퍼마켓',cat:'shop',loc:'Bim Market, Göreme',desc:'생수, 간식 장보기',map:'Bim Market Göreme'},
+  {d:'2026-03-13',s:'20:30',e:'21:00',t:'호텔 복귀 & 취침',cat:'rest',loc:'Sarnich Cave Suites',desc:'밤거리 산책. 내일 일정 확인'},
+
+  // 3/14 (토) 카파도키아 - 오픈에어+소금호수
+  {d:'2026-03-14',s:'06:30',e:'08:00',t:'기상 & 일출 감상',cat:'sight',loc:'Göreme Viewpoint',desc:'호텔 테라스 → 뒷 언덕 전망대. 열기구 이륙 관람 (06:00~06:30)',cost:1200,map:'Göreme sunrise viewpoint'},
+  {d:'2026-03-14',s:'08:30',e:'09:30',t:'🍽️ 호텔 조식',cat:'food',loc:'Sarnich Cave Suites',desc:'터키식 아침 (올리브, 치즈, 시미트, 멘멘)'},
+  {d:'2026-03-14',s:'09:30',e:'11:30',t:'괴레메 오픈에어 뮤지엄',cat:'sight',loc:'Göreme Open Air Museum',desc:'★필수★ UNESCO 세계문화유산. 비잔틴 프레스코 벽화 동굴교회. 다크교회(+6EUR) 추천. 도보 15분',cost:90000,map:'Göreme Open Air Museum'},
+  {d:'2026-03-14',s:'11:30',e:'12:30',t:'괴레메 마을 산책',cat:'sight',loc:'Göreme town center',desc:'기념품 가게, 터키램프, 카펫 구경. 투어 준비물 구매',map:'Göreme town center'},
+  {d:'2026-03-14',s:'12:30',e:'13:30',t:'🍽️ 점심',cat:'food',loc:'Göreme',desc:'Cappadocian Cuisine (오너 어머니 홈쿡) / Nostalji (루프탑) / TUMA',cost:30000},
+  {d:'2026-03-14',s:'14:00',e:'14:30',t:'🚗 Sunset Rent a Car 픽업',cat:'rent',loc:'Sunset Rent a Car, Göreme',desc:'60 EUR. WhatsApp으로 연락',cost:100000,map:'Sunset Rent a Car Göreme'},
+  {d:'2026-03-14',s:'14:30',e:'16:00',t:'괴레메→소금호수 드라이브',cat:'move',loc:'Göreme → Tuz Gölü',desc:'170km, 1시간30분. 중간 휴게소 화장실. 연료 200TL',cost:6600},
+  {d:'2026-03-14',s:'16:00',e:'18:30',t:'소금호수 탐험 & 일몰',cat:'sight',loc:'Tuz Gölü (Salt Lake)',desc:'소금 크러스트 걷기 + 골든아워 사진. ⚠️신발 젖음 (여분 양말 필수)',map:'Tuz Gölü Salt Lake Turkey'},
+  {d:'2026-03-14',s:'18:30',e:'20:30',t:'소금호수→괴레메 복귀',cat:'move',loc:'Tuz Gölü → Göreme',desc:'170km 야간운전. ⚠️졸음주의, 교대운전 권장',cost:6600},
+  {d:'2026-03-14',s:'20:30',e:'21:00',t:'호텔 복귀 & 취침',cat:'rest',loc:'Sarnich Cave Suites',desc:'충분한 수면'},
+
+  // 3/15 (일) 카파도키아→안탈리아
+  {d:'2026-03-15',s:'06:00',e:'06:30',t:'로즈밸리 이동',cat:'move',loc:'Rose Valley',desc:'호텔→로즈밸리 12분. ✅손전등 ✅보온복(새벽 2~5°C) ✅비포장 700m 서행'},
+  {d:'2026-03-15',s:'06:30',e:'07:30',t:'🎈 열기구 이륙 관람 + 일출',cat:'sight',loc:'Rose Valley, Cappadocia',desc:'★로맨틱★ 전망대에서 열기구 이륙 관람. 일출 06:42~06:48. 삼각대 세팅',map:'Rose Valley Cappadocia viewpoint'},
+  {d:'2026-03-15',s:'07:30',e:'08:00',t:'로즈밸리→호텔',cat:'move',loc:'Rose Valley → Sarnich',desc:'12분 운전',cost:1600},
+  {d:'2026-03-15',s:'08:30',e:'09:30',t:'🍽️ 호텔 조식',cat:'food',loc:'Sarnich Cave Suites',desc:'터키식 아침'},
+  {d:'2026-03-15',s:'09:30',e:'10:50',t:'휴식 & 체크아웃 준비',cat:'rest',loc:'Sarnich Cave Suites',desc:'샤워·짐 정리. 11:00 체크아웃'},
+  {d:'2026-03-15',s:'11:00',e:'12:00',t:'우치히사르 성',cat:'sight',loc:'Uçhisar Castle',desc:'카파도키아 최고 높이 천연 성채. 꼭대기 360도 파노라마뷰. 입장 250TL',cost:17000,map:'Uçhisar Castle Cappadocia'},
+  {d:'2026-03-15',s:'12:00',e:'12:50',t:'피죤밸리',cat:'sight',loc:'Pigeon Valley',desc:'우치히사르→피죤밸리 도보 하행. 전망대 사진. 무료',map:'Pigeon Valley Cappadocia'},
+  {d:'2026-03-15',s:'13:10',e:'14:00',t:"🍽️ 점심: Fatıma'nın Sofrası",cat:'food',loc:'Avanos',desc:"⭐4.7 아바노스 #1! 만티(터키만두), 도마테스소스, 파술예. 가족운영 수제",cost:20000,map:"Fatıma'nın Sofrası Avanos"},
+  {d:'2026-03-15',s:'14:00',e:'14:50',t:'아바노스 도자기 쇼핑',cat:'shop',loc:'Avanos Çarşı Seramik',desc:'5층 실내몰. 머그 50~100TL, 타일 200~300TL. ★기념 도자기 선물★',map:'Avanos pottery shops'},
+  {d:'2026-03-15',s:'14:50',e:'15:20',t:'강변 산책 & 커피',cat:'cafe',loc:'Kızılırmak River, Avanos',desc:'강변 500m 산책. 흔들다리 포토존',map:'Kızılırmak River Avanos'},
+  {d:'2026-03-15',s:'15:50',e:'16:20',t:'렌트카 반납',cat:'rent',loc:'Sunset Rent a Car, Göreme',desc:'✅주유 완충 (미충전 시 3배 청구) ✅차량 손상 체크'},
+  {d:'2026-03-15',s:'17:30',e:'19:00',t:'괴레메→카이세리(ASR) 공항',cat:'move',loc:'Göreme → Kayseri Airport',desc:'공항셔틀 (사전예약)',cost:21000},
+  {d:'2026-03-15',s:'20:40',e:'22:00',t:'✈️ ASR→AYT (XQ7033)',cat:'flight',loc:'Kayseri → Antalya',desc:'썬익스프레스 직항 1시간20분. 예약: L39V2R',cost:130000},
+  {d:'2026-03-15',s:'22:00',e:'22:30',t:'AYT 공항→두모 스위트',cat:'move',loc:'Antalya Airport',desc:'택시 500TL. 야간이라 택시 추천',cost:20000},
+  {d:'2026-03-15',s:'22:30',e:'23:00',t:'두모 스위트 호텔 체크인',cat:'hotel',loc:'Dumo Suite Hotel, Antalya',desc:'칼레이치 도보 5분. ⚠️야간 22:30 도착 → 사전연락 필수',map:'Dumo Suite Hotel Antalya'},
+
+  // 3/16 (월) 안탈리아→리조트
+  {d:'2026-03-16',s:'08:00',e:'09:00',t:'🍽️ 두모 스위트 조식',cat:'food',loc:'Dumo Suite Hotel',desc:'터키식 아침 포함'},
+  {d:'2026-03-16',s:'09:00',e:'11:00',t:'칼레이치 구시가지 산책',cat:'sight',loc:'Kaleiçi, Antalya',desc:'★로맨틱★ 하드리아누스문→칼레이치 골목(오스만건축)→안탈리아 항구(지중해 전망)',cost:25000,map:'Kaleiçi Old Town Antalya'},
+  {d:'2026-03-16',s:'11:30',e:'12:00',t:'두모 스위트→리조트',cat:'move',loc:'Dumo Suite → Concorde',desc:'택시 600TL. 30분',cost:25000},
+  {d:'2026-03-16',s:'12:00',e:'12:30',t:'콩코드 드럭스 리조트 체크인',cat:'hotel',loc:'Concorde De Luxe Resort, Lara Beach',desc:'★울트라 올인클루시브★ 식사+주류+스파+액티비티 무제한. ⚠️CI 15:00이지만 12:00 도착 → 짐 맡기고 올인클 시설 먼저',cost:560755,map:'Concorde De Luxe Resort Lara Antalya'},
+  {d:'2026-03-16',s:'14:00',e:'15:00',t:'🍽️ 리조트 점심 뷔페',cat:'food',loc:'Concorde De Luxe Resort',desc:'올인클루시브. 지중해 해산물코너+메제 추천'},
+  {d:'2026-03-16',s:'15:00',e:'17:00',t:'리조트 시설 이용',cat:'exp',loc:'Concorde De Luxe Resort',desc:'실내수영장(3월 야외 ❌)+하맘. 수영복 필수'},
+  {d:'2026-03-16',s:'19:00',e:'20:30',t:'🍽️ 리조트 저녁 뷔페',cat:'food',loc:'Concorde De Luxe Resort',desc:'국제요리 뷔페. 라이브쿠킹(스테이크,파스타)+터키디저트(바클라바,퀴네페)'},
+  {d:'2026-03-16',s:'21:00',e:'22:00',t:'조기 취침',cat:'rest',loc:'Concorde De Luxe Resort',desc:'카파도키아 강행군 피로회복'},
+
+  // 3/17 (화) 리조트 완전 휴식일
+  {d:'2026-03-17',s:'09:00',e:'10:00',t:'🍽️ 리조트 아침 뷔페',cat:'food',loc:'Concorde De Luxe Resort',desc:'필수: 멘멘, 시미트, 카이막+발(크림+꿀), 페타+올리브, 차이'},
+  {d:'2026-03-17',s:'10:00',e:'13:00',t:'★완전 휴식★',cat:'rest',loc:'Concorde De Luxe Resort',desc:'해변산책/실내수영장/스파/피트니스/낮잠. 이동 제로'},
+  {d:'2026-03-17',s:'13:00',e:'14:00',t:'🍽️ 리조트 점심 뷔페',cat:'food',loc:'Concorde De Luxe Resort',desc:'해산물 + 케밥 스테이션'},
+  {d:'2026-03-17',s:'15:00',e:'16:30',t:'🛀 터키식 하맘 체험',cat:'exp',loc:'Concorde De Luxe Resort Spa',desc:'★터키 문화체험★ ①온열실 15분 ②대리석 눕기 ③때밀이(Kese) ④비누거품마사지(Köpük). 오일마사지 별도 €30',cost:50000},
+  {d:'2026-03-17',s:'19:00',e:'20:30',t:'🍽️ 리조트 저녁 뷔페',cat:'food',loc:'Concorde De Luxe Resort',desc:'국제요리+퀴네페(Künefe)+수틀라치(쌀푸딩)'},
+  {d:'2026-03-17',s:'21:00',e:'22:00',t:'🎭 리조트 나이트 쇼',cat:'exp',loc:'Concorde De Luxe Resort',desc:'벨리댄스, 민속춤, 라이브 음악. 올인클 포함'},
+
+  // 3/18 (수) 안탈리아→이스탄불
+  {d:'2026-03-18',s:'09:00',e:'10:00',t:'🍽️ 리조트 마지막 아침',cat:'food',loc:'Concorde De Luxe Resort',desc:'마지막 리조트 식사'},
+  {d:'2026-03-18',s:'10:00',e:'10:15',t:'리조트 체크아웃',cat:'hotel',loc:'Concorde De Luxe Resort',desc:'짐 정리'},
+  {d:'2026-03-18',s:'10:15',e:'11:00',t:'리조트→AYT 공항',cat:'move',loc:'Concorde → Antalya Airport',desc:'택시 600TL',cost:25000},
+  {d:'2026-03-18',s:'12:15',e:'13:50',t:'✈️ AYT→IST',cat:'flight',loc:'Antalya → Istanbul',desc:'터키항공 국내선 1시간35분'},
+  {d:'2026-03-18',s:'14:30',e:'16:00',t:'IST 공항→술탄아흐메트',cat:'move',loc:'IST → Sultanahmet',desc:'HVIST-11 버스. 315TL',cost:13000},
+  {d:'2026-03-18',s:'16:00',e:'16:30',t:'호텔 술타니아 체크인',cat:'hotel',loc:'Hotel Sultania, Sultanahmet',desc:'아야소피아 도보 3분. 올드시티 관광 최적 거점',cost:367058,map:'Hotel Sultania Sultanahmet Istanbul'},
+  {d:'2026-03-18',s:'16:50',e:'20:50',t:'🍽️ 미식 야경 투어',cat:'exp',loc:'Karaköy → Kadıköy',desc:'★하이라이트★ 현지인 가이드. ①고등어케밥 ②바클라바 ③보스포루스 수상버스(유럽↔아시아) ④베이란(양고기수프) ⑤터키커피+로쿰. 88,000원/2인',cost:88000},
+  {d:'2026-03-18',s:'20:50',e:'21:30',t:'카라쿄이→호텔 복귀',cat:'move',loc:'Karaköy → Sultanahmet',desc:'택시 400TL 추천',cost:15000},
+
+  // 3/19 (목) 이스탄불 올드시티
+  {d:'2026-03-19',s:'08:00',e:'09:00',t:'🍽️ 호텔 조식',cat:'food',loc:'Hotel Sultania',desc:'터키식 아침 포함'},
+  {d:'2026-03-19',s:'09:00',e:'11:00',t:'🕌 아야 소피아',cat:'sight',loc:'Hagia Sophia, Sultanahmet',desc:'★필수★ 1,500년 비잔틴 건축. 모자이크 필수. 오전 9시 개장직후. 25EUR. ⚠️여성 히잡 필수',cost:86000,map:'Hagia Sophia Istanbul'},
+  {d:'2026-03-19',s:'11:00',e:'13:00',t:'🏛️ 톱카프 궁전',cat:'sight',loc:'Topkapı Palace, Istanbul',desc:'오스만제국 술탄궁전. 하렘 별도. 보스포루스 전망 테라스. 86캐럿 다이아. 궁전+하렘 2,750TL/인',cost:185000,map:'Topkapı Palace Istanbul'},
+  {d:'2026-03-19',s:'13:00',e:'14:30',t:'🍽️ 점심: Balıkçı Sabahattin',cat:'food',loc:'Sultanahmet',desc:'1927년 해산물맛집. 농어/도미 그릴, 메제20종, 라크. 예약 권장',cost:70000,map:'Balıkçı Sabahattin Istanbul'},
+  {d:'2026-03-19',s:'14:30',e:'15:00',t:'블루 모스크',cat:'sight',loc:'Blue Mosque, Sultanahmet',desc:'무료 30분. ⚠️어깨/무릎 가리기, 여성 히잡, 신발 벗기',map:'Blue Mosque Sultanahmet Istanbul'},
+  {d:'2026-03-19',s:'15:00',e:'16:30',t:'그랜드 바자르',cat:'shop',loc:'Grand Bazaar, Istanbul',desc:'4,000개 상점! ⚠️흥정: 제시가 30~50%에서 시작. 소매치기 주의. 현금 추천',map:'Grand Bazaar Kapalıçarşı Istanbul'},
+  {d:'2026-03-19',s:'17:00',e:'19:00',t:'☕ 피에르 로티 카페',cat:'cafe',loc:'Pierre Loti Cafe, Eyüp',desc:'골든혼 전망. ★석양 18:30~19:00★ 터키커피 또는 사흘레프(Sahlep). 케이블카+트램T1',cost:5000,map:'Pierre Loti Cafe Istanbul'},
+  {d:'2026-03-19',s:'19:30',e:'21:30',t:'🍽️ 저녁: Hamdi Restaurant',cat:'food',loc:'Hamdi Restaurant, Eminönü',desc:'★루프탑 야경 디너★ 퀴슐레메, 이스켄데르케밥. 갈라타다리+모스크 야경. 루프탑 예약 필수',cost:55000,map:'Hamdi Restaurant Eminönü Istanbul'},
+  {d:'2026-03-19',s:'21:30',e:'22:00',t:'저녁→호텔 복귀',cat:'move',loc:'Eminönü → Sultanahmet',desc:'트램T1 또는 택시 300TL',cost:10000},
+
+  // 3/20 (금) 이스탄불 신시가지
+  {d:'2026-03-20',s:'08:00',e:'09:00',t:'🍽️ 호텔 조식',cat:'food',loc:'Hotel Sultania',desc:'터키식 아침 포함'},
+  {d:'2026-03-20',s:'09:00',e:'12:00',t:'술탄아흐메트 추가 탐방',cat:'sight',loc:'Sultanahmet area',desc:'①바실리카 저수지(1,950TL/인) 메두사 기둥 ②히포드롬(무료)',cost:131000,map:'Basilica Cistern Istanbul'},
+  {d:'2026-03-20',s:'12:00',e:'12:30',t:'술탄아흐메트→베이욜루',cat:'move',loc:'Sultanahmet → Beyoğlu',desc:'택시 400TL. 짐2개',cost:17000},
+  {d:'2026-03-20',s:'12:30',e:'14:00',t:'톰톰 스위트 체크인',cat:'hotel',loc:'TomTom Suites, Beyoğlu',desc:'갈라타타워 도보 3분. ⚠️CI 15:00이지만 12:30 도착 → 짐 맡기고 점심 먼저',cost:252986,map:'TomTom Suites Beyoğlu Istanbul'},
+  {d:'2026-03-20',s:'14:00',e:'16:00',t:'🍽️ 점심: Meze By Lemon Tree',cat:'food',loc:'Beyoğlu',desc:'현대식 터키퓨전. 메제 테이스팅 12종, 오징어튀김, 라크칵테일',cost:50000,map:'Meze By Lemon Tree Beyoğlu Istanbul'},
+  {d:'2026-03-20',s:'16:00',e:'19:00',t:'갈라타/카라쿄이 탐방',cat:'sight',loc:'Galata / Karaköy',desc:'①갈라타타워(30EUR, 360도) ②갈라타다리 ③카라쿄이 빈티지카페 ④Salt Galata',cost:103000,map:'Galata Tower Istanbul'},
+  {d:'2026-03-20',s:'19:00',e:'21:30',t:'🍽️ ★피날레 디너: Mikla',cat:'food',loc:'Mikla Restaurant, Beyoğlu',desc:'★미슐랭가이드★ 터키-스칸디나비안 퓨전. 시그니처 코스. 보스포루스 루프탑 야경. ⚠️최소 3일전 예약',cost:160000,map:'Mikla Restaurant Istanbul'},
+  {d:'2026-03-20',s:'21:30',e:'22:00',t:'호텔 복귀',cat:'move',loc:'Mikla → TomTom Suites',desc:'도보 10분'},
+
+  // 3/21 (토) 이스탄불→서울
+  {d:'2026-03-21',s:'09:00',e:'10:00',t:'🍽️ 호텔 조식',cat:'food',loc:'TomTom Suites',desc:'마지막 터키식 아침'},
+  {d:'2026-03-21',s:'10:00',e:'11:00',t:'톰톰 스위트 체크아웃',cat:'hotel',loc:'TomTom Suites',desc:'짐 정리. 호텔에 짐 보관 요청 (무료)'},
+  {d:'2026-03-21',s:'11:00',e:'14:00',t:'마지막 쇼핑 & 브런치',cat:'shop',loc:'İstiklal Caddesi, Beyoğlu',desc:'①이스티클랄 쇼핑(Mavi, LC Waikiki) ②Van Kahvaltı Evi 브런치(50종 메제, 2인 800TL) ③Kurukahveci 커피원두 기념품',cost:60000,map:'İstiklal Caddesi shopping Istanbul'},
+  {d:'2026-03-21',s:'14:00',e:'15:30',t:'베이욜루→IST 공항',cat:'move',loc:'Taksim → IST Airport',desc:'HVL-16 버스 355TL',cost:15000},
+  {d:'2026-03-21',s:'15:30',e:'17:20',t:'IST 공항 체크인',cat:'flight',loc:'Istanbul Airport (IST)',desc:'수속 + 면세점. iGA 라운지(Priority Pass)'},
+  {d:'2026-03-21',s:'17:20',e:'17:20',t:'✈️ IST 출발 (OZ552)',cat:'flight',loc:'Istanbul Airport',desc:'아시아나 직항 귀국편. 예약: DP5W84'},
+  {d:'2026-03-22',s:'09:35',e:'09:35',t:'✈️ ICN 도착',cat:'flight',loc:'인천국제공항',desc:'도착! 수고하셨습니다 🎉'},
+];
+
+const RESTAURANTS = [
+  {date:'3/12',meal:'저녁',rank:1,name:'Hacı Usta Kebap House',rating:'4.3',genre:'케밥',menu:'양고기 시쉬케밥, 닭시쉬. 차이 무료',price:'800TL/26000원',vibe:'로컬 맛집',anniv:false,loc:'탁심 도보 5분',reserve:false,note:'20년 전통. 아드나케밥 매움주의',map:'Hacı Usta Kebap House Taksim Istanbul'},
+  {date:'3/12',meal:'저녁',rank:2,name:'Zübeyr Ocakbaşı',rating:'4.5',genre:'케밥/그릴',menu:'우르파케밥, 아다나케밥, 갈비. 숯불 직화',price:'1200TL/40000원',vibe:'활기찬 로컬',anniv:false,loc:'탁심 도보 8분',reserve:false,map:'Zübeyr Ocakbaşı Taksim Istanbul'},
+  {date:'3/12',meal:'디저트',rank:1,name:'HASAN FEHMİ ÖZSÜT 1915',rating:'4.4',genre:'전통디저트',menu:'카잔디비, 수틀라치, 카이막',price:'400TL/15000원',vibe:'전통 카페',anniv:true,loc:'이스티클랄 거리',reserve:false,note:'1950년 창업',map:'Hasan Fehmi Özsüt Beyoğlu Istanbul'},
+
+  {date:'3/13',meal:'점심',rank:1,name:'TUMA Restaurant',rating:'4.9',genre:'테스티케밥',menu:'항아리케밥 불쇼! 카트메르+돈두르마',price:'1200TL/50000원',vibe:'테라스 뷰',anniv:true,loc:'괴레메 중심',reserve:true,note:'석양 테라스석 선점',map:'TUMA Restaurant Göreme'},
+  {date:'3/13',meal:'점심',rank:2,name:'Pumpkin Goreme',rating:'4.6',genre:'터키요리',menu:'셰프 세트메뉴, 동굴 분위기',price:'1000TL/35000원',vibe:'아트갤러리',anniv:true,loc:'괴레메',reserve:true,map:'Pumpkin Goreme Restaurant'},
+  {date:'3/13',meal:'점심',rank:3,name:'Rocks Terrace',rating:'4.8',genre:'터키요리',menu:'360도 파노라마, 항아리케밥, 유기농',price:'1500TL/50000원',vibe:'360도 전망',anniv:true,loc:'괴레메',reserve:true,map:'Rocks Terrace Restaurant Göreme'},
+
+  {date:'3/13',meal:'★기념일★',rank:1,name:'Oscar Steak House',rating:'4.9',genre:'스테이크/양갈비',menu:'양갈비 990TL, 골드오토만 1890TL. 무료 차이+바클라바',price:'2000TL/65000원',vibe:'★석양 테라스★',anniv:true,loc:'괴레메 #1',reserve:true,note:'괴레메 1위. ★9주년 기념일 디너★',map:'Oscar Steak House Göreme'},
+  {date:'3/13',meal:'★기념일★',rank:2,name:'Topdeck Cave',rating:'4.7',genre:'아나톨리안',menu:'캔들라이트 동굴다이닝, 바닥쿠션',price:'1500TL/50000원',vibe:'★동굴 캔들★',anniv:true,loc:'괴레메',reserve:true,note:'10테이블 한정. 가장 인티밋',map:'Topdeck Cave Restaurant Göreme'},
+  {date:'3/13',meal:'★기념일★',rank:3,name:'Afara Restaurant',rating:'4.8',genre:'터키요리',menu:'프라이빗 동굴룸, 발코니, 로컬와인',price:'1000TL/35000원',vibe:'프라이빗 동굴',anniv:true,loc:'괴레메',reserve:true,map:'Afara Restaurant Göreme'},
+
+  {date:'3/13',meal:'카페',rank:1,name:"King's Coffee Shop",rating:'4.9',genre:'카페',menu:'수제 커피, 홈메이드 페이스트리',price:'300TL/10000원',vibe:'따뜻한 홈',anniv:false,loc:'괴레메 중심',reserve:false,note:'괴레메 최고 카페',map:"King's Coffee Shop Göreme"},
+  {date:'3/13',meal:'카페',rank:2,name:'The Patio Cappadocia',rating:'5.0',genre:'카페',menu:'산세바스찬 치즈케이크, 터키팬케이크',price:'250TL/8000원',vibe:'가정집 감성',anniv:true,loc:'괴레메',reserve:false,note:'구글 만점!',map:'The Patio Cappadocia Göreme'},
+
+  {date:'3/14',meal:'점심',rank:1,name:'Cappadocian Cuisine',rating:'TC수상',genre:'홈쿡',menu:'오너 어머니 셰프. 정통 아나톨리안 홈쿡',price:'600TL/20000원',vibe:'가정식',anniv:false,loc:'괴레메',reserve:false,note:'가성비 최고',map:'Cappadocian Cuisine Göreme'},
+  {date:'3/14',meal:'점심',rank:2,name:'Nostalji Restaurant',rating:'4.5',genre:'터키요리',menu:'루프탑 석양뷰, 항아리케밥',price:'800TL/27000원',vibe:'루프탑',anniv:true,loc:'괴레메',reserve:false,map:'Nostalji Restaurant Göreme'},
+
+  {date:'3/15',meal:'점심',rank:1,name:"Fatıma'nın Sofrası",rating:'4.7',genre:'홈쿡뷔페',menu:'만티, 도마테스, 파술예. 수제',price:'500TL/17000원',vibe:'따뜻한 홈',anniv:false,loc:'아바노스 #1',reserve:false,note:'아바노스 전체 1위!',map:"Fatıma'nın Sofrası Avanos"},
+  {date:'3/15',meal:'점심',rank:2,name:'Ciğercan Avanos',rating:'5.0',genre:'간케밥',menu:'간케밥(Ciğer), 닭꼬치, 양고기',price:'700TL/23000원',vibe:'로컬 전문점',anniv:false,loc:'아바노스',reserve:false,note:'구글 만점',map:'Ciğercan Avanos'},
+
+  {date:'3/19',meal:'점심',rank:1,name:'Balıkçı Sabahattin',rating:'4.3',genre:'해산물',menu:'농어/도미 그릴, 메제20종, 라크',price:'2000TL/70000원',vibe:'전통 정원',anniv:true,loc:'술탄아흐메트',reserve:true,note:'1927년 창업',map:'Balıkçı Sabahattin Istanbul'},
+  {date:'3/19',meal:'저녁',rank:1,name:'Hamdi Restaurant',rating:'4.2',genre:'케밥/그릴',menu:'퀴슐레메(구운양갈비), 이스켄데르케밥',price:'1500TL/55000원',vibe:'★루프탑 야경★',anniv:true,loc:'에미뇌뉘',reserve:true,note:'루프탑 좌석 지정 예약',map:'Hamdi Restaurant Eminönü Istanbul'},
+
+  {date:'3/20',meal:'점심',rank:1,name:'Meze By Lemon Tree',rating:'4.4',genre:'터키퓨전',menu:'메제 테이스팅 12종, 오징어튀김, 라크칵테일',price:'1500TL/50000원',vibe:'모던 세련',anniv:true,loc:'베이욜루',reserve:true,map:'Meze By Lemon Tree Beyoğlu Istanbul'},
+  {date:'3/20',meal:'★피날레★',rank:1,name:'Mikla Restaurant',rating:'4.5',genre:'미슐랭 퓨전',menu:'시그니처 코스. 터키-스칸디나비안',price:'5000TL/160000원',vibe:'★미슐랭 루프탑★',anniv:true,loc:'Marmara Pera 최상층',reserve:true,note:'★여행 피날레★ 최소 3일전 예약',map:'Mikla Restaurant Istanbul'},
+  {date:'3/20',meal:'★피날레★',rank:2,name:'Nicole Restaurant',rating:'4.6',genre:'미슐랭 터키',menu:'미슐랭 1스타. 모던 아나톨리안',price:'4000TL/130000원',vibe:'미슐랭 정통',anniv:true,loc:'톰톰 카퍼스 호텔',reserve:true,note:'미슐랭 별 보유',map:'Nicole Restaurant Istanbul'},
+
+  {date:'3/21',meal:'브런치',rank:1,name:'Van Kahvaltı Evi',rating:'4.4',genre:'터키조식',menu:'반(Van) 스타일 아침상 50종 메제',price:'800TL/27000원',vibe:'풍성한 조식',anniv:false,loc:'베이욜루',reserve:true,note:'주말 웨이팅',map:'Van Kahvaltı Evi Beyoğlu Istanbul'},
+];
+
+const TICKETS = [
+  {city:'이스탄불',name:'아야 소피아',price:'25EUR',krw:86000,date:'3/19',tip:'GetYourGuide 3종콤보 포함',note:'⚠️여성 히잡 필수. 금요일 12~14:30 기도시간'},
+  {city:'이스탄불',name:'톱카프 궁전+하렘',price:'2,750TL',krw:184000,date:'3/19',tip:'GetYourGuide 3종콤보 포함',note:'오디오가이드 포함'},
+  {city:'이스탄불',name:'바실리카 저수지',price:'1,950TL',krw:130000,date:'3/20',tip:'GetYourGuide 3종콤보 포함',note:'메두사 머리 기둥'},
+  {city:'이스탄불',name:'갈라타 타워',price:'30EUR',krw:102000,date:'3/20',tip:'GetYourGuide 또는 현장',note:'360도 전망대'},
+  {city:'이스탄불',name:'블루 모스크',price:'무료',krw:0,date:'3/19',tip:'-',note:'활성 모스크. 복장규정'},
+  {city:'이스탄불',name:'그랜드 바자르',price:'무료',krw:0,date:'3/19',tip:'-',note:'⚠️일요일 휴무 (목요일 OK)'},
+  {city:'카파도키아',name:'괴레메 오픈에어 뮤지엄',price:'20EUR',krw:68000,date:'3/14',tip:'GetYourGuide 또는 현장',note:'UNESCO. 다크교회 별도 +6EUR'},
+  {city:'카파도키아',name:'우치히사르 성',price:'250TL',krw:17000,date:'3/15',tip:'현장',note:'최고높이 천연 성채'},
+];
+
+const CHECKLIST = [
+  {cat:'👔 의류',items:[
+    {n:'양말 6켤레 (여분 2=소금호수)',c:true},{n:'팬티 6개',c:true},{n:'내복 1세트 (카파도키아 2~5°C)',c:true},
+    {n:'경량패딩조끼 1개',c:true},{n:'후드티 (그레이1+베이지2)',c:true},{n:'맨투맨 1개',c:true},
+    {n:'레이어드티 (검정3+흰색3)',c:true},{n:'바람막이 점퍼 1개',c:true},{n:'운동화 2켤레',c:true},
+    {n:'수영복 2벌 (리조트)',c:false},{n:'히잡/스카프 (모스크 필수)',c:false},{n:'슬리퍼',c:false},{n:'모자 1개',c:true},
+  ]},
+  {cat:'🧴 세면/건강',items:[
+    {n:'세안제 (소분)',c:true},{n:'면도기+여분 날',c:true},{n:'칫솔 & 치약',c:true},
+    {n:'선크림 SPF50+',c:true},{n:'로션 (소분)',c:true},{n:'바디로션/핸드크림',c:true},
+    {n:'립밤',c:true},{n:'인공눈물',c:true},{n:'소화제',c:true},{n:'지사제',c:true},
+    {n:'해열제',c:true},{n:'종합감기약',c:true},{n:'밴드/상처치료',c:false},
+  ]},
+  {cat:'🔌 전자기기',items:[
+    {n:'유럽형 어댑터 (Type C/F) 2개+',c:false},{n:'멀티탭+충전케이블',c:true},
+    {n:'보조배터리 20000mAh+',c:false},{n:'시가잭 충전기',c:true},
+    {n:'핸드폰 거치대 (렌트카 네비)',c:true},{n:'카메라/삼각대',c:false},{n:'eSIM ✅',c:true},
+  ]},
+  {cat:'📦 기타',items:[
+    {n:'여권+사본 (폰+클라우드)',c:false},{n:'여행자보험 서류 (PDF)',c:false},
+    {n:'오프라인 지도 (구글맵 다운)',c:false},{n:'섬유탈취제 (소분)',c:true},
+    {n:'여행용 세탁세제',c:false},{n:'작은 동전지갑',c:true},{n:'지퍼백 대형 (젖은 신발용)',c:false},
+    {n:'우산 or 우비',c:false},{n:'모스크 복장 세트',c:false},{n:'소금호수 세트 (양말+슬리퍼+지퍼백+수건)',c:false},
+  ]},
+];
+
+const HOTELS = [
+  {name:'Nippon Hotel',ci:'3/12 14:00',co:'3/13',warn:'',map:'Nippon Hotel Taksim Istanbul'},
+  {name:'Sarnich Cave Suites',ci:'3/13 14:00',co:'3/15 11:00',warn:'⚠️11:40 도착→짐 맡기고 점심',map:'Sarnich Cave Suites Göreme'},
+  {name:'Dumo Suite Hotel',ci:'3/15',co:'3/16 12:00',warn:'⚠️22:30 야간CI→사전연락',map:'Dumo Suite Hotel Antalya'},
+  {name:'Concorde De Luxe Resort',ci:'3/16 15:00',co:'3/18',warn:'⚠️12:00 도착→올인클 시설 먼저',map:'Concorde De Luxe Resort Lara Antalya'},
+  {name:'Hotel Sultania',ci:'3/18',co:'3/20 12:00',warn:'',map:'Hotel Sultania Sultanahmet Istanbul'},
+  {name:'TomTom Suites',ci:'3/20 15:00',co:'3/21 12:00',warn:'⚠️12:30 도착→짐 맡기고 점심',map:'TomTom Suites Beyoğlu Istanbul'},
+];
+
+// ============================================================
+// 렌더링
+// ============================================================
+const DATES = [...new Set(SCHEDULE.map(e => e.d))];
+const DAY_NAMES = ['일','월','화','수','목','금','토'];
+const CITY_MAP = {
+  '2026-03-12':'서울→이스탄불','2026-03-13':'이스탄불→카파도키아','2026-03-14':'카파도키아',
+  '2026-03-15':'카파도키아→안탈리아','2026-03-16':'안탈리아→리조트','2026-03-17':'리조트 휴식',
+  '2026-03-18':'안탈리아→이스탄불','2026-03-19':'이스탄불 올드','2026-03-20':'이스탄불 뉴',
+  '2026-03-21':'이스탄불→서울','2026-03-22':'서울 도착'
+};
+const CAT_CLASS = {flight:'cat-flight',move:'cat-move',hotel:'cat-hotel',food:'cat-food',sight:'cat-sight',rest:'cat-rest',shop:'cat-shop',cafe:'cat-cafe',exp:'cat-exp',rent:'cat-rent'};
+
+function mapsUrl(q) { return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q); }
+
+function renderDDay() {
+  const box = document.getElementById('dday-box');
+  const now = new Date();
+  const trip = new Date('2026-03-12T00:00:00+09:00');
+  const diff = Math.ceil((trip - now) / 86400000);
+  if (diff > 0) box.innerHTML = `<div class="label">터키 출발까지</div><div class="num">D-${diff}</div>`;
+  else if (diff === 0) box.innerHTML = `<div class="num">D-DAY!</div><div class="label">오늘 출발! ✈️</div>`;
+  else if (diff >= -10) box.innerHTML = `<div class="num">여행 ${-diff}일차</div><div class="label">즐거운 여행 되세요! 🎉</div>`;
+  else box.innerHTML = `<div class="label">9주년 기념 터키 여행</div><div class="num">완료!</div>`;
+}
+
+function renderDateNav() {
+  const nav = document.getElementById('date-nav');
+  nav.innerHTML = DATES.map((d, i) => {
+    const dt = new Date(d + 'T00:00:00');
+    const m = dt.getMonth() + 1;
+    const dd = dt.getDate();
+    const day = DAY_NAMES[dt.getDay()];
+    return `<button class="date-btn${i===0?' active':''}" data-date="${d}" onclick="scrollToDate('${d}',this)"><span class="day">${m}/${dd}</span> ${day}</button>`;
+  }).join('');
+}
+
+function scrollToDate(d, btn) {
+  document.querySelectorAll('.date-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const el = document.getElementById('day-' + d);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function renderSchedule() {
+  const container = document.getElementById('schedule-content');
+  let html = '';
+  let currentDate = '';
+
+  SCHEDULE.forEach((ev, idx) => {
+    if (ev.d !== currentDate) {
+      if (currentDate) html += '</div>';
+      currentDate = ev.d;
+      const dt = new Date(ev.d + 'T00:00:00');
+      const m = dt.getMonth() + 1;
+      const dd = dt.getDate();
+      const day = DAY_NAMES[dt.getDay()];
+      const city = CITY_MAP[ev.d] || '';
+      html += `<div class="day-section fade-in" id="day-${ev.d}"><div class="day-header">${m}/${dd} (${day}) <span class="city">${city}</span></div>`;
+    }
+
+    const cls = CAT_CLASS[ev.cat] || '';
+    const timeStr = ev.s === ev.e ? ev.s : `${ev.s} ~ ${ev.e}`;
+    const costStr = ev.cost ? `<div class="event-cost">💰 ${ev.cost.toLocaleString()}원</div>` : '';
+    const links = [];
+    if (ev.map) links.push(`<a href="${mapsUrl(ev.map)}" target="_blank">📍 지도</a>`);
+    const linksHtml = links.length ? `<div class="event-links">${links.join('')}</div>` : '';
+
+    html += `<div class="event-card ${cls}" onclick="toggleDesc(this)">
+      <div class="event-time">${timeStr}${ev.tz ? ' <span style="color:var(--blue);font-size:11px">['+ev.tz+']</span>' : ''}</div>
+      <div class="event-title">${ev.t}</div>
+      <div class="event-loc">📍 ${ev.loc}</div>
+      <div class="event-desc">${(ev.desc||'').replace(/\n/g,'<br>')}${costStr}${linksHtml}</div>
+      <button class="expand-btn">▼ 상세보기</button>
+    </div>`;
+  });
+
+  html += '</div>';
+  container.innerHTML = html;
+}
+
+function toggleDesc(card) {
+  const desc = card.querySelector('.event-desc');
+  const btn = card.querySelector('.expand-btn');
+  if (desc.classList.contains('open')) {
+    desc.classList.remove('open');
+    btn.textContent = '▼ 상세보기';
+  } else {
+    desc.classList.add('open');
+    btn.textContent = '▲ 접기';
+  }
+}
+
+function renderFood() {
+  const container = document.getElementById('food-content');
+  let html = '';
+  let currentMealKey = '';
+
+  RESTAURANTS.forEach(r => {
+    const mealKey = r.date + r.meal;
+    if (mealKey !== currentMealKey) {
+      currentMealKey = mealKey;
+      html += `<div style="margin-top:16px;margin-bottom:6px;font-size:14px;font-weight:700;color:var(--accent2)">${r.date} ${r.meal}</div>`;
+    }
+
+    const isAnniv = r.meal.includes('★');
+    const tags = [];
+    if (r.rank === 1) tags.push('<span class="rest-tag tag-best">1순위</span>');
+    if (isAnniv) tags.push('<span class="rest-tag tag-anniv">기념일</span>');
+    if (r.reserve) tags.push('<span class="rest-tag tag-reserve">예약필수</span>');
+
+    html += `<div class="rest-card${isAnniv?' highlight':''}" data-search="${r.name} ${r.menu} ${r.genre} ${r.vibe}">
+      <div class="rest-meal">${tags.join('')} ${r.genre}</div>
+      <div class="rest-name">${r.name} <span class="rest-rating">⭐${r.rating}</span></div>
+      <div class="rest-menu">${r.menu}</div>
+      <div class="rest-meta">
+        <span>💰 ${r.price}</span>
+        <span>📍 ${r.loc}</span>
+        <span>🌟 ${r.vibe}</span>
+      </div>
+      ${r.note ? `<div style="font-size:11px;color:var(--accent);margin-top:4px">${r.note}</div>` : ''}
+      ${r.map ? `<div class="event-links"><a href="${mapsUrl(r.map)}" target="_blank">📍 지도</a></div>` : ''}
+    </div>`;
+  });
+
+  container.innerHTML = html;
+
+  // 검색 기능
+  document.getElementById('food-search').addEventListener('input', function() {
+    const q = this.value.toLowerCase();
+    document.querySelectorAll('.rest-card').forEach(card => {
+      card.style.display = card.dataset.search.toLowerCase().includes(q) ? 'block' : 'none';
+    });
+  });
+}
+
+function renderTickets() {
+  const container = document.getElementById('ticket-content');
+  let html = '';
+
+  // 전략 카드
+  html += `<div class="ticket-strategy">
+    <h3>★ 추천 전략: GetYourGuide 3종 콤보</h3>
+    <div style="font-size:13px;margin-bottom:8px">아야소피아 + 톱카프 + 바실리카 저수지</div>
+    <div class="cost-row"><span>콤보 가격</span><span style="color:var(--green)">~59 EUR/인 (≈101,000원)</span></div>
+    <div class="cost-row"><span>개별 구매 시</span><span style="color:var(--accent);text-decoration:line-through">~120 EUR/인 (≈206,000원)</span></div>
+    <div class="cost-row cost-total"><span>2인 절약액</span><span style="color:var(--green)">▼ ~18만원 절약</span></div>
+    <div style="font-size:11px;color:var(--text-dim);margin-top:8px">3일간 유효 · Skip-the-Line · 무료취소 24시간전</div>
+    <div style="margin-top:8px"><a href="https://www.getyourguide.com" target="_blank" style="font-size:12px">🔗 GetYourGuide에서 구매</a></div>
+  </div>`;
+
+  // 뮤지엄패스 비추천
+  html += `<div style="background:rgba(231,76,60,.1);border:1px solid rgba(231,76,60,.3);border-radius:12px;padding:12px;margin-bottom:12px">
+    <div style="font-size:13px;font-weight:700;color:var(--accent)">❌ 뮤지엄패스 이스탄불 - 비추천</div>
+    <div style="font-size:12px;color:var(--text-dim);margin-top:4px">105 EUR/인. 아야소피아/저수지 불포함이라 이 일정에는 비효율</div>
+  </div>`;
+
+  // 개별 티켓
+  TICKETS.forEach(t => {
+    html += `<div class="ticket-card">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <div style="font-size:11px;color:var(--text-dim)">${t.city} · ${t.date}</div>
+          <div class="ticket-name">${t.name}</div>
+        </div>
+        <div style="text-align:right">
+          <div class="ticket-price">${t.price}</div>
+          <div style="font-size:11px;color:var(--text-dim)">${t.krw > 0 ? '2인 ' + (t.krw).toLocaleString() + '원' : ''}</div>
+        </div>
+      </div>
+      <div class="ticket-note">${t.tip}</div>
+      ${t.note ? `<div style="font-size:11px;color:var(--accent);margin-top:4px">${t.note}</div>` : ''}
+    </div>`;
+  });
+
+  // 총 비용 요약
+  html += `<div class="cost-summary">
+    <h3 style="font-size:14px;margin-bottom:8px">💰 총 입장료 예상 (2인)</h3>
+    <div class="cost-row"><span>GYG 3종 콤보</span><span>202,000원</span></div>
+    <div class="cost-row"><span>갈라타 타워</span><span>102,000원</span></div>
+    <div class="cost-row"><span>괴레메 오픈에어+다크교회</span><span>88,000원</span></div>
+    <div class="cost-row"><span>우치히사르 성</span><span>17,000원</span></div>
+    <div class="cost-row"><span>피에르로티 케이블카</span><span>2,400원</span></div>
+    <div class="cost-row"><span>미식투어 (예약완료)</span><span>88,000원</span></div>
+    <div class="cost-row cost-total"><span>합계</span><span style="color:var(--green)">≈ 559,400원</span></div>
+  </div>`;
+
+  container.innerHTML = html;
+}
+
+function renderPack() {
+  const container = document.getElementById('pack-content');
+  let html = '';
+
+  // 호텔 체크인/아웃
+  html += '<div class="info-section"><h3>🏨 호텔 체크인/아웃</h3>';
+  HOTELS.forEach(h => {
+    html += `<div class="hotel-card">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div class="hotel-name">${h.name}</div>
+        <a href="${mapsUrl(h.map)}" target="_blank" style="font-size:11px">📍 지도</a>
+      </div>
+      <div class="hotel-dates">CI: ${h.ci} → CO: ${h.co}</div>
+      ${h.warn ? `<div class="hotel-warn">${h.warn}</div>` : ''}
+    </div>`;
+  });
+  html += '</div>';
+
+  // 체크리스트
+  html += '<div class="info-section"><h3>🧳 준비물 체크리스트</h3>';
+  const savedChecks = JSON.parse(localStorage.getItem('turkey-checklist') || '{}');
+
+  CHECKLIST.forEach(cat => {
+    html += `<div class="check-cat">${cat.cat}</div>`;
+    cat.items.forEach((item, idx) => {
+      const key = cat.cat + '-' + idx;
+      const isChecked = savedChecks[key] !== undefined ? savedChecks[key] : item.c;
+      html += `<div class="check-item${isChecked?' checked':''}">
+        <input type="checkbox" id="${key}" ${isChecked?'checked':''} onchange="toggleCheck('${key}',this)">
+        <label for="${key}">${item.n}</label>
+      </div>`;
+    });
+  });
+  html += '</div>';
+
+  container.innerHTML = html;
+}
+
+function toggleCheck(key, el) {
+  const saved = JSON.parse(localStorage.getItem('turkey-checklist') || '{}');
+  saved[key] = el.checked;
+  localStorage.setItem('turkey-checklist', JSON.stringify(saved));
+  el.closest('.check-item').classList.toggle('checked', el.checked);
+}
+
+function renderInfo() {
+  const container = document.getElementById('info-content');
+  let html = '';
+
+  const sections = [
+    {title:'💳 결제 & 환전', items:[
+      ['메인 카드','SOL트래블 (마스터카드) - TRY 미리 충전'],
+      ['서브 카드','토스뱅크 (마스터카드) - 백업용'],
+      ['비상 현금','200 EUR (도착 후 100EUR만 환전)'],
+      ['ATM','Ziraat Bank > VakifBank. 은행 내부 ATM. 1회 2,000~3,000TL'],
+      ['DCC 거절','카드/ATM 모두 "TRY 결제" 선택! "원화 결제" 절대 금지 (3~7% 손해)'],
+      ['현금 필요','그랜드 바자르, 길거리 음식, 택시, 돌무쉬'],
+      ['환율','1 TRY ≈ 34 KRW / 1 EUR ≈ 1,710 KRW'],
+    ]},
+    {title:'🚌 교통', items:[
+      ['이스탄불카드','IST공항 지하철역 자판기. 카드50TL+충전. 1회 ~20TL'],
+      ['카드 사용처','트램, 버스, 메트로, 페리, 푸니쿨라 전부'],
+      ['하바이스트','IST↔시내. 전용차로 정시. 카드결제 OK'],
+      ['택시 앱','BiTaksi (한국 카카오택시). 미터기 확인!'],
+      ['미터기 안 켤 때','"Taksimetre lütfen" (탁시메트레 뤼트펜)'],
+    ]},
+    {title:'⚠️ 라마단 (2/28~3/30)', items:[
+      ['영향','관광지/식당 정상 운영. 관광객 큰 영향 없음'],
+      ['주의','오후 5~7시 택시 잡기 어려움 (이프타르 러시)'],
+      ['매너','모스크 근처에서 대놓고 먹지 않기'],
+    ]},
+    {title:'🌡️ 날씨 (3월)', items:[
+      ['이스탄불','7~14°C. 비 가능. 겹쳐입기 + 우산'],
+      ['카파도키아','0~12°C. 새벽 2~5°C! 보온복+선크림 둘 다'],
+      ['안탈리아','10~18°C. 지중해 온화. 야외수영 ❌ 실내수영 ⭕'],
+    ]},
+    {title:'💰 팁 문화', items:[
+      ['식당','계산서 10% (서비스료 포함이면 생략)'],
+      ['택시','거스름돈 반올림 (485→500TL)'],
+      ['호텔','베개팁 10~20 TL/일'],
+      ['하맘','때밀이+마사지사 각 20~50 TL'],
+    ]},
+    {title:'🗣️ 터키어 필수', items:[
+      ['안녕하세요','Merhaba (메르하바)'],
+      ['감사합니다','Teşekkürler (테셰퀼레르)'],
+      ['계산서','Hesap lütfen (헤삽 뤼트펜)'],
+      ['얼마예요?','Ne kadar? (네 카다르?)'],
+      ['예/아니오','Evet (에벳) / Hayır (하이르)'],
+      ['미터기 켜줘','Taksimetre lütfen (탁시메트레 뤼트펜)'],
+      ['안 맵게','Acısız lütfen (아즈으즈 뤼트펜)'],
+      ['맛있어요!','Çok güzel! (촉 귀젤!)'],
+    ]},
+    {title:'📞 비상 연락처', items:[
+      ['경찰','155'],
+      ['앰뷸런스','112'],
+      ['대사관(앙카라)','+90-312-468-4823'],
+      ['영사관(이스탄불)','+90-212-368-8368'],
+      ['아시아나 IST','+90-212-465-5600'],
+    ]},
+    {title:'🛍️ 흥정 가이드 (바자르)', items:[
+      ['규칙1','부르는 값의 40~60%에서 시작'],
+      ['규칙2','관심 없는 척 가격 물어보기'],
+      ['규칙3','"생각해볼게요" → 돌아서면 할인'],
+      ['규칙4','여러 가게 비교. 첫 가게 X'],
+      ['규칙5','현금 결제 추가 할인'],
+    ]},
+  ];
+
+  sections.forEach(sec => {
+    html += `<div class="info-section"><h3>${sec.title}</h3>`;
+    sec.items.forEach(([label, value]) => {
+      html += `<div class="info-item"><span class="info-label">${label}</span><span class="info-value">${value}</span></div>`;
+    });
+    html += '</div>';
+  });
+
+  container.innerHTML = html;
+}
+
+// ============================================================
+// 탭 전환
+// ============================================================
+function switchTab(tab) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-bar button').forEach(el => el.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  document.querySelectorAll('.tab-bar button')[['schedule','food','ticket','pack','info'].indexOf(tab)].classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+// 스크롤 top 버튼
+window.addEventListener('scroll', () => {
+  document.getElementById('scroll-top').classList.toggle('show', window.scrollY > 300);
+});
+
+// 초기 렌더링
+renderDDay();
+renderDateNav();
+renderSchedule();
+renderFood();
+renderTickets();
+renderPack();
+renderInfo();
+</script>
+</body>
+</html>
