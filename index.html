@@ -442,9 +442,10 @@ const FB_READY = FB.url !== 'YOUR_PROJECT_URL';
 // ============================================================
 const SCHEDULE = [
   // 3/12 (목) 서울→이스탄불
-  {d:'2026-03-12',s:'06:00',e:'07:00',t:'집→인천공항',cat:'move',loc:'백석 공항버스 정류장',desc:'3300번 공항버스. 인당 8,500원 (2인 17,000원)',cost:17000,map:'백석역 공항버스 정류장',route:{o:'백석역',d:'인천국제공항 제2터미널',m:'transit'}},
-  {d:'2026-03-12',s:'07:00',e:'07:30',t:'인천공항 T2 체크인',cat:'flight',loc:'인천국제공항 제2터미널',desc:'체크인 수속. ★하나은행 200EUR 환전 픽업 (T2 출국장 내)★',map:'인천국제공항 제2터미널'},
-  {d:'2026-03-12',s:'07:30',e:'09:00',t:'☕ 마티나 라운지',cat:'lounge',loc:'ICN T2 Gate 252 근처 4층',desc:'Priority Pass. 07:00~22:00 운영. 조식+샤워+충전. 면세점 쇼핑 후 이용',map:'인천공항 제2터미널 마티나라운지'},
+  {d:'2026-03-12',s:'06:00',e:'07:00',t:'집→인천공항',cat:'move',loc:'백석요진와이시티(중) 버스 정류장',desc:'🚶 집에서 도보 10분 (차로 20분) → 백석요진와이시티(중) 정류장 → 3300번 공항버스. 인당 8,500원 (2인 17,000원)',cost:17000,naverUrl:'https://map.naver.com/p/directions/3z9NoY,2APb0L,%EB%B0%B1%EC%84%9D%EB%8F%99.%EC%9A%94%EC%A7%84%EC%99%80%EC%9D%B4%EC%8B%9C%ED%8B%B0(%EC%A4%91),126667,BUS_STATION/3yUOnL,2AHXhy,%EC%9D%B8%EC%B2%9C%EA%B5%AD%EC%A0%9C%EA%B3%B5%ED%95%AD%20%EC%A0%9C2%EC%97%AC%EA%B0%9D%ED%84%B0%EB%AF%B8%EB%84%90,1559888035,PLACE_POI/-/transit/1?c=9.00,0,0,0,dh'},
+  {d:'2026-03-12',s:'07:00',e:'07:30',t:'인천공항 T2 체크인',cat:'flight',loc:'인천국제공항 제2터미널',desc:'체크인 수속. ★하나은행 200EUR 환전 픽업 (T2 출국장 3층 K카운터 안쪽)★',map:'인천국제공항 제2터미널'},
+  {d:'2026-03-12',s:'07:30',e:'07:45',t:'🛍️ 신라면세점 픽업',cat:'shop',loc:'T2 3층 면세구역 252~253번 게이트 인근',desc:'사전 주문 상품 수령. 252~253번 게이트 인근 신라면세점 픽업 카운터',map:'인천공항 제2터미널 신라면세점'},
+  {d:'2026-03-12',s:'07:45',e:'09:00',t:'☕ 마티나 라운지',cat:'lounge',loc:'ICN T2 Gate 252 근처 4층',desc:'Priority Pass. 07:00~22:00 운영. 조식+샤워+충전',map:'인천공항 제2터미널 마티나라운지'},
   {d:'2026-03-12',s:'09:35',e:'09:35',t:'✈️ ICN 출발 (OZ551)',cat:'flight',loc:'인천국제공항 T2',desc:'아시아나 직항 → 이스탄불. 예약번호: DP5W84. 약 12시간',cost:2000000},
   {d:'2026-03-12',s:'15:45',e:'15:45',t:'✈️ IST 도착 (OZ551)',cat:'flight',loc:'Istanbul Airport (IST)',desc:'도착 후: ①입국심사 ②수화물 ③Ziraat ATM(도착로비) ④이스탄불카드 구매(165TL). 시차 -6시간',tz:'IST',map:'Istanbul Airport IST'},
   {d:'2026-03-12',s:'16:00',e:'18:00',t:'IST공항→탁심광장',cat:'move',loc:'IST Airport B2 HAVAIST',desc:'HAVAIST HVL-16 버스. 275TL/인 (2인 550TL=18,700원). 배차: 16:50/17:25/18:00. 💳컨택리스OK',cost:18700,costTry:'550TL',map:'Istanbul Airport HAVAIST bus stop',route:{o:'Istanbul Airport IST',d:'Taksim Square Istanbul',m:'transit'}},
@@ -783,6 +784,7 @@ function renderSchedule() {
     const links = [];
     if (ev.map) links.push(`<a href="${navUrl(ev.map)}" target="_blank">📍 길찾기</a>`);
     if (ev.route) links.push(`<a href="${routeUrl(ev.route.o,ev.route.d,ev.route.m)}" target="_blank">🚗 경로</a>`);
+    if (ev.naverUrl) links.push(`<a href="${ev.naverUrl}" target="_blank">🗺️ 네이버지도</a>`);
     const linksHtml = links.length ? `<div class="event-links">${links.join('')}</div>` : '';
     const memoDisplayHtml = memoText ? `<div class="memo-display">✏️ ${memoText.replace(/\n/g,'<br>').replace(/</g,'&lt;')}</div>` : '';
 
@@ -812,6 +814,7 @@ function renderSchedule() {
         const aLinks = [];
         if (a.map) aLinks.push(`<a href="${navUrl(a.map)}" target="_blank">📍 길찾기</a>`);
         if (a.route) aLinks.push(`<a href="${routeUrl(a.route.o,a.route.d,a.route.m)}" target="_blank">🚗 경로</a>`);
+        if (a.naverUrl) aLinks.push(`<a href="${a.naverUrl}" target="_blank">🗺️ 네이버지도</a>`);
         html += `<div class="event-card alt-card ${aCls}">
           <div class="event-title">${a.t}</div>
           <div class="event-loc">📍 ${a.loc}</div>
