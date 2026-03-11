@@ -1,0 +1,3 @@
+# 민감 파일 (절대 커밋 금지)
+service-account.json
+node_modules/
