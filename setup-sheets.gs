@@ -60,7 +60,7 @@ function createScheduleSheet(ss) {
   sheet.clear();
 
   // 헤더
-  const headers = ['date', 'start', 'end', 'title', 'category', 'location', 'description', 'timezone', 'cost_krw', 'maps_link', 'booking_ref', 'route_link'];
+  const headers = ['date', 'start', 'end', 'title', 'category', 'location', 'description', 'timezone', 'cost_krw', 'maps_link', 'booking_ref', 'route_link', 'alt_options'];
 
   const data = [
     headers,
@@ -180,7 +180,6 @@ function createScheduleSheet(ss) {
     ['2026-03-20', '11:30', '12:30', '톰톰 스위트 체크인', '🏨숙소', 'TomTom Suites, Beyoğlu, Istanbul', '갈라타타워 도보 3분. ★미슐랭 1스타 Nicole 레스토랑(호텔 내). 테이스팅메뉴 8,100TL/인. 보스포루스 파노라마★', 'Europe/Istanbul', '252986', '', '1696582910', ''],
     ['2026-03-20', '12:30', '14:00', '🍽️ 점심: Meze By Lemon Tree', '🍽️식사', 'Meze By Lemon Tree, Beyoğlu, Istanbul', '현대식 터키퓨전. 메제 테이스팅 12종, 오징어튀김, 라크칵테일. 예약 권장. 💳카드OK', 'Europe/Istanbul', '50000', '', '', ''],
     ['2026-03-20', '14:00', '17:00', '☕ 갈라타/카라쿄이 감성 카페 루트', '☕카페', 'FiLBooks, Karaköy, Istanbul', '갈라타타워 외관 감상(올라가지 않음) → ①FiLBooks(포토북+카페) ②Galata Konak Cafe(360도 뷰) ③Çukurcuma 빈티지 골목. [옵션] 보스포루스 석양 크루즈(Turyol, 17:00, 250TL/인)', 'Europe/Istanbul', '10000', '', '', ''],
-    ['2026-03-20', '17:30', '18:30', '🌀 세마 의식 (옵션)', '🍽️체험', 'Hodjapasha Cultural Center, Sirkeci, Istanbul', '★수피즘 선회무★ 15세기 오스만 목욕탕 복원. 매일 19:00. 45분. 1,000TL/인. ⚠️갈라타 메블레비하네시 복원공사 중 → 이곳이 대안', 'Europe/Istanbul', '68000', '', '', ''],
     ['2026-03-20', '19:00', '21:30', '🍽️ 저녁: Mikla Restaurant', '🍽️식사', 'Mikla Restaurant, The Marmara Pera, Beyoğlu', '★피날레 디너★ 미슐랭가이드. 터키-스칸디나비안 퓨전. 시그니처 코스. 보스포루스 루프탑 야경. ⚠️최소 3일전 예약. [옵션] Nicole@TomTom 미슐랭1스타 8,100TL/인', 'Europe/Istanbul', '160000', '', '', ''],
     ['2026-03-20', '21:30', '22:00', '호텔 복귀', '🚶이동', 'Mikla → TomTom Suites', '도보 10분', 'Europe/Istanbul', '', '', '', routeLink('Mikla Restaurant Istanbul', 'TomTom Suites Istanbul', 'walking')],
 
@@ -199,6 +198,34 @@ function createScheduleSheet(ss) {
     const location = data[i][5]; // location 컬럼
     if (location && !data[i][9]) { // maps_link가 비어있으면 자동 생성
       data[i][9] = mapsLink(location);
+    }
+  }
+
+  // alt_options 컬럼 패딩 (모든 행을 13컬럼으로)
+  const numCols = headers.length;
+  for (let i = 1; i < data.length; i++) {
+    while (data[i].length < numCols) data[i].push('');
+  }
+
+  // alt_options 데이터 삽입 (제목으로 매칭)
+  const altMap = {
+    '리조트 시설 이용': '💡 다른 옵션:\n• 🏖️ Sandland 모래조각 박물관 (리조트 도보10분, 70TL/인)\n• 🛍️ Antalium Premium Mall (리조트 도보5분, LC Waikiki/Koton)',
+    '리조트 휴식': '💡 다른 옵션:\n• 🌊 Lower Düden Waterfall (택시10분, 40m 폭포, 무료)\n• 🏖️ Lara Beach+Sandland 콤보 (도보, 반나절)',
+    'IST 공항→술탄아흐메트': '💡 다른 옵션:\n• 🚇 M11 공항메트로 (123TL/인, 75-100분, ★최저가★)\n• 🚕 택시 (1,500-2,000TL, 45분, ★최편안★)',
+    '🍽️ 미식 야경 투어': '💡 다른 옵션:\n• 📱 마이리얼트립 워킹투어 (45,000원/인, 7시간, ⭐4.9)',
+    '🕌 아야 소피아 (외관)': '💡 다른 옵션:\n• 🏛️ 톱카프 궁전 (2,750TL/인, 하렘 포함, 비 올 때 추천)',
+    '🕌 슐레이만대제 모스크': '💡 다른 옵션:\n• 🏛️ 톱카프 궁전 (실내 관광, 비 올 때 추천)',
+    '🍽️ 점심: Balıkçı Sabahattin': '💡 다른 옵션:\n• 🍖 Develi Kebap 1912 (사마트야, 피스타치오케밥, 세계100대)',
+    '🍦 카이막 간식': '💡 다른 옵션:\n• 🍯 Boris\'in Yeri (발라트, ★백종원 추천★, 자체생산 카이막)',
+    '☕ 피에르 로티 카페': '💡 다른 옵션:\n• 🎨 발라트 컬러풀 거리 + Naftalin K 카페 (인스타 명소)',
+    '☕ 갈라타/카라쿄이 감성 카페 루트': '💡 다른 옵션:\n• 🚢 보스포루스 석양 크루즈 (Turyol, 250TL/인, 1.5시간, 17:00)',
+    '🍽️ 저녁: Mikla Restaurant': '💡 다른 옵션:\n• 🍽️ Nicole@TomTom 미슐랭1스타 (8,100TL/인, 호텔 내)',
+    '마지막 쇼핑 & 브런치': '💡 다른 옵션:\n• 🛒 카드쿄이 시장 (아시아사이드, 페리20분, 현지가격, 바가지 없음)',
+  };
+  for (let i = 1; i < data.length; i++) {
+    const title = data[i][3];
+    if (altMap[title]) {
+      data[i][12] = altMap[title];
     }
   }
 
@@ -606,7 +633,6 @@ function createPracticalSheet(ss) {
     ['커버드 마켓', '그랜드바자르, 스파이스바자르, 아라스타바자르 (모두 실내)', ''],
     ['하맘', 'Çemberlitaş Hamamı (500년, 그랜드바자르 근처, ~68EUR)', ''],
     ['카페', 'Salt Galata(전시+카페), FiLBooks(포토북카페)', ''],
-    ['세마 의식', 'Hodjapasha (시르케지, 실내, 매일 19:00, ~1,000TL/인)', '⚠️갈라타 메블레비하네시 복원공사 중'],
   ];
 
   // 텍스트 포맷 강제 (=== 가 수식으로 인식되는 것 방지)

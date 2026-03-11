@@ -217,6 +217,9 @@ function syncToCalendar() {
         if (colIdx['route_link'] !== undefined && row[colIdx['route_link']] && row[colIdx['route_link']] !== '') {
           descParts.push('🚗 경로: ' + row[colIdx['route_link']]);
         }
+        if (colIdx['alt_options'] !== undefined && row[colIdx['alt_options']] && row[colIdx['alt_options']] !== '') {
+          descParts.push('─────────────────\n' + row[colIdx['alt_options']]);
+        }
         const description = descParts.join('\n\n');
 
         // 장소
