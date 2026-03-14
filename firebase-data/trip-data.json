@@ -386,48 +386,123 @@
       "d": "2026-03-14",
       "s": "09:10",
       "e": "09:20",
-      "t": "⛽ 첫 주유 (Opet, 15L)",
-      "cat": "rent",
-      "loc": "Opet Gas Station, Göreme-Nevşehir Road",
-      "desc": "🚨필수! 현재 70km 주행 가능 → 아침 루프+악사라이 98km에 부족! 15L 주유(~915TL). Opet=터키 최고 청결 화장실('Temiz Tuvalet' 캠페인). 무연95(Benzin) 주유. 🚻Opet 화장실(무료/청결). 📱구글맵: 'Opet Göreme' 검색",
-      "cost": 31000,
-      "costTry": "~915TL",
-      "map": "Opet Göreme Nevşehir road gas station"
+      "t": "괴레메→오르타히사르 이동",
+      "cat": "move",
+      "loc": "Göreme → Ortahisar",
+      "desc": "5km, 10분. 괴레메 남동쪽 방향",
+      "route": {
+        "o": "Göreme Cappadocia",
+        "d": "Ortahisar Castle Cappadocia",
+        "m": "driving"
+      }
     },
     {
       "d": "2026-03-14",
       "s": "09:20",
-      "e": "09:30",
-      "t": "괴레메→차부신 이동",
+      "e": "09:35",
+      "t": "🏰 오르타히사르 성 외관 포토",
+      "cat": "sight",
+      "loc": "Ortahisar Castle",
+      "desc": "버섯 모양 거대 바위 성채. 외관 포토스팟만 — 무료! 이른 아침 인파 적음. 🚻마을 공중화장실",
+      "cost": 0,
+      "map": "Ortahisar Castle Cappadocia"
+    },
+    {
+      "d": "2026-03-14",
+      "s": "09:35",
+      "e": "09:45",
+      "t": "오르타히사르→괴레메 (Opet 방향)",
       "cat": "move",
-      "loc": "Göreme → Çavuşin",
-      "desc": "5km, 10분",
+      "loc": "Ortahisar → Göreme",
+      "desc": "5km, 10분. 괴레메 경유 D302 방향",
+      "route": {
+        "o": "Ortahisar Castle Cappadocia",
+        "d": "Göreme Cappadocia",
+        "m": "driving"
+      }
+    },
+    {
+      "d": "2026-03-14",
+      "s": "09:45",
+      "e": "10:00",
+      "t": "⛽ 첫 주유 (Opet, 15L)",
+      "cat": "rent",
+      "loc": "Opet Gas Station, Göreme-Nevşehir Road (D302)",
+      "desc": "🚨필수! 현재 70km 주행 가능 → 오늘 총 주행 약 318km로 부족! 15L 주유(~915TL). 무연95(Benzin). Opet=터키 최고 청결 화장실('Temiz Tuvalet' 캠페인). 🚻Opet 화장실(무료/청결)",
+      "cost": 31000,
+      "costTry": "~915TL",
+      "map": "Opet Göreme Nevşehir D302"
+    },
+    {
+      "d": "2026-03-14",
+      "s": "10:00",
+      "e": "10:15",
+      "t": "Opet→우치히사르 이동",
+      "cat": "move",
+      "loc": "Göreme D302 → Uçhisar",
+      "desc": "3km, 5-10분. D302 서쪽 방향",
       "route": {
         "o": "Göreme Cappadocia",
+        "d": "Uçhisar Castle Cappadocia",
+        "m": "driving"
+      }
+    },
+    {
+      "d": "2026-03-14",
+      "s": "10:15",
+      "e": "10:30",
+      "t": "🏰 우치히사르 성 외관 포토",
+      "cat": "sight",
+      "loc": "Uçhisar Castle",
+      "desc": "카파도키아 최고 높이 자연 요새. 외관 포토스팟만 — 무료! 성 앞 광장에서 360도 파노라마 배경 사진. 🚻마을 공중화장실",
+      "cost": 0,
+      "map": "Uçhisar Castle Cappadocia"
+    },
+    {
+      "d": "2026-03-14",
+      "s": "10:30",
+      "e": "10:50",
+      "t": "비둘기 계곡 전망대",
+      "cat": "sight",
+      "loc": "Pigeon Valley Viewpoint, Uçhisar",
+      "desc": "우치히사르 성에서 도보 5분. 무료. 연중 무휴. 협곡 너머 카파도키아 전경 — 인생샷 포인트!",
+      "cost": 0,
+      "map": "Pigeon Valley Viewpoint Uçhisar Cappadocia"
+    },
+    {
+      "d": "2026-03-14",
+      "s": "10:50",
+      "e": "11:05",
+      "t": "우치히사르→차부신 이동",
+      "cat": "move",
+      "loc": "Uçhisar → Çavuşin",
+      "desc": "10km, 15분. 괴레메 통과 후 북쪽 방향",
+      "route": {
+        "o": "Uçhisar Castle Cappadocia",
         "d": "Çavuşin Village Cappadocia",
         "m": "driving"
       }
     },
     {
       "d": "2026-03-14",
-      "s": "09:30",
-      "e": "10:20",
+      "s": "11:05",
+      "e": "11:55",
       "t": "차부신 마을 탐방",
       "cat": "sight",
       "loc": "Çavuşin Village",
-      "desc": "5세기 성 요한 교회(무료). 비잔틴 프레스코화. 마을 꼭대기 전망. 오픈에어 뮤지엄과 유사한 동굴교회를 무료로! 🚻마을 내 공중화장실",
+      "desc": "5세기 성 요한 교회(무료). 비잔틴 프레스코화. 마을 꼭대기 전망 포인트. 오픈에어 뮤지엄과 유사한 동굴교회를 무료로! 🚻마을 내 공중화장실",
       "cost": 0,
       "map": "Çavuşin Church Cappadocia",
       "alt": "젤베 오픈에어 뮤지엄 (Zelve Open Air Museum, 차로 5분)"
     },
     {
       "d": "2026-03-14",
-      "s": "10:20",
-      "e": "10:35",
+      "s": "11:55",
+      "e": "12:10",
       "t": "차부신→데브렌트 이동",
       "cat": "move",
-      "loc": "Çavuşin → Devrent",
-      "desc": "~8km, 15분",
+      "loc": "Çavuşin → Devrent Valley",
+      "desc": "~8km, 15분. 북동쪽 방향",
       "route": {
         "o": "Çavuşin Village Cappadocia",
         "d": "Devrent Valley Cappadocia",
@@ -436,70 +511,33 @@
     },
     {
       "d": "2026-03-14",
-      "s": "10:35",
-      "e": "11:05",
+      "s": "12:10",
+      "e": "12:40",
       "t": "데브렌트(상상의 계곡)",
       "cat": "sight",
       "loc": "Devrent Valley",
-      "desc": "낙타바위 등 동물 모양 기암괴석. 무료. 24시간 개방, 게이트 없음. 🛣️주차장까지 포장도로, 기암괴석은 도보 탐방. ⚠️화장실 없음 (차부신에서 해결, 다음은 우치히사르)",
+      "desc": "낙타바위 등 동물 모양 기암괴석. 무료. 24시간 개방, 게이트 없음. 🛣️주차장까지 포장도로, 기암괴석은 도보 탐방. ⚠️화장실 없음 (차부신에서 미리 해결!)",
       "cost": 0,
       "map": "Devrent Imagination Valley Cappadocia"
     },
     {
       "d": "2026-03-14",
-      "s": "11:05",
-      "e": "11:20",
-      "t": "데브렌트→우치히사르 이동",
+      "s": "12:40",
+      "e": "13:00",
+      "t": "데브렌트→괴레메 복귀",
       "cat": "move",
-      "loc": "Devrent → Uçhisar",
-      "desc": "~10km, 15분",
+      "loc": "Devrent Valley → Göreme",
+      "desc": "~12km, 20분. 차부신 경유 남쪽",
       "route": {
         "o": "Devrent Valley Cappadocia",
-        "d": "Uçhisar Castle Cappadocia",
-        "m": "driving"
-      }
-    },
-    {
-      "d": "2026-03-14",
-      "s": "11:20",
-      "e": "11:55",
-      "t": "우치히사르 성",
-      "cat": "sight",
-      "loc": "Uçhisar Castle",
-      "desc": "카파도키아 최고 높이 자연 요새. 360도 파노라마. 맑은 날 최적! 250-320TL/인. ⚠️월요일 정비휴무(토요일OK). 🚻입구 매표소 옆 화장실",
-      "cost": 17000,
-      "costTry": "500TL",
-      "map": "Uçhisar Castle Cappadocia",
-      "alt": "오르타히사르 성 (Ortahisar Castle, 차로 10분)"
-    },
-    {
-      "d": "2026-03-14",
-      "s": "11:55",
-      "e": "12:15",
-      "t": "비둘기 계곡 전망대",
-      "cat": "sight",
-      "loc": "Pigeon Valley",
-      "desc": "우치히사르에서 도보. 무료. 연중 무휴",
-      "map": "Pigeon Valley Cappadocia"
-    },
-    {
-      "d": "2026-03-14",
-      "s": "12:15",
-      "e": "12:25",
-      "t": "우치히사르→괴레메 복귀",
-      "cat": "move",
-      "loc": "Uçhisar → Göreme",
-      "desc": "5km, 10분",
-      "route": {
-        "o": "Uçhisar Castle Cappadocia",
         "d": "Göreme Cappadocia",
         "m": "driving"
       }
     },
     {
       "d": "2026-03-14",
-      "s": "12:25",
-      "e": "13:15",
+      "s": "13:00",
+      "e": "13:50",
       "t": "🍽️ 점심",
       "cat": "food",
       "loc": "Göreme",
@@ -2020,15 +2058,6 @@
       "date": "3/19",
       "tip": "-",
       "note": "⚠️일요일 휴무 (목요일 OK)"
-    },
-    {
-      "city": "카파도키아",
-      "name": "우치히사르 성",
-      "price": "250TL",
-      "krw": 17000,
-      "date": "3/14",
-      "tip": "현장",
-      "note": "최고높이 천연 성채. 맑은 날 방문!"
     },
     {
       "city": "카파도키아",

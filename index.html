@@ -480,16 +480,19 @@ const SCHEDULE = [
   {d:'2026-03-14',s:'07:30',e:'08:30',t:'🍽️ 호텔 조식',cat:'food',loc:'Sarnich Cave Suites',desc:'터키식 아침 (올리브, 치즈, 시미트, 멘멘). 호텔 포함. 🚻호텔'},
   {d:'2026-03-14',s:'08:30',e:'09:00',t:'출발 준비',cat:'rest',loc:'Sarnich Cave Suites',desc:'소금호수용 여분 양말, 지퍼백, 물/간식 챙기기'},
   {d:'2026-03-14',s:'09:00',e:'09:10',t:'🚗 렌트카 픽업',cat:'rent',loc:'Sunset Rent a Car, Göreme',desc:'90EUR (3/14 09:00~3/15 17:00). WhatsApp 연락. 보험 포함 확인. ⚠️HGS 통행료 750TL 선불 완료 — 영수증 보관!',cost:120000,costTry:'90EUR+HGS750TL',map:'Sunset Rent a Car Göreme'},
-  {d:'2026-03-14',s:'09:10',e:'09:20',t:'⛽ 첫 주유 (Opet, 15L)',cat:'rent',loc:'Opet Gas Station, Göreme-Nevşehir Road',desc:'🚨필수! 현재 70km 주행가능 → 아침루프+악사라이 98km에 부족! 15L주유(~915TL). Opet=터키 최고 청결 화장실. 📱구글맵: Opet Göreme 검색',cost:31000,costTry:'~915TL',map:'Opet Göreme Nevşehir road gas station'},
-  {d:'2026-03-14',s:'09:20',e:'09:30',t:'괴레메→차부신 이동',cat:'move',loc:'Göreme → Çavuşin',desc:'5km, 10분',route:{o:'Göreme Cappadocia',d:'Çavuşin Village Cappadocia',m:'driving'}},
-  {d:'2026-03-14',s:'09:30',e:'10:20',t:'차부신 마을 탐방',cat:'sight',loc:'Çavuşin Village',desc:'5세기 성 요한 교회(무료). 비잔틴 프레스코화. 오픈에어 뮤지엄과 유사한 동굴교회를 무료로! 🚻마을 공중화장실. 💡폐쇄시 대안: 젤베(Zelve, 차5분)',cost:0,map:'Çavuşin Church Cappadocia'},
-  {d:'2026-03-14',s:'10:20',e:'10:35',t:'차부신→데브렌트 이동',cat:'move',loc:'Çavuşin → Devrent',desc:'~8km, 15분',route:{o:'Çavuşin Village Cappadocia',d:'Devrent Valley Cappadocia',m:'driving'}},
-  {d:'2026-03-14',s:'10:35',e:'11:05',t:'데브렌트(상상의 계곡)',cat:'sight',loc:'Devrent Valley',desc:'낙타바위 등 동물 모양 기암괴석. 무료. 24시간 개방. 🛣️주차장까지 포장, 기암괴석은 도보 탐방. ⚠️화장실 없음(차부신에서 해결, 다음 우치히사르)',cost:0,map:'Devrent Imagination Valley Cappadocia'},
-  {d:'2026-03-14',s:'11:05',e:'11:20',t:'데브렌트→우치히사르 이동',cat:'move',loc:'Devrent → Uçhisar',desc:'~10km, 15분',route:{o:'Devrent Valley Cappadocia',d:'Uçhisar Castle Cappadocia',m:'driving'}},
-  {d:'2026-03-14',s:'11:20',e:'11:55',t:'우치히사르 성',cat:'sight',loc:'Uçhisar Castle',desc:'카파도키아 최고 높이 자연 요새. 360도 파노라마. 맑은 날 최적! 250-320TL/인. ⚠️월요일 정비휴무(토OK). 🚻매표소 옆 화장실. 💡대안: 오르타히사르 성',cost:17000,costTry:'500TL',map:'Uçhisar Castle Cappadocia'},
-  {d:'2026-03-14',s:'11:55',e:'12:15',t:'비둘기 계곡 전망대',cat:'sight',loc:'Pigeon Valley',desc:'우치히사르에서 도보. 무료. 연중 무휴',map:'Pigeon Valley Cappadocia'},
-  {d:'2026-03-14',s:'12:15',e:'12:25',t:'우치히사르→괴레메 복귀',cat:'move',loc:'Uçhisar → Göreme',desc:'5km, 10분',route:{o:'Uçhisar Castle Cappadocia',d:'Göreme Cappadocia',m:'driving'}},
-  {d:'2026-03-14',s:'12:25',e:'13:15',t:'🍽️ 점심',cat:'food',loc:'Göreme',desc:'Ladies Cooperative(여성협동조합 가정식) 또는 Turkish Ravioli Restaurant(테라스뷰+만트). 호텔 사장님 추천. 🚻식당. 🕌라마단이지만 관광지 식당 낮 정상 영업',cost:20000,costTry:'400-600TL'},
+  {d:'2026-03-14',s:'09:10',e:'09:20',t:'괴레메→오르타히사르 이동',cat:'move',loc:'Göreme → Ortahisar',desc:'5km, 10분. 괴레메 남동쪽 방향',route:{o:'Göreme Cappadocia',d:'Ortahisar Castle Cappadocia',m:'driving'}},
+  {d:'2026-03-14',s:'09:20',e:'09:35',t:'🏰 오르타히사르 성 외관 포토',cat:'sight',loc:'Ortahisar Castle',desc:'버섯 모양 거대 바위 성채. 외관 포토스팟만 — 무료! 이른 아침 인파 적음. 🚻마을 공중화장실',cost:0,map:'Ortahisar Castle Cappadocia'},
+  {d:'2026-03-14',s:'09:35',e:'09:45',t:'오르타히사르→괴레메 (Opet 방향)',cat:'move',loc:'Ortahisar → Göreme',desc:'5km, 10분. D302 방향',route:{o:'Ortahisar Castle Cappadocia',d:'Göreme Cappadocia',m:'driving'}},
+  {d:'2026-03-14',s:'09:45',e:'10:00',t:'⛽ 첫 주유 (Opet, 15L)',cat:'rent',loc:'Opet Gas Station, Göreme-Nevşehir Road (D302)',desc:'🚨필수! 현재 70km 주행 가능 → 오늘 총 주행 약 318km — 주유 없이 출발 불가! 15L주유(~915TL). 무연95(Benzin). Opet=터키 최고 청결 화장실. 🚻Opet 화장실(무료/청결)',cost:31000,costTry:'~915TL',map:'Opet Göreme Nevşehir D302'},
+  {d:'2026-03-14',s:'10:00',e:'10:15',t:'Opet→우치히사르 이동',cat:'move',loc:'Göreme D302 → Uçhisar',desc:'3km, 5-10분. D302 서쪽 방향',route:{o:'Göreme Cappadocia',d:'Uçhisar Castle Cappadocia',m:'driving'}},
+  {d:'2026-03-14',s:'10:15',e:'10:30',t:'🏰 우치히사르 성 외관 포토',cat:'sight',loc:'Uçhisar Castle',desc:'카파도키아 최고 높이 자연 요새. 외관 포토스팟만 — 무료! 성 앞 광장에서 360도 파노라마 배경 사진. 🚻마을 공중화장실',cost:0,map:'Uçhisar Castle Cappadocia'},
+  {d:'2026-03-14',s:'10:30',e:'10:50',t:'비둘기 계곡 전망대',cat:'sight',loc:'Pigeon Valley Viewpoint, Uçhisar',desc:'우치히사르 성에서 도보 5분. 무료. 연중 무휴. 협곡 너머 카파도키아 전경 — 인생샷 포인트!',cost:0,map:'Pigeon Valley Viewpoint Uçhisar Cappadocia'},
+  {d:'2026-03-14',s:'10:50',e:'11:05',t:'우치히사르→차부신 이동',cat:'move',loc:'Uçhisar → Çavuşin',desc:'10km, 15분. 괴레메 통과 후 북쪽 방향',route:{o:'Uçhisar Castle Cappadocia',d:'Çavuşin Village Cappadocia',m:'driving'}},
+  {d:'2026-03-14',s:'11:05',e:'11:55',t:'차부신 마을 탐방',cat:'sight',loc:'Çavuşin Village',desc:'5세기 성 요한 교회(무료). 비잔틴 프레스코화. 마을 꼭대기 전망. 오픈에어 뮤지엄과 유사한 동굴교회를 무료로! 🚻마을 공중화장실. 💡폐쇄시 대안: 젤베(Zelve, 차5분)',cost:0,map:'Çavuşin Church Cappadocia'},
+  {d:'2026-03-14',s:'11:55',e:'12:10',t:'차부신→데브렌트 이동',cat:'move',loc:'Çavuşin → Devrent Valley',desc:'~8km, 15분. 북동쪽 방향',route:{o:'Çavuşin Village Cappadocia',d:'Devrent Valley Cappadocia',m:'driving'}},
+  {d:'2026-03-14',s:'12:10',e:'12:40',t:'데브렌트(상상의 계곡)',cat:'sight',loc:'Devrent Valley',desc:'낙타바위 등 동물 모양 기암괴석. 무료. 24시간 개방. 🛣️주차장까지 포장, 기암괴석은 도보 탐방. ⚠️화장실 없음(차부신에서 미리 해결!)',cost:0,map:'Devrent Imagination Valley Cappadocia'},
+  {d:'2026-03-14',s:'12:40',e:'13:00',t:'데브렌트→괴레메 복귀',cat:'move',loc:'Devrent Valley → Göreme',desc:'~12km, 20분. 차부신 경유 남쪽',route:{o:'Devrent Valley Cappadocia',d:'Göreme Cappadocia',m:'driving'}},
+  {d:'2026-03-14',s:'13:00',e:'13:50',t:'🍽️ 점심',cat:'food',loc:'Göreme',desc:'Ladies Cooperative(여성협동조합 가정식) 또는 Turkish Ravioli Restaurant(테라스뷰+만트). 호텔 사장님 추천. 🚻식당. 🕌라마단이지만 관광지 식당 낮 정상 영업',cost:20000,costTry:'400-600TL'},
   {d:'2026-03-14',s:'14:00',e:'14:45',t:'괴레메→악사라이 이동',cat:'move',loc:'Göreme → Aksaray',desc:'~70km, 45분. D300 국도(무료/아스팔트). O-21 이용 시 HGS 자동 결제(선불완료). 📱구글맵 비포장도로 회피 설정',route:{o:'Göreme Cappadocia',d:'Aksaray Turkey',m:'driving'}},
   {d:'2026-03-14',s:'14:45',e:'15:15',t:'⛽ 악사라이 경유 (2차 주유 10L+휴식)',cat:'rest',loc:'Aksaray',desc:'2차 주유 10L(~610TL). 이후 250km 대비. Opet/Shell 대형 주유소. 🚻깨끗한 화장실. ⚠️에으리 미나레 복원 공사 중',cost:21000,costTry:'~610TL',map:'Aksaray Opet gas station'},
   {d:'2026-03-14',s:'15:15',e:'16:00',t:'악사라이→소금호수 이동',cat:'move',loc:'Aksaray → Tuz Gölü',desc:'~50km, 45분. E90 고속도로',route:{o:'Aksaray Turkey',d:'Tuz Gölü Salt Lake Turkey',m:'driving'}},
@@ -660,7 +663,6 @@ const TICKETS = [
   {city:'이스탄불',name:'갈라타 타워',price:'30EUR',krw:102000,date:'3/20',tip:'GetYourGuide 또는 현장',note:'360도 전망대'},
   {city:'이스탄불',name:'블루 모스크',price:'무료',krw:0,date:'3/19',tip:'-',note:'활성 모스크. 복장규정'},
   {city:'이스탄불',name:'그랜드 바자르',price:'무료',krw:0,date:'3/19',tip:'-',note:'⚠️일요일 휴무 (목요일 OK)'},
-  {city:'카파도키아',name:'우치히사르 성',price:'250TL',krw:17000,date:'3/14',tip:'현장',note:'최고높이 천연 성채. 맑은 날 방문!'},
   {city:'카파도키아',name:'외즈코낙 지하도시',price:'300TL',krw:20000,date:'3/15',tip:'현장',note:'4층 규모 지하도시. 비 오는 날 실내 관광'},
 ];
 
@@ -1073,10 +1075,10 @@ function renderTickets() {
     <h3 style="font-size:14px;margin-bottom:8px">💰 총 입장료 예상 (2인)</h3>
     <div class="cost-row"><span>GYG 3종 콤보</span><span>202,000원</span></div>
     <div class="cost-row"><span>갈라타 타워</span><span>102,000원</span></div>
-    <div class="cost-row"><span>우치히사르 성+도자기 체험</span><span>62,000원</span></div>
+    <div class="cost-row"><span>오르타히사르·우치히사르 외관+도자기 체험</span><span>45,000원</span></div>
     <div class="cost-row"><span>피에르로티 케이블카</span><span>2,400원</span></div>
     <div class="cost-row"><span>미식투어 (예약완료)</span><span>88,000원</span></div>
-    <div class="cost-row cost-total"><span>합계</span><span style="color:var(--green)">≈ 456,400원</span></div>
+    <div class="cost-row cost-total"><span>합계</span><span style="color:var(--green)">≈ 439,400원</span></div>
   </div>`;
 
   container.innerHTML = html;
