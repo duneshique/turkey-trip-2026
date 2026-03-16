@@ -1087,7 +1087,7 @@
           "t": "🚕 택시 (최편안)",
           "cat": "move",
           "loc": "IST Airport → Sultanahmet",
-          "desc": "45분. 1,500-2,000TL (2인 51,000-68,000원). 짐 있을 때 가장 편함. 💳BiTaksi앱",
+          "desc": "45분. 1,500-2,000TL (2인 51,000-68,000원). 짐 있을 때 가장 편함. 💳Uber(Uber One 가입완료) 또는 BiTaksi",
           "cost": 68000,
           "costTry": "2,000TL",
           "route": {
@@ -1135,7 +1135,7 @@
       "t": "카라쿄이→호텔 복귀",
       "cat": "move",
       "loc": "Karaköy → Sultanahmet",
-      "desc": "T1 트램 이스탄불카드 35TL/인 (2인 70TL=2,400원). 또는 택시 400TL",
+      "desc": "T1 트램 이스탄불카드 35TL/인 (2인 70TL=2,400원). 또는 Uber 400TL (💳Uber One)",
       "cost": 2400,
       "costTry": "70TL",
       "route": {
@@ -1160,7 +1160,7 @@
       "t": "🕌 아야 소피아 (외관)",
       "cat": "sight",
       "loc": "Hagia Sophia, Sultanahmet",
-      "desc": "외관 감상 + 광장 사진. 현재 모스크로 운영중 → 무료 입장 가능하나 긴 줄. 사진 촬영 후 이동. ⚠️여성 히잡 필수(내부 입장 시)",
+      "desc": "외관 감상 + 광장 사진. 현재 모스크 운영 중. ⚠️내부 입장 시 25EUR/인 (외관만 볼 예정). 돔 복원공사 중(2025~, 내부 스캐폴딩 있음). 여성 히잡 직접 지참 필수(대여 안 함!)",
       "map": "Hagia Sophia Istanbul",
       "alt": [
         {
@@ -1202,7 +1202,7 @@
       "t": "📚 사하플라르+그랜드 바자르",
       "cat": "shop",
       "loc": "Grand Bazaar & Sahaflar, Istanbul",
-      "desc": "★사하플라르 차르슈스(Sahaflar Çarşısı, 고서적시장) 반드시 들르기! 바자르 옆 도보 2분. 소설가 영감★\n그랜드 바자르 4,000개 상점. 💵현금 추천 (할인 더 큼)\n🛍️흥정팁: 부르는 값 50%에서 시작, 25-30% 할인 목표. 아침 방문이 유리\n★핵심매장: Arasta Bazaar(블루모스크 옆, 도자기), Tahtakale(스파이스바자르 뒤, 도매가)★",
+      "desc": "⚠️3/19는 아리페(이드 전날) — 오후 일찍 마감 가능! 오전 방문 권장!\n★사하플라르 차르슈스(Sahaflar Çarşısı, 고서적시장) 반드시 들르기! 바자르 옆 도보 2분. 소설가 영감★\n그랜드 바자르 4,000개 상점. 💵현금 추천 (할인 더 큼)\n🛍️흥정팁: 부르는 값 50%에서 시작, 25-30% 할인 목표\n★핵심매장: Arasta Bazaar(블루모스크 옆, 도자기), Tahtakale(스파이스바자르 뒤, 도매가)★\nℹ️이드 알피트르(라마잔 바이람) = 터키 최대 명절. 3/20-22 바자르 전면 휴무!",
       "map": "Grand Bazaar Kapalıçarşı Istanbul"
     },
     {
@@ -1262,18 +1262,6 @@
     },
     {
       "d": "2026-03-19",
-      "s": "17:00",
-      "e": "19:00",
-      "t": "☕ 피에르 로티 카페",
-      "cat": "cafe",
-      "loc": "Pierre Loti Cafe, Eyüp",
-      "desc": "골든혼 전망. ★석양 18:30~19:00★ 터키커피(Türk Kahvesi) 또는 사흘레프(Sahlep). 에윕→케이블카+T1트램. 이스탄불카드 35TL/인×2회 (2인 140TL=4,800원)",
-      "cost": 4800,
-      "costTry": "140TL",
-      "map": "Pierre Loti Cafe Istanbul"
-    },
-    {
-      "d": "2026-03-19",
       "s": "19:30",
       "e": "21:30",
       "t": "🍽️ 저녁: Hamdi Restaurant",
@@ -1291,7 +1279,7 @@
       "t": "저녁→호텔 복귀",
       "cat": "move",
       "loc": "Eminönü → Sultanahmet",
-      "desc": "T1 트램 이스탄불카드 35TL/인 (2인 70TL=2,400원) 또는 택시 300TL",
+      "desc": "T1 트램 이스탄불카드 35TL/인 (2인 70TL=2,400원) 또는 Uber 300TL (💳Uber One)",
       "cost": 2400,
       "costTry": "70TL",
       "route": {
@@ -1307,7 +1295,7 @@
       "t": "🎨 보너스: 발라트 컬러풀 거리",
       "cat": "sight",
       "loc": "Balat, Fatih",
-      "desc": "★보너스 옵션★ 여유 있을 때 방문. 인스타 컬러풀 골목 + 카이막: Boris'in Yeri(백종원 추천, Fatih). Naftalin K 카페. T1트램→에미뇌뉘→T5트램→페네르/제발리\n⚠️피에르로티와 시간 겹침 → 둘 중 선택",
+      "desc": "★보너스 옵션★ 여유 있을 때 방문. 인스타 컬러풀 골목 + 카이막: Boris'in Yeri(백종원 추천, Fatih). Naftalin K 카페. T1트램→에미뇌뉘→T5트램→페네르/제발리. 피곤하면 호텔 휴식으로 대체 OK",
       "map": "Balat Istanbul",
       "alt": [
         {
@@ -1359,7 +1347,7 @@
       "t": "술탄아흐메트→베이욜루",
       "cat": "move",
       "loc": "Sultanahmet → Beyoğlu",
-      "desc": "택시 400TL (≈13,600원). 짐2개. 💳BiTaksi앱 결제",
+      "desc": "Uber 400TL (≈13,600원). 짐2개. 💳Uber One 가입 완료 — 사기 방지+할인. ⚠️이드 1일차: 대중교통 무료!",
       "cost": 13600,
       "costTry": "400TL",
       "route": {
@@ -1394,25 +1382,64 @@
     {
       "d": "2026-03-20",
       "s": "14:00",
-      "e": "17:00",
-      "t": "☕ 갈라타/카라쿄이 감성 카페 루트",
-      "cat": "cafe",
-      "loc": "Galata / Karaköy",
-      "desc": "갈라타타워 외관 감상(올라가지 않음) → 감성 카페 루트:\n①FiLBooks(포토북+카페, 카라쿄이) — 소설가 감성\n②Galata Konak Cafe(갈라타타워 360도 뷰 카페)\n③Çukurcuma 빈티지 카페 골목 — 앤틱 가구+아트\n★아내와 책 읽기/이야기 시간★",
+      "e": "15:00",
+      "t": "🏰 갈라타 타워 전망대",
+      "cat": "sight",
+      "loc": "Galata Tower, Beyoğlu",
+      "desc": "★올라감!★ 360도 파노라마 전망대. 보스포루스+골든혼+올드시티 한눈에. 30EUR/인 (2인 60EUR=102,000원). ⚠️이드 1일차지만 정상 운영",
+      "cost": 102000,
+      "costTry": "60EUR",
+      "map": "Galata Tower Istanbul"
+    },
+    {
+      "d": "2026-03-20",
+      "s": "15:00",
+      "e": "15:30",
+      "t": "🍯 카이막+꿀 간식",
+      "cat": "food",
+      "loc": "Karaköy",
+      "desc": "갈라타타워 근처 카이막 디저트. Karaköy Özsüt 추천. 생카이막(Kaymak)+꿀(Bal) 콤보",
       "cost": 10000,
       "costTry": "300TL",
-      "map": "FiLBooks Karaköy Istanbul",
-      "alt": [
-        {
-          "t": "🚢 보스포루스 석양 크루즈",
-          "cat": "exp",
-          "loc": "Eminönü 선착장",
-          "desc": "Turyol 보스포루스 쇼트크루즈. 1.5시간. 250TL/인 (2인 500TL=17,000원). 17:00 출발 → 석양 18:30. 에미뇌뉘→T1트램",
-          "cost": 17000,
-          "costTry": "500TL",
-          "map": "Turyol Eminönü Istanbul"
-        }
-      ]
+      "map": "Karaköy Özsüt Istanbul"
+    },
+    {
+      "d": "2026-03-20",
+      "s": "15:30",
+      "e": "16:15",
+      "t": "🐟 고등어 케밥 (Balık Ekmek)",
+      "cat": "food",
+      "loc": "Eminönü, Galata Bridge",
+      "desc": "갈라타타워→에미뇌뉘 도보 15분. 갈라타다리 아래 Balık Ekmek 노점. 80~100TL/개. ★필수 먹거리!★ 💵현금 권장",
+      "cost": 7000,
+      "costTry": "200TL",
+      "map": "Eminönü Balık Ekmek Istanbul"
+    },
+    {
+      "d": "2026-03-20",
+      "s": "16:30",
+      "e": "18:00",
+      "t": "🚢 보스포루스 석양 크루즈",
+      "cat": "exp",
+      "loc": "Eminönü 선착장",
+      "desc": "★석양 크루즈★ Turyol 보스포루스 쇼트크루즈 1.5시간. 250TL/인 (2인 500TL=17,000원). 에미뇌뉘→갈라타포트→보스포루스→유턴. 일몰 ~18:30. ⚠️이드 1일차: 대중교통 무료!",
+      "cost": 17000,
+      "costTry": "500TL",
+      "map": "Turyol Eminönü Istanbul"
+    },
+    {
+      "d": "2026-03-20",
+      "s": "18:00",
+      "e": "19:00",
+      "t": "에미뇌뉘→베이욜루 복귀",
+      "cat": "move",
+      "loc": "Eminönü → Beyoğlu",
+      "desc": "T1 트램(이드 기간 무료!)+도보. 호텔에서 옷 갈아입기. Mikla 디너 준비",
+      "route": {
+        "o": "Eminönü Istanbul",
+        "d": "TomTom Suites Beyoğlu Istanbul",
+        "m": "transit"
+      }
     },
     {
       "d": "2026-03-20",
@@ -1471,7 +1498,7 @@
       "t": "마지막 쇼핑 & 브런치",
       "cat": "shop",
       "loc": "İstiklal Caddesi, Beyoğlu",
-      "desc": "⚠️Eid 연휴: 그랜드바자르/사하플라르 3/20-22 휴무! 이스티클랄 쇼핑은 OK\n①이스티클랄 쇼핑(Mavi, LC Waikiki) ②Van Kahvaltı Evi 브런치(50종 메제, 2인 800TL=27,200원) ③Kurukahveci 커피원두 기념품\n🛍️쇼핑리스트: Koska 로쿰(이스티클랄점, 200-450TL/kg), 올리브비누(15-30TL), 스파이스(20-40TL/100g), Kurukahveci Mehmet Efendi 커피(50-80TL)\n💳카드OK/💵일부현금",
+      "desc": "⚠️이드 2일차: 그랜드바자르/사하플라르 휴무! 이스티클랄 쇼핑은 OK (대형 체인 정상 영업)\n①이스티클랄 쇼핑(Mavi, LC Waikiki) ②Van Kahvaltı Evi 브런치(50종 메제, 2인 800TL=27,200원) ③Kurukahveci 커피원두 기념품\n🛍️쇼핑리스트: Koska 로쿰(이스티클랄점, 200-450TL/kg), 올리브비누(15-30TL), 스파이스(20-40TL/100g), Kurukahveci Mehmet Efendi 커피(50-80TL)\n💳카드OK/💵일부현금\nℹ️이드 기간 대중교통 무료! 이스탄불카드 탭 필요하지만 요금 미차감",
       "cost": 60000,
       "costTry": "1,800TL",
       "map": "İstiklal Caddesi shopping Istanbul",
@@ -1494,7 +1521,7 @@
       "t": "베이욜루→IST 공항",
       "cat": "move",
       "loc": "Taksim → IST Airport",
-      "desc": "HAVAIST HVL-16 버스. 275TL/인 (2인 550TL=18,700원). 💳컨택리스OK",
+      "desc": "HAVAIST HVL-16 버스. 275TL/인 (2인 550TL=18,700원). 💳컨택리스OK. ⚠️이드 2일차: 시내 한산하여 평소보다 빠를 수 있음! 캐리어 하부 짐칸 이용",
       "cost": 18700,
       "costTry": "550TL",
       "route": {
@@ -2364,7 +2391,7 @@
         ],
         [
           "택시 앱",
-          "BiTaksi (한국 카카오택시). 💳앱 결제. 미터기 확인!"
+          "★Uber (Uber One 가입완료) — 사기방지+할인★ 또는 BiTaksi. 💳앱 결제. 미터기 확인!"
         ],
         [
           "미터기 안 켤 때",
