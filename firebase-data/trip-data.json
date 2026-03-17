@@ -1117,7 +1117,7 @@
       "t": "🌅 구시가지 야경 산책",
       "cat": "sight",
       "loc": "Sultanahmet → Galata Bridge",
-      "desc": "호텔 인근 근거리 산책 (이동 피로 고려). ①아야소피아+블루모스크 라이트업 포토 ②술탄아흐메트 광장 야경 ③Kennedy Caddesi 해안산책로 포토스팟 ④갈라타다리 방향 석양 감상. 도보 30분 코스",
+      "desc": "호텔에서 출발하는 근거리 도보 코스 (이동 피로 고려).\n①아야소피아+블루모스크 라이트업 포토 — 17시 이후 조명 점등\n②술탄아흐메트 광장 → Kennedy Caddesi 해안산책로 → 마르마라해 뷰 포토스팟\n③갈라타다리 방향 걸으며 석양 감상 (일몰 ~18:30)\n총 도보 약 30분, 2.5km 코스",
       "map": "Sultanahmet Square Istanbul"
     },
     {
@@ -1127,7 +1127,7 @@
       "t": "🍽️ 저녁식사",
       "cat": "food",
       "loc": "Sultanahmet",
-      "desc": "호텔 인근 캐주얼 저녁. 예약 불필요. 한국인 입맛에 맞는 곳!",
+      "desc": "호텔 인근 캐주얼 저녁. 예약 불필요. 한국인 입맛에 맞는 곳!\n아래 옵션 중 선택:",
       "cost": 27000,
       "costTry": "800TL",
       "map": "Sultanahmet Köftecisi Istanbul",
@@ -1136,7 +1136,7 @@
           "t": "🍖 ①Sultanahmet Köftecisi (1920)",
           "cat": "food",
           "loc": "호텔 도보 3분",
-          "desc": "★짠내투어 출연★ 1920년 104년 전통! 쾨프테(터키식 미트볼=떡갈비 비슷)+피야즈(콩샐러드)+필라프+렌틸스프. 2인 600-800TL (≈20,000-27,000원). 초캐주얼. ⭐4.3 한국인 필수 코스! 💳카드OK",
+          "desc": "★짠내투어 출연★ 1920년 104년 전통! 쾨프테(Köfte)=터키식 미트볼, 떡갈비와 비슷한 다진고기 그릴. 추천: 쾨프테+피야즈(Piyaz, 흰콩샐러드)+필라프+렌틸스프 세트. 2인 600-800TL (≈20,000-27,000원). ⭐4.3 💳카드OK",
           "cost": 27000,
           "costTry": "800TL",
           "map": "Sultanahmet Köftecisi Istanbul"
@@ -1145,7 +1145,7 @@
           "t": "🍗 ②Sedef Restaurant",
           "cat": "food",
           "loc": "호텔 도보 5분",
-          "desc": "아야소피아 뷰 테라스! 아다나케밥 450TL, 양갈비그릴 650TL, 메제 세트 350TL. 2인 1,200-1,500TL (≈40,000-51,000원). 테라스 야경 좋음. ⭐4.2 💳카드OK",
+          "desc": "아야소피아 뷰 테라스! 추천: 아다나케밥(Adana Kebap, 매콤한 다진양고기꼬치) 450TL + 양갈비그릴(Kuzu Pirzola) 650TL + 메제 세트 350TL. 2인 1,200-1,500TL (≈40,000-51,000원). ⭐4.2 💳카드OK",
           "cost": 51000,
           "costTry": "1,500TL",
           "map": "Sedef Restaurant Sultanahmet Istanbul"
@@ -1154,10 +1154,19 @@
           "t": "🍛 ③Matbah Ottoman Cuisine",
           "cat": "food",
           "loc": "호텔 도보 3분",
-          "desc": "오토만 궁중요리 재현! 술탄 레시피 기반 메뉴. 양고기탄듸르(Kuzu Tandır) 550TL, 오토만 메제 세트 400TL, 가지케밥 450TL. 2인 1,500-2,000TL (≈51,000-68,000원). 한국인 블로그 다수 추천. ⭐4.5 💳카드OK",
+          "desc": "오토만 궁중요리! 술탄 레시피 기반. 추천: 양고기탄듸르(Kuzu Tandır, 양고기찜) 550TL + 오토만 메제 세트 400TL + 가지케밥(Patlıcan Kebabı) 450TL. 2인 1,500-2,000TL (≈51,000-68,000원). ⭐4.5 💳카드OK",
           "cost": 68000,
           "costTry": "2,000TL",
           "map": "Matbah Restaurant Sultanahmet Istanbul"
+        },
+        {
+          "t": "🍜 ④Tebek Korean 테벡 (한식)",
+          "cat": "food",
+          "loc": "탁심 도보 5분 (Beyoğlu)",
+          "desc": "★이스탄불 대표 한식당!★ Lamartin Cd. No:40, Beyoğlu. ⭐4.0. 삼겹살, 해물파전, 떡볶이, 비빔밥. 2인 2,000-2,400TL (≈68,000-82,000원). ☎️0212 250 3484. 💳카드OK",
+          "cost": 82000,
+          "costTry": "2,400TL",
+          "map": "Tebek Korean Restaurant Istanbul"
         }
       ]
     },
@@ -1168,7 +1177,7 @@
       "t": "☕ 카페 휴식",
       "cat": "cafe",
       "loc": "Sultanahmet",
-      "desc": "Hafız Mustafa 1864 (술탄아흐메트점) — 1864년 전통 디저트 카페. 바클라바+터키커피 세트 추천. 💳카드OK. ⭐4.5 한국인 필수 코스",
+      "desc": "1864년 오스만제국 시절부터 이어온 전통 디저트 카페. ⭐4.5\n추천: 바클라바(Baklava, 견과류 시럽 페이스트리)+터키커피 세트. 피스타치오 바클라바 180TL, 터키커피 120TL. 로쿰 시식 가능. 💳카드OK",
       "cost": 10000,
       "costTry": "300TL",
       "map": "Hafız Mustafa 1864 Sultanahmet Istanbul"
@@ -1198,14 +1207,14 @@
       "t": "🕌 아야 소피아 (외관)",
       "cat": "sight",
       "loc": "Hagia Sophia, Sultanahmet",
-      "desc": "외관 감상 + 광장 사진. 현재 모스크 운영 중. ⚠️내부 입장 시 25EUR/인 (외관만 볼 예정). 돔 복원공사 중(2025~, 내부 스캐폴딩 있음). 여성 히잡 직접 지참 필수(대여 안 함!)",
+      "desc": "537년 비잔틴제국 유스티니아누스 황제 건축 → 1453년 모스크 → 1934년 박물관 → 2020년 다시 모스크.\n★꼭 봐야 할 포인트: ①서쪽 정면 황제의 문 위 모자이크 ②광장에서 블루모스크와 함께 양쪽 촬영 ③분수대 앞 시메트릭 포토\n⚠️2024년부터 1층 예배 전용! 관광객은 2층 갤러리만 입장 (Deesis 모자이크 꼭 보기). 25EUR/인. 돔 복원공사 중. 여성 히잡 직접 지참(대여X)\n외관만 볼 예정이면 무료. 매일 24시간 (기도 시간 제외)",
       "map": "Hagia Sophia Istanbul",
       "alt": [
         {
           "t": "🏛️ 톱카프 궁전 (유료 옵션)",
           "cat": "sight",
           "loc": "Topkapı Palace, Istanbul",
-          "desc": "오스만제국 술탄궁전. 하렘 별도. 보스포루스 전망 테라스. 86캐럿 다이아. 궁전+하렘 2,750TL/인 (2인 5,500TL=187,000원). 비 올 때 추천",
+          "desc": "오스만제국 400년간 술탄 궁전. ★꼭 봐야 할 것: ①86캐럿 스푼다이아몬드 ②예언자 망토 ③하렘 타일장식 ④보스포루스 전망 테라스. 궁전+하렘 2,750TL/인 (2인 187,000원). 수요일 휴무!",
           "cost": 187000,
           "costTry": "5,500TL",
           "map": "Topkapı Palace Istanbul"
@@ -1219,7 +1228,7 @@
       "t": "🕌 슐레이만대제 모스크",
       "cat": "sight",
       "loc": "Süleymaniye Camii, Fatih",
-      "desc": "★미마르 시난 걸작★ 블루모스크보다 한적하고 웅장. 정원에서 골든혼 파노라마. 무료. 도보 15분. ⚠️여성 히잡 필수",
+      "desc": "미마르 시난 최고 걸작 (1557년 완공). 블루모스크보다 한적하고 더 웅장.\n★꼭 봐야 할 포인트: ①정원 북쪽 테라스 → 골든혼 파노라마 인생샷 ②내부 스테인드글라스 빛 ③미마르 시난 무덤(북동 모퉁이)\n주변: Vefa Bozacısı(보자 음료, 1876년) 체험 가능\n무료. 매일 09:00~17:30. ⚠️여성 히잡 필수. 술탄아흐메트에서 도보 15분",
       "map": "Süleymaniye Mosque Istanbul",
       "alt": [
         {
@@ -1240,7 +1249,7 @@
       "t": "📚 사하플라르+그랜드 바자르",
       "cat": "shop",
       "loc": "Grand Bazaar & Sahaflar, Istanbul",
-      "desc": "⚠️3/19는 아리페(이드 전날) — 오후 일찍 마감 가능! 오전 방문 권장!\n★사하플라르 차르슈스(Sahaflar Çarşısı, 고서적시장) 반드시 들르기! 바자르 옆 도보 2분. 소설가 영감★\n그랜드 바자르 4,000개 상점. 💵현금 추천 (할인 더 큼)\n🛍️흥정팁: 부르는 값 50%에서 시작, 25-30% 할인 목표\n★핵심매장: Arasta Bazaar(블루모스크 옆, 도자기), Tahtakale(스파이스바자르 뒤, 도매가)★\nℹ️이드 알피트르(라마잔 바이람) = 터키 최대 명절. 3/20-22 바자르 전면 휴무!",
+      "desc": "⚠️3/19는 아리페(이드 전날) — 오후 일찍 마감! 오전 방문 필수!\n★사하플라르(고서적시장) 바자르 옆 도보 2분. 소설가 아내를 위한 필수 코스!\n그랜드 바자르: 1461년 개장, 4,000개 상점, 61개 골목.\n★추천 코스: Beyazıt Gate→Kalpakçılar Cad(보석)→Halıcılar Cad(카펫)→Sahaflar 출구\n★한국인 인기: Arasta Bazaar(블루모스크 옆, 도자기) / Tahtakale(도매가) / İznik Classics(타일)\n💵현금 추천. 흥정 시 부르는 값 50%에서!\nℹ️3/20-22 이드 바자르 전면 휴무!",
       "map": "Grand Bazaar Kapalıçarşı Istanbul"
     },
     {
@@ -1250,7 +1259,7 @@
       "t": "블루 모스크",
       "cat": "sight",
       "loc": "Blue Mosque, Sultanahmet",
-      "desc": "무료 30분. 바자르에서 도보 10분. ⚠️어깨/무릎 가리기, 여성 히잡, 신발 벗기",
+      "desc": "1616년 건축. 내부 20,000장 이즈닉 푸른 타일에서 \"블루\" 별명 유래.\n★꼭 봐야 할 것: ①돔 천장 푸른 타일 ②260개 스테인드글라스 창문 ③6개 미나렛(세계 유일)\n⚠️여성=히잡+어깨+무릎 가리기, 신발 벗기. 무료. 관광객 입장: 08:30~11:30/13:00~14:30/15:30~16:45",
       "map": "Blue Mosque Sultanahmet Istanbul"
     },
     {
@@ -1277,10 +1286,10 @@
       "t": "🦪 카드쿄이 시장 + 미디예돌마",
       "cat": "food",
       "loc": "Kadıköy Market, Asian Side",
-      "desc": "★아시아 지구 시작!★ 카드쿄이 재래시장(Kadıköy Çarşı) 먹거리 투어: ①미디예돌마(Midye Dolma, 홍합밥) — 시장 입구 노점에서 6-8개 100TL ②코코레치(Kokorec) — 양내장 샌드위치 150TL ③쿰피르(Kumpir) — 터키식 베이크드포테이토 200TL. 💵현금 추천",
+      "desc": "★아시아 지구!★ 카드쿄이 재래시장 먹거리 투어:\n①미디예돌마(Midye Dolma)=홍합 속에 향신료밥, 레몬 뿌려 먹기. 6-8개 100TL\n②코코레치(Kokorec)=양내장 숯불구이 샌드위치 150TL\n③쿰피르(Kumpir)=터키식 베이크드포테이토, 토핑 선택 200TL\n💵현금 추천. Güneşli Bahçe Sokak 골목이 핫스팟",
       "cost": 15000,
       "costTry": "450TL",
-      "map": "Kadıköy Market Istanbul"
+      "map": "Kadıköy Güneşli Bahçe Sokak Istanbul"
     },
     {
       "d": "2026-03-19",
@@ -1289,7 +1298,7 @@
       "t": "🍽️ 점심: Çiya Sofrası",
       "cat": "food",
       "loc": "Kadıköy",
-      "desc": "★한국인 최다 추천★ 아나톨리아 지방 가정식 뷔페. 매일 바뀌는 50종 요리. 양고기스튜, 가지요리, 피데(터키 피자). 구글 ⭐4.4 (12,000+리뷰). 2인 800-1,200TL (≈27,000-40,000원). 예약 불필요. 💳카드OK. 넷플릭스 Chef's Table 출연!",
+      "desc": "★넷플릭스 Chef's Table 시즌5 출연★ 아나톨리아 사라져가는 레시피 복원.\n매일 50종 뷔페: 양고기스튜, 가지무사카, 피데(보트피자), 이치필라프(간+잣 볶음밥)\n⭐4.4 (12,000+리뷰). 2인 800-1,200TL. 예약불필요. 💳카드OK. 한국인 최다 추천!",
       "cost": 40000,
       "costTry": "1,200TL",
       "map": "Çiya Sofrası Kadıköy Istanbul",
@@ -1298,7 +1307,7 @@
           "t": "🍖 Borsam Taşfırın",
           "cat": "food",
           "loc": "카드쿄이 시장 내부",
-          "desc": "라흐마준(터키 피자) 전문. 얇은 피자+아이란 세트. 2인 600TL. ⭐4.5 현지인 맛집",
+          "desc": "라흐마준(Lahmacun)=얇은 반죽에 양고기+양파+토마토 올려 구운 터키식 피자. 레몬+야채 올려 말아 먹기! 2인 600TL. ⭐4.5. 💳카드OK",
           "cost": 20000,
           "costTry": "600TL",
           "map": "Borsam Taşfırın Kadıköy Istanbul"
@@ -1344,28 +1353,37 @@
       "t": "🍽️ 저녁 (카드쿄이)",
       "cat": "food",
       "loc": "Kadıköy",
-      "desc": "카드쿄이에서 저녁 해결 후 페리로 복귀. Çiya Sofrası 근처 맛집 거리",
+      "desc": "카드쿄이에서 저녁 후 야경 페리로 복귀. 아래 옵션 중 선택:",
       "cost": 40000,
       "costTry": "1,200TL",
       "map": "Kadıköy Çarşı Istanbul",
       "alt": [
         {
-          "t": "🍗 Bayramoğlu Döner",
+          "t": "🍗 ①Bayramoğlu Döner",
           "cat": "food",
-          "loc": "카드쿄이",
-          "desc": "카드쿄이 현지인 맛집. 되네르케밥+아이란. 2인 600-800TL. ⭐4.3",
+          "loc": "카드쿄이 시장 근처",
+          "desc": "현지인 되네르 맛집. 되네르케밥=회전 숯불구이 고기 얇게 잘라 빵과 함께. 아이란 세트. 2인 600-800TL. ⭐4.3. 💳카드OK",
           "cost": 27000,
           "costTry": "800TL",
           "map": "Bayramoğlu Döner Kadıköy Istanbul"
         },
         {
-          "t": "🐟 Tarihi Kadıköy Balıkçısı",
+          "t": "🐟 ②Tarihi Kadıköy Balıkçısı",
           "cat": "food",
           "loc": "카드쿄이 시장",
-          "desc": "카드쿄이 해산물. 생선그릴+메제+라크. 2인 1,500-2,000TL. ⭐4.2",
+          "desc": "해산물 전문. 생선그릴+메제+라크. 2인 1,500-2,000TL. ⭐4.2. 💳카드OK",
           "cost": 68000,
           "costTry": "2,000TL",
           "map": "Tarihi Kadıköy Balıkçısı Istanbul"
+        },
+        {
+          "t": "🍜 ③Koreköy Korean 코레쿄이 (한식)",
+          "cat": "food",
+          "loc": "카드쿄이 Osmanağa (시장 근처)",
+          "desc": "★카드쿄이 한식당!★ Reşit Efendi Sk. No:68A, Kadıköy. 김밥, 김치찌개, 치킨, 한국식 매운 요리. 2인 800-1,200TL. 💳카드OK",
+          "cost": 41000,
+          "costTry": "1,200TL",
+          "map": "Koreköy Korean Restaurant Cafe Kadıköy Istanbul"
         }
       ]
     },
@@ -1418,9 +1436,9 @@
       "t": "바실리카 저수지",
       "cat": "sight",
       "loc": "Yerebatan Sarnıcı, Sultanahmet",
-      "desc": "★지하 궁전★ 336개 기둥. 메두사 머리 기둥 포토. 비 와도 OK(지하). 1,950TL/인 (2인 3,900TL=133,000원)",
-      "cost": 133000,
-      "costTry": "3,900TL",
+      "desc": "532년 유스티니아누스 황제 건설 지하 물 저장소. 336개 대리석 기둥.\n★꼭 봐야 할 것: ①메두사 머리 기둥 2개 — 가장 안쪽 북서 코너, 하나는 옆으로 하나는 거꾸로 ②눈물 기둥(나뭇결 무늬, 소원 빌기) ③LED 조명 수면 반사\n비 와도 OK(실내). 1,500TL/인 (★야간 2,400TL). 관람 30-45분. 매일 09:00~19:00",
+      "cost": 102000,
+      "costTry": "3,000TL",
       "map": "Basilica Cistern Istanbul"
     },
     {
@@ -1430,8 +1448,8 @@
       "t": "히포드롬 광장",
       "cat": "sight",
       "loc": "Sultanahmet Meydanı",
-      "desc": "오벨리스크, 뱀 기둥, 독일 분수. 무료. 도보 5분",
-      "map": "Hippodrome Istanbul"
+      "desc": "로마제국 10만 명 전차경주장.\n★3대 기념물: ①테오도시우스 오벨리스크(BC1490 이집트, 3,500년) ②뱀 기둥(BC479 그리스 전쟁 승리) ③독일 분수(1901 독일 황제 선물)\n무료. 24시간. 블루모스크 바로 앞",
+      "map": "Hippodrome Sultanahmet Istanbul"
     },
     {
       "d": "2026-03-20",
@@ -1467,7 +1485,7 @@
       "t": "🍽️ 점심: Meze By Lemon Tree",
       "cat": "food",
       "loc": "Beyoğlu",
-      "desc": "현대식 터키퓨전. 메제(Meze) 테이스팅 12종, 오징어튀김(Kalamar), 라크(Rakı)칵테일. 💳카드OK",
+      "desc": "현대식 터키퓨전. ⭐4.4\n메제 테이스팅 12종 = 바바가누쉬(가지퓨레), 후무스(병아리콩퓨레), 하이다리(요거트딥), 에즈메(매콤토마토) 등 전채 모음.\n오징어튀김(Kalamar)+라크 칵테일 추천. 2인 1,200-1,500TL. 💳카드OK",
       "cost": 50000,
       "costTry": "1,500TL",
       "map": "Meze By Lemon Tree Beyoğlu Istanbul"
@@ -1479,7 +1497,7 @@
       "t": "🍯 카이막+꿀 간식",
       "cat": "food",
       "loc": "Karaköy / Beyoğlu",
-      "desc": "갈라타타워 근처 카이막 디저트. Karaköy Özsüt (1915) 추천. 생카이막(Kaymak)+꿀(Bal) 콤보. 💳카드OK",
+      "desc": "★터키 디저트 필수!★ Karaköy Özsüt (1915). ⭐4.4\n카이막(Kaymak)=물소우유 클로티드크림+꿀 조합. 4대째 자가 농장 생산. 바클라바+카이막 세트도 인기",
       "cost": 10000,
       "costTry": "300TL",
       "map": "Karaköy Özsüt Istanbul"
@@ -1491,7 +1509,7 @@
       "t": "🐟 고등어 케밥 (Balık Ekmek)",
       "cat": "food",
       "loc": "Eminönü, Galata Bridge",
-      "desc": "카라쿄이→에미뇌뉘 도보 15분. 갈라타다리 아래 Balık Ekmek 노점. 80~100TL/개. ★필수 먹거리!★ 💵현금 권장. 갈라타다리 위에서 낚시꾼 구경+포토",
+      "desc": "★이스탄불 필수 먹거리!★ 발릭 에크멕=갓 구운 고등어+양파+양상추 샌드위치. 레몬 뿌려 먹기! 80~100TL/개. 💵현금. 갈라타다리 위 낚시꾼 구경+포토",
       "cost": 7000,
       "costTry": "200TL",
       "map": "Eminönü Balık Ekmek Istanbul"
@@ -1503,7 +1521,7 @@
       "t": "에미뇌뉘 산책 + 크루즈 대기",
       "cat": "sight",
       "loc": "Eminönü",
-      "desc": "에미뇌뉘 광장 산책. 예니 모스크(Yeni Camii) 외관 감상. 크루즈 출발 대기. 🚻화장실: Yeni Camii 근처",
+      "desc": "예니 모스크(Yeni Camii, 1665년) 외관 감상. 에미뇌뉘 광장 벤치에서 차이+시미트.\n🚻화장실: 예니 모스크 근처 (2-3TL). 크루즈 탑승 전 해결!",
       "map": "Yeni Camii Eminönü Istanbul"
     },
     {
@@ -1513,7 +1531,7 @@
       "t": "🚢 ★보스포루스 석양 크루즈★",
       "cat": "exp",
       "loc": "Eminönü 선착장",
-      "desc": "★일몰 크루즈!★ Turyol 보스포루스 쇼트크루즈 ~1.5시간. 250TL/인 (2인 500TL=17,000원). 에미뇌뉘→돌마바흐체→보스포루스 대교→유턴. 일몰 ~18:30 황금빛 보스포루스!\n💡클룩 옵션: 음료+스낵 포함 프리미엄 선셋 크루즈 (~40-60EUR/인). 예약: klook.com에서 'Istanbul Bosphorus Sunset Cruise' 검색. ⚠️이드 1일차: 대중교통 무료!",
+      "desc": "★이스탄불 하이라이트!★ Turyol 쇼트크루즈 1.5시간. 250TL/인.\n📍탑승: 에미뇌뉘 Turyol 선착장 (갈라타다리 동쪽)\n루트: 에미뇌뉘→돌마바흐체→보스포루스 대교→오르타쿄이 모스크→유턴\n🌅3월 일몰 ~18:30. 갑판 오른쪽(유럽사이드) 선점! 외투 필수",
       "cost": 17000,
       "costTry": "500TL",
       "map": "Turyol Eminönü Istanbul",
@@ -1522,7 +1540,7 @@
           "t": "🥂 프리미엄 선셋 크루즈 (클룩)",
           "cat": "exp",
           "loc": "Kabataş 또는 Eminönü",
-          "desc": "음료+스낵+DJ 포함 프리미엄 크루즈. 2시간. ~40-60EUR/인 (2인 80-120EUR=136,000-204,000원). 클룩/겟유어가이드에서 예약. ★9주년 특별 경험★",
+          "desc": "음료+스낵+DJ 포함. 2시간. ~40-60EUR/인. ★9주년 특별★ 클룩에서 예약",
           "cost": 170000,
           "costTry": "100EUR",
           "map": "Kabataş İskelesi Istanbul"
@@ -1550,7 +1568,7 @@
       "t": "🏰 갈라타 타워 전망대 (야경!)",
       "cat": "sight",
       "loc": "Galata Tower, Beyoğlu",
-      "desc": "★올라감! 야경 파노라마!★ 360도 전망대에서 보스포루스+올드시티+골든혼 야경 한눈에. 30EUR/인 (2인 60EUR=102,000원). 운영시간 08:30~22:00 (연중). ⚠️이드 1일차지만 정상 운영. ★일몰 직후 매직아워 추천!★",
+      "desc": "1348년 제노바인 건축 67m 감시탑.\n★360도 전망대: ①북=보스포루스+아시아 ②남=골든혼+아야소피아+블루모스크 ③서=현대 이스탄불 ④동=톱카프\n일몰 직후 매직아워 추천! 30EUR/인. 매일 08:30~23:00 (이드도 정상). Museum Pass OK. 엘리베이터+나선계단",
       "cost": 102000,
       "costTry": "60EUR",
       "map": "Galata Tower Istanbul"
@@ -1562,16 +1580,16 @@
       "t": "🍽️ ★피날레 디너★",
       "cat": "food",
       "loc": "Beyoğlu / Asmalımescit",
-      "desc": "★여행 마지막 저녁!★ 톰톰스위트 인근 (도보 5-10분). 예약 불필요. 2인 15만원 이하",
+      "desc": "★여행 마지막 저녁!★ 톰톰 도보 5-10분. 예약불필요. 2인 15만원 이하.\n아래 옵션 중 선택:",
       "cost": 120000,
       "costTry": "3,500TL",
       "map": "Asmali Cavit Beyoğlu Istanbul",
       "alt": [
         {
-          "t": "🍷 ①Asmali Cavit (아스말리 자빗)",
+          "t": "🍷 ①Asmali Cavit",
           "cat": "food",
           "loc": "Asmalımescit (톰톰 도보 5분)",
-          "desc": "★한국인 최다 추천 메이하네!★ 1차: 메제(냉채 10종)+따뜻한 메제(새우구이, 오징어). 2차: 생선그릴/양갈비. 라크(Rakı) 한 병 필수! 2인 2,500-3,500TL (≈85,000-120,000원). ⭐4.2 예약불필요(웨이팅 가능). 💳카드OK. ★터키 메이하네 문화 체험!★",
+          "desc": "★한국인 최다 추천 메이하네!★ 냉메제 10종→따뜻한 메제(새우구이,오징어)→메인(생선/양갈비)+라크. 2인 2,500-3,500TL (≈85,000-120,000원). ⭐4.2. 💳카드OK",
           "cost": 120000,
           "costTry": "3,500TL",
           "map": "Asmali Cavit Beyoğlu Istanbul"
@@ -1580,19 +1598,28 @@
           "t": "🍽️ ②Sofyalı 9",
           "cat": "food",
           "loc": "Asmalımescit (톰톰 도보 7분)",
-          "desc": "전통 메이하네. 1942년 전통 건물. 메제+해산물+라크. 분위기 좋고 현지인 많음. 2인 2,000-3,000TL (≈68,000-102,000원). ⭐4.3 예약불필요. 💳카드OK",
+          "desc": "1942년 전통 메이하네. 메제+농어구이+라크. 현지인 비율 높음. 2인 2,000-3,000TL (≈68,000-102,000원). ⭐4.3. 💳카드OK",
           "cost": 102000,
           "costTry": "3,000TL",
           "map": "Sofyalı 9 Beyoğlu Istanbul"
         },
         {
-          "t": "🥩 ③Helvetia Lokanta",
+          "t": "🥩 ③Lokanta Helvetia (가성비 가정식)",
           "cat": "food",
-          "loc": "Asmalımescit (톰톰 도보 5분)",
-          "desc": "모던 터키+세계 퓨전. 양갈비 스테이크(Kuzu Pirzola) 650TL, 해산물 리소토 550TL, 디저트 바클라바 아이스크림 200TL. 2인 2,000-3,000TL (≈68,000-102,000원). ⭐4.4 캐주얼 파인다이닝 분위기. 💳카드OK",
-          "cost": 102000,
-          "costTry": "3,000TL",
-          "map": "Helvetia Lokanta Beyoğlu Istanbul"
+          "loc": "Asmalımescit, Tünel 근처 (톰톰 도보 5분)",
+          "desc": "★터키판 백반집! 가성비 최고★ General Yazgan Sk. No:8, Beyoğlu. ⭐4.6. 매일 다른 가정식 5가지 선택. 올리브유 요리, 쾨프테, 가지. 2인 400-800TL (≈14,000-27,000원). 💳카드OK",
+          "cost": 27000,
+          "costTry": "800TL",
+          "map": "Lokanta Helvetia Beyoğlu Istanbul"
+        },
+        {
+          "t": "🍜 ④Tebek Korean 테벡 (한식)",
+          "cat": "food",
+          "loc": "탁심 도보 5분 (Beyoğlu)",
+          "desc": "★이스탄불 대표 한식당!★ Lamartin Cd. No:40. ⭐4.0. 삼겹살, 해물파전, 비빔밥. 불고기 1,200TL. 2인 2,000-2,400TL. ☎️0212 250 3484. 💳카드OK",
+          "cost": 82000,
+          "costTry": "2,400TL",
+          "map": "Tebek Korean Restaurant Istanbul"
         }
       ]
     },
@@ -1600,10 +1627,10 @@
       "d": "2026-03-20",
       "s": "21:30",
       "e": "22:00",
-      "t": "호텔 복귀",
+      "t": "호텔 복귀 + ✈️아시아나 온라인 체크인",
       "cat": "move",
       "loc": "Asmalımescit → TomTom Suites",
-      "desc": "도보 5-10분. 마지막 밤 여유롭게!"
+      "desc": "도보 5-10분. 마지막 밤!\n\n⚠️★리마인드: 아시아나항공 온라인 체크인★\nOZ552 (17:20 출발) → 출발 48시간 전부터 체크인 오픈 (3/19 17:20~)!\n📱 flyasiana.com 또는 아시아나항공 앱 → 탑승수속 → 좌석 선택 → 모바일 탑승권 저장"
     },
     {
       "d": "2026-03-21",
@@ -1621,7 +1648,7 @@
       "t": "톰톰 스위트 체크아웃",
       "cat": "hotel",
       "loc": "TomTom Suites",
-      "desc": "짐 정리. 호텔에 짐 보관 요청 (무료)"
+      "desc": "짐 정리. 호텔에 짐 보관 요청 (무료). 공항 출발 전까지 프론트 보관.\n⚠️아시아나 온라인 체크인 확인! 어젯밤에 안 했다면 지금 해도 OK."
     },
     {
       "d": "2026-03-21",
@@ -1630,10 +1657,10 @@
       "t": "마지막 쇼핑 & 브런치",
       "cat": "shop",
       "loc": "İstiklal Caddesi, Beyoğlu",
-      "desc": "⚠️이드 2일차: 그랜드바자르/사하플라르 휴무! 이스티클랄 쇼핑은 OK (대형 체인 정상 영업)\n①이스티클랄 쇼핑(Mavi, LC Waikiki) ②Van Kahvaltı Evi 브런치(50종 메제, 2인 800TL=27,200원) ③Kurukahveci 커피원두 기념품\n🛍️쇼핑리스트: Koska 로쿰(이스티클랄점, 200-450TL/kg), 올리브비누(15-30TL), 스파이스(20-40TL/100g), Kurukahveci Mehmet Efendi 커피(50-80TL)\n💳카드OK/💵일부현금\nℹ️이드 기간 대중교통 무료! 이스탄불카드 탭 필요하지만 요금 미차감",
+      "desc": "⚠️이드 2일차: 그랜드바자르/사하플라르 휴무! 이스티클랄은 OK\n\n★한국인 인기 쇼핑 매장 3곳:\n①Koska 1907 이스티클랄점 — 로쿰 전문. 피스타치오/장미/석류 맛. 200-450TL/kg\n②Mavi 이스티클랄 플래그십 — 터키 데님. 한국 대비 40-50% 저렴\n③Hafız Mustafa 1864 이스티클랄점 — 바클라바/로쿠/터키과자 선물세트\n\n🍳브런치: Van Kahvaltı Evi — 50종 메제. 2인 800TL=27,200원\n🛍️추가: 올리브비누(15-30TL), 스파이스(20-40TL/100g), Kurukahveci 커피(50-80TL)\nℹ️이드 대중교통 무료!",
       "cost": 60000,
       "costTry": "1,800TL",
-      "map": "İstiklal Caddesi shopping Istanbul",
+      "map": "İstiklal Caddesi Istanbul",
       "alt": [
         {
           "t": "🛒 카드쿄이 시장 (아시아 사이드)",
@@ -1653,24 +1680,63 @@
       "t": "베이욜루→IST 공항",
       "cat": "move",
       "loc": "Taksim → IST Airport",
-      "desc": "HAVAIST HVL-16 버스. 435TL/인 (2인 870TL=29,580원). 💳컨택리스OK/QR결제. ⚠️이드 2일차: 시내 한산하여 평소보다 빠를 수 있음! 캐리어 하부 짐칸 이용",
+      "desc": "HAVAIST HVL-16 버스. 435TL/인 (2인 870TL=29,580원). 💳컨택리스OK.\n탁심광장 HAVAIST 정류장: Point Hotel 앞 (Cumhuriyet Caddesi).\n⚠️이드 2일차: 시내 한산. 캐리어 하부 짐칸.",
       "cost": 29580,
       "costTry": "870TL",
       "route": {
         "o": "Taksim Square Istanbul",
         "d": "Istanbul Airport IST",
         "m": "transit"
-      }
+      },
+      "map": "Taksim HAVAIST bus stop Istanbul",
+      "alt": [
+        {
+          "t": "🚇 M2+M11 메트로 (최저가)",
+          "cat": "move",
+          "loc": "Taksim→Gayrettepe→IST",
+          "desc": "M2(Taksim→Gayrettepe, 10분)→M11(Gayrettepe→IST, 30분). 총 45-50분. 70TL/인 (이드 무료!). ⚠️캐리어 환승 불편",
+          "cost": 4760,
+          "costTry": "140TL",
+          "route": {
+            "o": "Taksim Istanbul",
+            "d": "Istanbul Airport IST",
+            "m": "transit"
+          }
+        },
+        {
+          "t": "🚕 Uber (최편안)",
+          "cat": "move",
+          "loc": "호텔 앞 픽업",
+          "desc": "45-60분. 1,500-2,000TL. 짐 있을 때 편함. 💳Uber One",
+          "cost": 68000,
+          "costTry": "2,000TL",
+          "route": {
+            "o": "TomTom Suites Beyoğlu Istanbul",
+            "d": "Istanbul Airport IST",
+            "m": "driving"
+          }
+        }
+      ]
     },
     {
       "d": "2026-03-21",
       "s": "15:30",
+      "e": "15:50",
+      "t": "IST 공항 수속",
+      "cat": "flight",
+      "loc": "Istanbul Airport (IST)",
+      "desc": "★아시아나항공 OZ552 체크인:\n📍카운터: IST 출발층(2층) K 아일랜드, 카운터 K04-K10 (스타얼라이언스 구역)\n⏰카운터 마감: 출발 60분 전 (16:20). 온라인 체크인 시 수하물 위탁만.\n🧳수하물: 이코노미 위탁 23kg×1개 + 기내 10kg×1개+소형가방\n→ 여권 심사 → 면세구역 → IGA 라운지",
+      "map": "Istanbul Airport IST departures"
+    },
+    {
+      "d": "2026-03-21",
+      "s": "15:50",
       "e": "17:00",
       "t": "☕ IGA 라운지",
       "cat": "lounge",
-      "loc": "IST Airport Mezzanine Floor",
-      "desc": "Priority Pass. 24시간 운영. 마사지/샤워/음식/음료/면세점. 출국 전 여유롭게",
-      "map": "Istanbul Airport IGA Lounge"
+      "loc": "IST Airport International Departures",
+      "desc": "★Priority Pass 라운지: IGA Lounge★\n📍위치: 국제선 출국심사 후 면세구역 메자닌층. 에스컬레이터 올라가기.\n⏰24시간 운영. ⚠️Priority Pass: 최대 3시간 체류 제한\n🛋️뷔페 음식+음료, 샤워실, 마사지, 충전기, WiFi\n★스타얼라이언스 라운지(TK Lounge)도 이용 가능! — 아시아나=스타얼라이언스 소속.\n📍TK Miles&Smiles Lounge: Gate 방향. 24시간. 샤워/음식 포함.\n💡TK 라운지가 더 넓고 음식 좋음. 두 곳 비교 후 선택!",
+      "map": "IGA Lounge Istanbul Airport"
     },
     {
       "d": "2026-03-21",
@@ -1679,7 +1745,7 @@
       "t": "✈️ IST 출발 (OZ552)",
       "cat": "flight",
       "loc": "Istanbul Airport",
-      "desc": "아시아나 직항 귀국편. 예약: DP5W84. 약 10시간"
+      "desc": "아시아나 직항 귀국편 IST→ICN. 예약: DP5W84. 비행시간 약 10시간.\n🧳위탁 23kg×1개(이코노미). 기내 10kg+소형가방.\n좌석: 창가 추천 (이륙 시 이스탄불 야경)"
     },
     {
       "d": "2026-03-22",
@@ -2042,16 +2108,16 @@
       "date": "3/20",
       "meal": "★피날레★",
       "rank": 3,
-      "name": "Helvetia Lokanta",
-      "rating": "4.4",
-      "genre": "모던 퓨전",
-      "menu": "양갈비스테이크, 해산물리소토, 바클라바 아이스크림",
-      "price": "3000TL/102000원",
-      "vibe": "캐주얼 파인다이닝",
-      "anniv": true,
-      "loc": "Asmalımescit (톰톰 도보5분)",
+      "name": "Lokanta Helvetia",
+      "rating": "4.6",
+      "genre": "가정식 백반",
+      "menu": "매일 다른 가정식 5선택. 올리브유요리, 쾨프테, 가지, 요거트",
+      "price": "800TL/27000원",
+      "vibe": "가성비 최고",
+      "anniv": false,
+      "loc": "Asmalımescit, Tünel 근처 (톰톰 도보5분)",
       "reserve": false,
-      "map": "Helvetia Lokanta Beyoğlu Istanbul"
+      "map": "Lokanta Helvetia Beyoğlu Istanbul"
     },
     {
       "date": "3/21",
@@ -2202,8 +2268,8 @@
     {
       "city": "이스탄불",
       "name": "바실리카 저수지",
-      "price": "1,950TL",
-      "krw": 130000,
+      "price": "1,500TL",
+      "krw": 102000,
       "date": "3/20",
       "tip": "GetYourGuide 3종콤보 포함",
       "note": "메두사 머리 기둥"
