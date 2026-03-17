@@ -1250,7 +1250,7 @@
       "cat": "shop",
       "loc": "Grand Bazaar & Sahaflar, Istanbul",
       "desc": "⚠️3/19는 아리페(이드 전날) — 오후 일찍 마감! 오전 방문 필수!\n★사하플라르(고서적시장) 바자르 옆 도보 2분. 소설가 아내를 위한 필수 코스!\n그랜드 바자르: 1461년 개장, 4,000개 상점, 61개 골목.\n★추천 코스: Beyazıt Gate→Kalpakçılar Cad(보석)→Halıcılar Cad(카펫)→Sahaflar 출구\n★한국인 인기: Arasta Bazaar(블루모스크 옆, 도자기) / Tahtakale(도매가) / İznik Classics(타일)\n💵현금 추천. 흥정 시 부르는 값 50%에서!\nℹ️3/20-22 이드 바자르 전면 휴무!",
-      "map": "Grand Bazaar Kapalıçarşı Istanbul"
+      "map": "Grand Bazaar Istanbul"
     },
     {
       "d": "2026-03-19",
@@ -1324,7 +1324,7 @@
       "desc": "카드쿄이→모다 도보 10분. ★한국인 인기 카페★ Fazıl Bey'in Türk Kahvesi (1923년 전통 터키커피 전문, ⭐4.4) 또는 Walter's Coffee Roastery (브레이킹배드 컨셉, ⭐4.3). 모다 해안 산책 연결",
       "cost": 8000,
       "costTry": "250TL",
-      "map": "Fazıl Bey Türk Kahvesi Kadıköy Istanbul"
+      "map": "Fazıl Bey Türk Kahvesi Kadıköy"
     },
     {
       "d": "2026-03-19",
@@ -1334,7 +1334,7 @@
       "cat": "sight",
       "loc": "Moda Sahili, Kadıköy",
       "desc": "★포토스팟★ 모다 해안 산책로(Moda Sahil Yürüyüş Yolu) — 아시아에서 유럽을 바라보는 파노라마! 갈라타타워+술탄아흐메트+톱카프 실루엣. 석양 시간대 인생샷 포인트. 벤치에서 차이+시미트 간식도 가능",
-      "map": "Moda Sahili Istanbul"
+      "map": "Moda Sahil Yolu Kadıköy Istanbul"
     },
     {
       "d": "2026-03-19",
@@ -1365,7 +1365,7 @@
           "desc": "현지인 되네르 맛집. 되네르케밥=회전 숯불구이 고기 얇게 잘라 빵과 함께. 아이란 세트. 2인 600-800TL. ⭐4.3. 💳카드OK",
           "cost": 27000,
           "costTry": "800TL",
-          "map": "Bayramoğlu Döner Kadıköy Istanbul"
+          "map": "Bayramoğlu Döner Kadıköy"
         },
         {
           "t": "🐟 ②Tarihi Kadıköy Balıkçısı",
@@ -1383,7 +1383,7 @@
           "desc": "★카드쿄이 한식당!★ Reşit Efendi Sk. No:68A, Kadıköy. 김밥, 김치찌개, 치킨, 한국식 매운 요리. 2인 800-1,200TL. 💳카드OK",
           "cost": 41000,
           "costTry": "1,200TL",
-          "map": "Koreköy Korean Restaurant Cafe Kadıköy Istanbul"
+          "map": "Koreköy Korean Restaurant Kadıköy"
         }
       ]
     },
@@ -1500,7 +1500,7 @@
       "desc": "★터키 디저트 필수!★ Karaköy Özsüt (1915). ⭐4.4\n카이막(Kaymak)=물소우유 클로티드크림+꿀 조합. 4대째 자가 농장 생산. 바클라바+카이막 세트도 인기",
       "cost": 10000,
       "costTry": "300TL",
-      "map": "Karaköy Özsüt Istanbul"
+      "map": "Özsüt Karaköy Istanbul"
     },
     {
       "d": "2026-03-20",
@@ -1512,7 +1512,7 @@
       "desc": "★이스탄불 필수 먹거리!★ 발릭 에크멕=갓 구운 고등어+양파+양상추 샌드위치. 레몬 뿌려 먹기! 80~100TL/개. 💵현금. 갈라타다리 위 낚시꾼 구경+포토",
       "cost": 7000,
       "costTry": "200TL",
-      "map": "Eminönü Balık Ekmek Istanbul"
+      "map": "Balık Ekmek Tekneleri Eminönü Istanbul"
     },
     {
       "d": "2026-03-20",
@@ -1522,7 +1522,7 @@
       "cat": "sight",
       "loc": "Eminönü",
       "desc": "예니 모스크(Yeni Camii, 1665년) 외관 감상. 에미뇌뉘 광장 벤치에서 차이+시미트.\n🚻화장실: 예니 모스크 근처 (2-3TL). 크루즈 탑승 전 해결!",
-      "map": "Yeni Camii Eminönü Istanbul"
+      "map": "Yeni Cami Istanbul"
     },
     {
       "d": "2026-03-20",
@@ -1534,7 +1534,7 @@
       "desc": "★이스탄불 하이라이트!★ Turyol 쇼트크루즈 1.5시간. 250TL/인.\n📍탑승: 에미뇌뉘 Turyol 선착장 (갈라타다리 동쪽)\n루트: 에미뇌뉘→돌마바흐체→보스포루스 대교→오르타쿄이 모스크→유턴\n🌅3월 일몰 ~18:30. 갑판 오른쪽(유럽사이드) 선점! 외투 필수",
       "cost": 17000,
       "costTry": "500TL",
-      "map": "Turyol Eminönü Istanbul",
+      "map": "Eminönü İskelesi Istanbul",
       "alt": [
         {
           "t": "🥂 프리미엄 선셋 크루즈 (클룩)",
@@ -1583,7 +1583,7 @@
       "desc": "★여행 마지막 저녁!★ 톰톰 도보 5-10분. 예약불필요. 2인 15만원 이하.\n아래 옵션 중 선택:",
       "cost": 120000,
       "costTry": "3,500TL",
-      "map": "Asmali Cavit Beyoğlu Istanbul",
+      "map": "Asmalı Cavit Beyoğlu Istanbul",
       "alt": [
         {
           "t": "🍷 ①Asmali Cavit",
@@ -1592,7 +1592,7 @@
           "desc": "★한국인 최다 추천 메이하네!★ 냉메제 10종→따뜻한 메제(새우구이,오징어)→메인(생선/양갈비)+라크. 2인 2,500-3,500TL (≈85,000-120,000원). ⭐4.2. 💳카드OK",
           "cost": 120000,
           "costTry": "3,500TL",
-          "map": "Asmali Cavit Beyoğlu Istanbul"
+          "map": "Asmalı Cavit Beyoğlu Istanbul"
         },
         {
           "t": "🍽️ ②Sofyalı 9",
@@ -1669,7 +1669,7 @@
           "desc": "현지 가격! 페리+쇼핑 2시간 코스. 관광객 바가지 없음. 향신료, 건과일, 터키과자. 페리 이스탄불카드 35TL/인",
           "cost": 5000,
           "costTry": "140TL",
-          "map": "Kadıköy Market Istanbul"
+          "map": "Kadıköy Çarşısı Istanbul"
         }
       ]
     },
@@ -2087,7 +2087,7 @@
       "loc": "Asmalımescit (톰톰 도보5분)",
       "reserve": false,
       "note": "★여행 피날레★ 예약 불필요. 웨이팅 가능",
-      "map": "Asmali Cavit Beyoğlu Istanbul"
+      "map": "Asmalı Cavit Beyoğlu Istanbul"
     },
     {
       "date": "3/20",
